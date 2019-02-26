@@ -10,6 +10,6 @@
     <script src="semantic/dist/semantic.min.js"></script>
 </head>
 <body>
-    <h1>Test</h1>
+    <h1>Hello world</h1>
 </body>
 </html>
