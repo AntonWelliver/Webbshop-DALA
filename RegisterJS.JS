@@ -5,10 +5,11 @@ $(document).ready(function(){
         console.log(password,name);
         $.ajax({   
             type: "POST",
-            url: "include/requestHandler.php",
+            url: "includes/requestHandler.php",
             data:{requestType: "registerUser", email: name, password: password},
             success: function(result){ 
                 $("body").append("Användare har skapats")
+                console.log(result);
             }
         });
 
