@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    font-family: Helvetica;
+}
+
+#content {
+    min-height: 100px;
+}
+.ui.grid{
+    padding: 0!important;
+}
+.pushable.segment{
+    margin: 0!important;
+}
+
+.logo {
+    color: rgb(207, 0, 0);
+    margin: 1em;
+}
+.logo:hover{
+    color: rgb(207, 0, 0);
+    cursor: pointer;
+}
+
+.hamburger-container {
+    margin-top: 1em!important;
+}
+  
