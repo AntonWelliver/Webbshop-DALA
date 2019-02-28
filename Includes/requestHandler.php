@@ -10,14 +10,15 @@ class requestHandler {
     function handleRequest($requestType) {
         if ($requestType == 'registerUser') {
             // handle adding user to the database
-            $name = $_POST['email'];
-            $name = $_POST['password'];
+            $email = $_POST['email'];
+            $pass = $_POST['password'];
             // save user with prepare statenents
-            $stmt = $this->connection->prepare("INSERT INTO Account (Username, Password) VALUES (:user, :email)");
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':value', $value);
+            $stmt = $this->connection->prepare("INSERT INTO Account (Email, Password) VALUES (:email, :pass)");
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':pass', $pass);
             $stmt->execute();
         }
+        return  $requestType;
     }
 
     function testDatabase() { // displays all data in admin
@@ -30,7 +31,7 @@ class requestHandler {
 if (isset($_POST['requestType'])) {
     $handler = new requestHandler();
     $requestType = $_POST['requestType'];
-    $handler.handleRequest($requestType);
+    $handler->handleRequest($requestType);
 
 }
 
