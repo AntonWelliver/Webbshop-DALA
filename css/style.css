@@ -26,3 +26,18 @@ body {
     margin-top: 1em!important;
 }
   
+#hamburger-icon:hover {
+    cursor: pointer!important;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+}
+.klarna {
+    height: 2.5em;
+}
+
+.visa-mastercard {
+    height: 3em;
+}

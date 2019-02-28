@@ -17,39 +17,53 @@
     
 </head>
     <body>
-    <header>
-    <div class="ui grid">
-	
-	 
-		<div class="column">
-			<div class="ui menu">
-            <div class="ui container mobile tablet only grid hamburger-container">
-                <i class="bars icon" onclick="showSidebar()" id="mobile-item"></i>
+        <header>
+            <div class="ui grid">
+                <div class="column">
+                    <div class="ui menu">
+                    <div class="ui container mobile tablet only grid hamburger-container">
+                        <i class="bars icon" onclick="showSidebar()" id="mobile-item"></i>
+                    </div>
+                        <a class="logo" href="#">DALAMAT</a>
+                    <div class="ui computer only grid">
+                        <div class="borderless item">
+                        <div class="ui icon input">
+                            <input class="prompt" type="text" placeholder="Vad letar du efter?">
+                            <i class="search icon"></i>
+                        </div>
+                    </div>
+                
+                        </div>
+                    <div class="borderless align right item">
+                    <i class="user icon"></i>Logga in
+                        <a class="ui button green">
+                            <i class="shopping cart icon"></i>5
+                        </a>
+                    </div>
+                    </div>
+                </div>
             </div>
-                <a class="logo" href="#">Matgrossisten</a>
+        </header>
+
+        <div class="ui pushable segment">
+            <div class="ui sidebar thin vertical menu">
+                <a class="item">Frukt <i class="angle right icon"></i></a>
+                <a class="item">Grönsaker <i class="angle right icon"></i></a>
+                <a class="item">Kött & fisk <i class="angle right icon"></i></a>
+                <a class="item">Mejeri & Ost <i class="angle right icon"></i></a>
+                <a class="item">Dryck <i class="angle right icon"></i></a>
             </div>
-          
+            
+            <div class="pusher">
+
+            </div>
         </div>
-      
-	</div>
-
-
-</header>
-		
-		
-
-<div class="ui pushable segment">
-		<div class="ui sidebar thin vertical menu">
-			<a class="item">Frukt</a>
-			<a class="item">Grönsaker</a>
-			<a class="item">Menu Item C</a>
-			<a class="item">Menu Item D</a>
-		</div>
-		<div class="pusher">
-            <div id="content" class="ui segment">
-                    Content here
+        <footer>
+             <a class="logo" href="#">DALAMAT</a>
+            <div class="payment-container">
+                <img class="klarna" src="assets/klarna.png">
+                <img class="visa-mastercard" src="assets/payment-cards.png">
             </div>
-        </div>
-</div>
+        </footer>
     </body>
 </html>
