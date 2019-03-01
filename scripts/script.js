@@ -6,7 +6,7 @@ function showSidebar() {
     }).sidebar('attach events', '#mobile-item');
 
 }
-  
+
 /* jQuery code */
 
 $(document).ready(function(){
