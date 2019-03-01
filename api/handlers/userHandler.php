@@ -12,15 +12,33 @@ class userHandler {
     }
     
     function handleRequest($requestType) {
+        // Get input value of form from AJAX
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+
+        //Now, we need to check if the supplied email already exists.
+
+
         if ($requestType == 'registerUser') {
-            // handle adding user to the database
-            $email = $_POST['email'];
-            $pass = $_POST['password'];
+
+
+            $sql = "SELECT COUNT(Email) FROM Account WHERE Email = :email";
+            $statement = $this->connection->prepare($sql);
+
+            $statement->bindParam(':email', $email);
+
+            $statement->execute();
+            
             // save user with prepare statenents
-            $stmt = $this->connection->prepare("INSERT INTO Account (Email, Password) VALUES (:email, :pass)");
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':pass', $pass);
-            $stmt->execute();
+            $statement = $this->connection->prepare("INSERT INTO Account (Email, Password) VALUES (:email, :pass)");
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':pass', $pass);
+            $statement->execute();
+        } else if ($requestType == 'registerUser') {
+            $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':pass', $pass);
+            $statement->execute();
         }
         return  $requestType;
     }
