@@ -22,19 +22,27 @@ class userHandler {
         if ($requestType == 'registerUser') {
 
 
-            $sql = "SELECT COUNT(Email) FROM Account WHERE Email = :email";
+            $sql = "SELECT COUNT(Email) AS num FROM Account WHERE Email = :email";
             $statement = $this->connection->prepare($sql);
 
             $statement->bindParam(':email', $email);
-
-            $statement->execute();
             
-            // save user with prepare statenents
-            $statement = $this->connection->prepare("INSERT INTO Account (Email, Password) VALUES (:email, :pass)");
-            $statement->bindParam(':email', $email);
-            $statement->bindParam(':pass', $pass);
             $statement->execute();
-        } else if ($requestType == 'registerUser') {
+
+            $numOfEmails = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($numOfEmails['num'] > 0) {
+                die('That username already exists!');
+            } else {
+                // save user with prepare statenents
+                $statement = $this->connection->prepare("INSERT INTO Account (Email, Password) VALUES (:email, :pass)");
+                $statement->bindParam(':email', $email);
+                $statement->bindParam(':pass', $pass);
+                $statement->execute();
+            }
+            
+            
+        } else if ($requestType == 'login') {
             $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
             $statement->bindParam(':email', $email);
             $statement->bindParam(':pass', $pass);
