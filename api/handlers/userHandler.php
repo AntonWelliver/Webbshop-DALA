@@ -12,15 +12,41 @@ class userHandler {
     }
     
     function handleRequest($requestType) {
+        // Get input value of form from AJAX
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+
+        //Now, we need to check if the supplied email already exists.
+
+
         if ($requestType == 'registerUser') {
-            // handle adding user to the database
-            $email = $_POST['email'];
-            $pass = $_POST['password'];
-            // save user with prepare statenents
-            $stmt = $this->connection->prepare("INSERT INTO Account (Email, Password) VALUES (:email, :pass)");
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':pass', $pass);
-            $stmt->execute();
+
+
+            $sql = "SELECT COUNT(Email) AS num FROM Account WHERE Email = :email";
+            $statement = $this->connection->prepare($sql);
+
+            $statement->bindParam(':email', $email);
+            
+            $statement->execute();
+
+            $numOfEmails = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($numOfEmails['num'] > 0) {
+                die('That username already exists!');
+            } else {
+                // save user with prepare statenents
+                $statement = $this->connection->prepare("INSERT INTO Account (Email, Password) VALUES (:email, :pass)");
+                $statement->bindParam(':email', $email);
+                $statement->bindParam(':pass', $pass);
+                $statement->execute();
+            }
+            
+            
+        } else if ($requestType == 'login') {
+            $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':pass', $pass);
+            $statement->execute();
         }
         return  $requestType;
     }
