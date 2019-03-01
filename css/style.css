@@ -47,6 +47,7 @@ body {
 
 .ui.modal.test{
     width: 50%;
+    padding: 2em;
 }
 
 /* Footer */
@@ -59,3 +60,13 @@ footer {
 .trygg-logo {
     height: 7.2em;
 }
+
+.body-container {
+    background-color: #DADADA!important;
+    height: 100vh;
+ padding-top: 10em;
+  }
+
+  .column {
+    max-width: 450px!important;
+  }

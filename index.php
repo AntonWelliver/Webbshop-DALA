@@ -16,6 +16,7 @@
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/logIn.js"></script>
+    <script src="scripts/formValidation.js"></script>
     
 </head>
     <body>
@@ -63,13 +64,13 @@
             <div class="ui modal test">
                 <div class="ui middle aligned center aligned grid">
                 <div class="column">
-                <h2 class="ui blue image header">
+                <h2 class="ui red header">
                 <div class="content">
-                Log-in till ditt Account
+                DALAMAT
             </div></h2>
 <!--     Form with email and password with placeholder and style for log-in-->
-    <form class="ui large form">
-        <div class="ui  segment">
+    <form class="ui large form login-form">
+        <div class="ui segment">
             <div class="field">
                 <div class="ui left icon input">
                 <i class="user icon"></i>
@@ -83,14 +84,16 @@
             </div>
         </div>
             <div>
-                <input type="submit" name="Login" value="Login" class="ui fluid large primary submit button" id="buttonLog" />
+                <input type="submit" name="Login" value="Logga in" class="ui fluid large green submit button" id="buttonLog" />
             </div>
             
         </div>
+
+        <div class="ui error message"></div>
     </form>
 <!-- Redirect too register.php with message -->
     <div class="ui message">
-        Ny hos oss? <a href="Register.php">Registera</a>
+        Ny hos oss? <a href="register.php">Registera dig</a>
     </div>
 </div>
 </div>
