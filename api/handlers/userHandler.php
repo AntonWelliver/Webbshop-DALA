@@ -1,5 +1,5 @@
 <?php
-require_once('../includes/databaseClass.php');
+require_once('../../includes/databaseClass.php');
 
 class userHandler {
 
@@ -29,7 +29,7 @@ class userHandler {
             
             $statement->execute();
 
-            $numOfEmails = $stmt->fetch(PDO::FETCH_ASSOC);
+            $numOfEmails = $statement->fetch(PDO::FETCH_ASSOC);
 
             if($numOfEmails['num'] > 0) {
                 die('That username already exists!');
@@ -40,6 +40,7 @@ class userHandler {
                 $statement->bindParam(':pass', $pass);
                 $statement->execute();
             }
+
             
             
         } else if ($requestType == 'login') {
@@ -59,8 +60,9 @@ class userHandler {
             $handler->handleRequest($requestType);
         }
     } catch(EXCEPTION $err) {
-        console.log($err);
+        echo $err;
     }
+ 
 
 
 ?>

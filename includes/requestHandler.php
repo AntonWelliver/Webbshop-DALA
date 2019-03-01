@@ -27,12 +27,14 @@ class requestHandler {
         return var_dump($data);
     }
 }
-
-if (isset($_POST['requestType'])) {
-    $handler = new requestHandler();
-    $requestType = $_POST['requestType'];
-    $handler->handleRequest($requestType);
-
+try {
+    if (isset($_POST['requestType'])) {
+        $handler = new requestHandler();
+        $requestType = $_POST['requestType'];
+        $handler->handleRequest($requestType);
+    }
+} catch(EXCEPTION $err) {
+    echo 'whyy';
 }
 
 ?>
