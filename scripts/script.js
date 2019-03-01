@@ -10,10 +10,7 @@ function showSidebar() {
 /* jQuery code */
 
 $(document).ready(function(){
-    $(".hamburger").click(function(){
-      $(this).toggleClass("is-active");
-    });
-
+    
     /* Media query responsive navigation bar*/
 
     $(window).on('resize', function() {

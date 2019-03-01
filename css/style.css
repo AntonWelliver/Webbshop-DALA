@@ -13,6 +13,8 @@ body {
     margin: 0!important;
 }
 
+/* Logotype */
+
 .logo {
     color: rgb(207, 0, 0);
     margin: 1em;
@@ -22,7 +24,34 @@ body {
     cursor: pointer;
 }
 
+/* Mobile menu button */
+
 .hamburger-container {
     margin-top: 1em!important;
 }
   
+#hamburger-icon:hover {
+    cursor: pointer!important;
+}
+
+/* Login button */
+
+.login-button {
+    color: rgb(91, 91, 91);
+    margin-right: 1em;
+}
+
+.placeholder-under-menu {
+    height: 3.5em;
+}
+
+/* Footer */
+
+footer {
+    background-color: rgb(13, 120, 17);
+    text-align: center;
+}
+
+.trygg-logo {
+    height: 7.2em;
+}
