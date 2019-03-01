@@ -20,7 +20,7 @@
         <header>
             <div class="ui grid">
                 <div class="column">
-                    <div class="ui menu">
+                    <div class="ui fixed menu">
                     <div class="ui container mobile tablet only grid hamburger-container">
                         <i class="bars icon" onclick="showSidebar()" id="mobile-item"></i>
                     </div>
@@ -35,15 +35,14 @@
                 
                         </div>
                     <div class="borderless align right item">
-                    <i class="user icon"></i>Logga in
-                        <a class="ui button green">
-                            <i class="shopping cart icon"></i>5
-                        </a>
+                    <a class="login-button" href="Register.php"><i class="user icon"></i>Logga in</a>
+                    <a class="ui button green"><i class="shopping cart icon"></i>0</a>
                     </div>
                     </div>
                 </div>
             </div>
         </header>
+        <div class="placeholder-under-menu"></div>
 
         <div class="ui pushable segment">
             <div class="ui sidebar thin vertical menu">
@@ -59,10 +58,13 @@
             </div>
         </div>
         <footer>
-             <a class="logo" href="#">DALAMAT</a>
             <div class="payment-container">
-                <img class="klarna" src="assets/klarna.png">
-                <img class="visa-mastercard" src="assets/payment-cards.png">
+                <!-- <img class="payment-method" src="assets/klarna.png">
+                <img class="payment-method" src="assets/payment-cards.png">
+                <img class="payment-method" src="assets/swish.png"> -->
+                <img class="trygg-logo" src="assets/trygg-ehandel.png">
+                <img src="assets/certifierad-ehandel.png">
+                <img class="payment-method" src="assets/payment-method.png">
             </div>
         </footer>
     </body>
