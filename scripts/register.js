@@ -9,7 +9,7 @@ $(document).ready(function(){
             data:{requestType: "registerUser", email: name, password: password},
             success: function(data){ 
                 if(data.status == 'error'){
-                    alert("Error finns redan!");
+                    alert("Error!");
                 }else {
                     alert("Du har skapat konto");
                 }

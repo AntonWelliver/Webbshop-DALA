@@ -29,9 +29,9 @@ class userHandler {
             
             $statement->execute();
 
-            $numOfEmails = $statement->fetch(PDO::FETCH_ASSOC);
+            $emailExists = $statement->fetch(PDO::FETCH_ASSOC);
 
-            if($numOfEmails['num'] > 0) {
+            if($emailExists['num'] > 0) {
                 $response_array['status'] = 'error'; 
                  
                 header('Content-type: application/json');
