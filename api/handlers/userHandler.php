@@ -1,9 +1,11 @@
 <?php
-require_once('../Includes/databaseClass.php');
+require_once('../includes/databaseClass.php');
 
 class userHandler {
+
     private $connection;
     private $database;
+
     function __construct() {
         $this->database = new Database();
         $this->connection = $this->database->connect();
