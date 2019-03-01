@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DALAMAT</title>
     <!-- CSS files -->
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/animation.css"> -->
     <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
     <!-- Javascript & jQuery files -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/logIn.js"></script>
     
 </head>
     <body>
@@ -35,13 +37,16 @@
                 
                         </div>
                     <div class="borderless align right item">
-                    <a class="login-button" href="Register.php"><i class="user icon"></i>Logga in</a>
+                    <a class="login-button"id="logIn"><i class="user icon"></i>Logga in</a>
+                    <!-- <a class="ui button primary""login-button" id="test"> Login </a> -->
                     <a class="ui button green"><i class="shopping cart icon"></i>0</a>
                     </div>
                     </div>
                 </div>
             </div>
         </header>
+
+
         <div class="placeholder-under-menu"></div>
 
         <div class="ui pushable segment">
@@ -54,7 +59,42 @@
             </div>
             
             <div class="pusher">
-
+        <!-- h1 for log-in too your Account text in blue style  -->
+            <div class="ui modal test">
+                <div class="ui middle aligned center aligned grid">
+                <div class="column">
+                <h2 class="ui blue image header">
+                <div class="content">
+                Log-in till ditt Account
+            </div></h2>
+<!--     Form with email and password with placeholder and style for log-in-->
+    <form class="ui large form">
+        <div class="ui  segment">
+            <div class="field">
+                <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="email" id="email" placeholder="E-mail address">
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+            <div>
+                <input type="submit" name="Login" value="Login" class="ui fluid large primary submit button" id="buttonLog" />
+            </div>
+            
+        </div>
+    </form>
+<!-- Redirect too register.php with message -->
+    <div class="ui message">
+        Ny hos oss? <a href="Register.php">Registera</a>
+    </div>
+</div>
+</div>
+       </div>
             </div>
         </div>
         <footer>

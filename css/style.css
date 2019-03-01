@@ -45,6 +45,10 @@ body {
     height: 3.5em;
 }
 
+.ui.modal.test{
+    width: 50%;
+}
+
 /* Footer */
 
 footer {
