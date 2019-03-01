@@ -7,10 +7,14 @@ $(document).ready(function(){
             type: "POST",
             url: "api/handlers/userHandler.php",
             data:{requestType: "registerUser", email: name, password: password},
-            success: function(result){ 
-                $("body").append("Användare har skapats")
-                console.log(result);
+            success: function(data){ 
+                if(data.status == 'error'){
+                    alert("Error finns redan!");
+                }else {
+                    alert("Du har skapat konto");
+                }
             }
+
         });
 
     });

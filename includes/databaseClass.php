@@ -1,6 +1,6 @@
 <?php
 class Database {
-    private $dsn = "mysql:host=localhost;dbname=Webbshop_DALA;";
+    private $dsn = "mysql:host=localhost;dbname=webbshop_dala;";
     private $user = "root";
     private $password = "";
     public $PDO;
