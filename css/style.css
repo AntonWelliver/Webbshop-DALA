@@ -11,6 +11,21 @@ body {
 }
 .pushable.segment{
     margin: 0!important;
+    background-color: #F5F5F5!important;
+}
+
+.ui.sidebar .item:hover {
+    background-color: rgb(0, 142, 33)!important;
+    color: #fff!important;
+}
+
+.cart-button {
+    background-color: rgb(0, 142, 33)!important;
+    color: #fff!important;
+}
+
+#footer-links .item {
+    color: rgb(228, 228, 228);
 }
 
 /* Logotype */
@@ -40,6 +55,10 @@ body {
     color: rgb(91, 91, 91);
     margin-right: 1em;
 }
+.login-button:hover {
+    color: rgb(0, 142, 33);
+    cursor: pointer;
+}
 
 .placeholder-under-menu {
     height: 3.5em;
@@ -58,13 +77,27 @@ footer {
 }
 
 .trygg-logo {
-    height: 7.2em;
+    width: 4em;
 }
 
+.certifierad-logo {
+    width: 9em;
+}
+
+.payment-method {
+    max-width: 30%;
+}
+
+.footer-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .body-container {
     background-color: #DADADA!important;
     height: 100vh;
  padding-top: 10em;
+ 
   }
 
   .column {
