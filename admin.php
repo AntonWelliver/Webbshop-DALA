@@ -59,9 +59,6 @@
 
                 <div>
                 <button class="ui button" id="seeOrders">Se gjorda beställningar</button>
-                </div>
-
-                <div>
                 <button class="ui button" id="newsletterList">Lista över nyhetsbrev</button>
                 </div>
                 </form>
