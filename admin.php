@@ -24,7 +24,7 @@
             </div>
         
             </h2>
-            <form ui large form register-form>
+            <!-- <form ui large form register-form> -->
             <div class="ui form" >
                 <div class="field">
                 <label for="productID"> Produkt ID:</label>
@@ -61,7 +61,7 @@
                 <button class="ui button" id="seeOrders">Se gjorda beställningar</button>
                 <button class="ui button" id="newsletterList">Lista över nyhetsbrev</button>
                 </div>
-                </form>
+               <!--  </form> -->
             </div>
         </div>
     </div>

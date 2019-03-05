@@ -1,4 +1,5 @@
 <?php
+require_once('../../includes/database.php');
 
 class Product{
     private $name;
@@ -6,7 +7,12 @@ class Product{
     private $productID;
     private $category;
     private $image;
+    private $connection;
+    private $database;
+
     function __construct($productID, $name, $price, $category, $image){
+        $this->database = new Database();
+        $this->connection = $this->database->connect();
         $this->name = $name;
         $this->price = $price;
         $this->productID = $productID;
