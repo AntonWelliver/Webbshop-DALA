@@ -6,7 +6,7 @@ $(document).ready(function(){
         $.ajax({   
             type: "POST",
             url: "api/handlers/userHandler.php",
-            data:{requestType: "registerUser", email: name, password: password},
+            data:{action: "registerUser", email: name, password: password},
             success: function(result){ 
                 $("body").append("Användare har skapats")
                 console.log(result);
