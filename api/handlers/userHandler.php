@@ -10,23 +10,13 @@ class userHandler {
         $this->database = new Database();
         $this->connection = $this->database->connect();
     }
-    
-    function handleRequest($requestType) {
-        // Get input value of form from AJAX
-        $email = $_POST['email'];
-        $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-        //Now, we need to check if the supplied email already exists.
 
 
-        if ($requestType == 'registerUser') {
-
-            // Check if user exists
+    function register($email,$password) {
+        try {
             $sql = "SELECT COUNT(Email) AS num FROM account WHERE Email = :email";
             $statement = $this->connection->prepare($sql);
-
             $statement->bindParam(':email', $email);
-            
             $statement->execute();
 
             $emailExists = $statement->fetch(PDO::FETCH_ASSOC);
@@ -40,32 +30,54 @@ class userHandler {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Email, Password) VALUES (:email, :pass)");
                 $statement->bindParam(':email', $email);
-                $statement->bindParam(':pass', $pass);
+                $statement->bindParam(':pass', $password);
                 $statement->execute();
             }
+        } catch (EXCEPTION $err) {
+            throw new Exception($err);
+        }
+    }
 
-            
-            
-        } else if ($requestType == 'login') {
-            $statement = $this->connection->prepare("SELECT Email, Password FROM account VALUES (:email, :pass");
+
+    function login($email, $password) {
+        try {
+            $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
+
             $statement->bindParam(':email', $email);
-            $statement->bindParam(':pass', $pass);
+            $statement->bindParam(':pass', $password);
             $statement->execute();
+        } catch (EXCEPTION $err) {
+            throw new Exception($err);
         }
-        return  $requestType;
     }
-
 }
-    try {
-        if (isset($_POST['requestType'])) {
-            $handler = new userHandler();
-            $requestType = $_POST['requestType'];
-            $handler->handleRequest($requestType);
-        }
-    } catch(EXCEPTION $err) {
-        echo $err;
-    }
- 
 
+try {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+        $userHandler = new userHandler();
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+
+        if($_POST["action"] == "registerUser") {
+            $userHandler->register($email, $pass);
+        }
+        if($_POST["action"] == "logIn") {            
+            // Later: Match with database and authenticate
+            $userHandler->login($email, $pass);
+        }
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == "GET") {
+        
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
+    
+    }
+
+} catch(EXCEPTION $err) {
+    echo $err;
+}
 
 ?>

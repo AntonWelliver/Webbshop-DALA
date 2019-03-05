@@ -3,7 +3,7 @@ function registerUser(event, fields) {
     $.ajax({   
         type: "POST",
         url: "api/handlers/userHandler.php",
-        data:{requestType: "registerUser", email: fields.email, password: fields.password},
+        data:{action: "registerUser", email: fields.email, password: fields.password},
         success: function(data){ 
             if(data.status == 'error'){
                 alert("Error!");
@@ -11,7 +11,7 @@ function registerUser(event, fields) {
                 alert("Du har skapat konto");
             }
         }
-    });
+     });
 }
 
 
