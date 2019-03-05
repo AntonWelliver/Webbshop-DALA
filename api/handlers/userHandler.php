@@ -14,14 +14,14 @@ class userHandler {
     function handleRequest($requestType) {
         // Get input value of form from AJAX
         $email = $_POST['email'];
-        $pass = $_POST['password'];
+        $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         //Now, we need to check if the supplied email already exists.
 
 
         if ($requestType == 'registerUser') {
 
-
+            // Check if user exists
             $sql = "SELECT COUNT(Email) AS num FROM account WHERE Email = :email";
             $statement = $this->connection->prepare($sql);
 
@@ -35,8 +35,7 @@ class userHandler {
                 $response_array['status'] = 'error'; 
                  
                 header('Content-type: application/json');
-                echo json_encode($response_array);
-                // die('That username already exists!');
+                echo json_encode($response_array);  
             } else {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Email, Password) VALUES (:email, :pass)");
