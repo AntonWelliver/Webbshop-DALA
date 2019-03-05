@@ -6,18 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DALAMAT</title>
     <!-- CSS files -->
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/animation.css"> -->
     <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- FontAwesome Icons -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
     <!-- Javascript & jQuery files -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/logIn.js"></script>
+    <script src="scripts/formValidation.js"></script>
+    <!-- Accept cookies -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
     
 </head>
+
     <body>
         <header>
             <div class="ui grid">
@@ -37,9 +40,9 @@
                 
                         </div>
                     <div class="borderless align right item">
-                    <a class="login-button"id="logIn"><i class="user icon"></i>Logga in</a>
+                    <a class="login-button" id="logIn"><i class="user icon"></i>Logga in</a>
                     <!-- <a class="ui button primary""login-button" id="test"> Login </a> -->
-                    <a class="ui button green"><i class="shopping cart icon"></i>0</a>
+                    <a class="ui button cart-button"><i class="shopping cart icon"></i>0</a>
                     </div>
                     </div>
                 </div>
@@ -48,9 +51,9 @@
 
 
         <div class="placeholder-under-menu"></div>
-
+    
         <div class="ui pushable segment">
-            <div class="ui sidebar thin vertical menu">
+            <div class="ui fixed sidebar thin vertical menu">
                 <a class="item">Frukt <i class="angle right icon"></i></a>
                 <a class="item">Grönsaker <i class="angle right icon"></i></a>
                 <a class="item">Kött & fisk <i class="angle right icon"></i></a>
@@ -59,17 +62,18 @@
             </div>
             
             <div class="pusher">
-        <!-- h1 for log-in too your Account text in blue style  -->
+            
+        <!-- Login to your account popup  -->
             <div class="ui modal test">
                 <div class="ui middle aligned center aligned grid">
                 <div class="column">
-                <h2 class="ui blue image header">
+                <h2 class="ui red header">
                 <div class="content">
-                Log-in till ditt Account
+                DALAMAT
             </div></h2>
 <!--     Form with email and password with placeholder and style for log-in-->
-    <form class="ui large form">
-        <div class="ui  segment">
+    <form class="ui large form login-form">
+        <div class="ui segment">
             <div class="field">
                 <div class="ui left icon input">
                 <i class="user icon"></i>
@@ -83,14 +87,16 @@
             </div>
         </div>
             <div>
-                <input type="submit" name="Login" value="Login" class="ui fluid large primary submit button" id="buttonLog" />
+                <input type="submit" name="Login" value="Logga in" class="ui fluid large green submit button" id="buttonLog" />
             </div>
             
         </div>
+
+        <div class="ui error message"></div>
     </form>
 <!-- Redirect too register.php with message -->
     <div class="ui message">
-        Ny hos oss? <a href="Register.php">Registera</a>
+        Ny hos oss? <a href="register.php">Registera dig</a>
     </div>
 </div>
 </div>
@@ -98,12 +104,19 @@
             </div>
         </div>
         <footer>
-            <div class="payment-container">
+            <div class="ui list" id="footer-links">
+                <a class="item">Vanliga frågor</a>
+                <a class="item">Leveransvillkor</a>
+                <a class="item">Integritetspolicy</a>
+            </div>
+            <div class="footer-images">
                 <!-- <img class="payment-method" src="assets/klarna.png">
                 <img class="payment-method" src="assets/payment-cards.png">
                 <img class="payment-method" src="assets/swish.png"> -->
-                <img class="trygg-logo" src="assets/trygg-ehandel.png">
-                <img src="assets/certifierad-ehandel.png">
+                <div class="safe-ecommerce">
+                    <img class="trygg-logo" src="assets/trygg-ehandel.png">
+                    <img class="certifierad-logo" src="assets/certifierad-ehandel.png">
+                </div>
                 <img class="payment-method" src="assets/payment-method.png">
             </div>
         </footer>

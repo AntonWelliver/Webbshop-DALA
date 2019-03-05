@@ -12,6 +12,7 @@ class userHandler {
         $this->connection = $this->database->connect();
     }
 
+
     function register($email,$password) {
         try {
             $user = new User($email, $password);
@@ -19,10 +20,14 @@ class userHandler {
             $statement = $this->connection->prepare($sql);
             $statement->bindParam(':email', $user->email);
             $statement->execute();
-            $numOfEmails = $statement->fetch(PDO::FETCH_ASSOC);
 
-            if($numOfEmails['num'] > 0) {
-                die('That username already exists!');
+            $emailExists = $statement->fetch(PDO::FETCH_ASSOC);
+
+            if($emailExists['num'] > 0) {
+                $response_array['status'] = 'error'; 
+                 
+                header('Content-type: application/json');
+                echo json_encode($response_array);  
             } else {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Email, Password) VALUES (:email, :pass)");
@@ -35,9 +40,11 @@ class userHandler {
         }
     }
 
+
     function login($email, $password) {
         try {
             $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
+
             $statement->bindParam(':email', $email);
             $statement->bindParam(':pass', $password);
             $statement->execute();
