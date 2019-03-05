@@ -9,8 +9,21 @@
 <body>
     
     <button id="updateProduct">Uppdatera antal produkter i lager</button>
+    <label for=""> Antal produkter:</label>
+    <input type="text" name="" id="" maxlength="50"/>
 
     <button id="addProduct">Lägg till/Ta bort produkter</button>
+    <label for=""> Lägg till produktnamn:</label>
+    <input type="text" name="" id="" maxlength="50"/>
+
+    <label for=""> Bild URL:</label>
+    <input type="text" name="" id="" maxlength="50"/>
+
+    <label for=""> Produkt pris:</label>
+    <input type="text" name="" id="" maxlength="50"/>
+
+    <label for=""> Produktkategori:</label>
+    <input type="text" name="" id="" maxlength="50"/>
 
     <button id="seeOrders">Se gjorda beställningar</button>
 
