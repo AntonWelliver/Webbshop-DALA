@@ -15,8 +15,8 @@
     <!-- Javascript & jQuery files -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
-    <script src="scripts/formValidation.js"></script>
     <script src="scripts/register.js"></script>
+    <script src="scripts/formValidation.js"></script>
 
 </head>
 <body>
@@ -32,15 +32,15 @@
         DALAMAT
       </div>
     </h2>
-            <form class="ui large form register-form">
+            <form class="ui large form register-form" action="index.php">
                 <div class="ui stacked segment">
-                    <div class="field">
+                    <div class="required field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
                             <input type="text" name="email" placeholder="E-mail address" id="email">
                         </div>
                     </div>
-                    <div class="field">
+                    <div class="required field">
                         <div class="ui left icon input">
                             <i class="lock icon"></i>
                             <input type="password" name="password" placeholder="Lösenord" id="password">

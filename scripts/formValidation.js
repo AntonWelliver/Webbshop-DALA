@@ -43,7 +43,8 @@ $(document).ready(function() {
               }
             ]
           }
-        }
+        },
+        onSuccess: registerUser
       });
 
     /* Login validation */
