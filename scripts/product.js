@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $(#addProduct).click(function(){
+    $('#addProduct').click(function(){
         $.ajax({
             type: "POST",
             url:{},
