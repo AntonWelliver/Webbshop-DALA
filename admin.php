@@ -8,8 +8,9 @@
 </head>
 <body>
     
-    <label for="updateProduct"> Uppdatera antal produkter i lager:</label>
-    <input type="text" name="updateProduct" id="updateProduct" maxlength="50"/>
+    <button id="updateProduct">Uppdatera antal produkter i lager</button>
+
+    <button id="addProduct">Lägg till/Ta bort produkter</button>
 
     <button id="seeOrders">Se gjorda beställningar</button>
 
