@@ -54,7 +54,7 @@
                 <label for="productCategory"> Produktkategori:</label>
                 <input type="text" name="productCategory" id="productCategory" maxlength="50"/>
 
-                <button class="ui button" id="addProduct">Lägg till/Ta bort produkter</button>
+                <button class="ui button" name="addproduct" id="addProduct">Lägg till/Ta bort produkter</button>
                 </div>
 
                 <div>
