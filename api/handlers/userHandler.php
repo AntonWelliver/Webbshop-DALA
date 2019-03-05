@@ -1,5 +1,6 @@
 <?php
 require_once('../../includes/databaseClass.php');
+require_once('../../includes/userClass.php');
 
 class userHandler {
 
@@ -13,9 +14,10 @@ class userHandler {
 
     function register($email,$password) {
         try {
+            $user = new User($email, $password);
             $sql = "SELECT COUNT(Email) AS num FROM account WHERE Email = :email";
             $statement = $this->connection->prepare($sql);
-            $statement->bindParam(':email', $email);
+            $statement->bindParam(':email', $user->email);
             $statement->execute();
             $numOfEmails = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -24,8 +26,8 @@ class userHandler {
             } else {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Email, Password) VALUES (:email, :pass)");
-                $statement->bindParam(':email', $email);
-                $statement->bindParam(':pass', $password);
+                $statement->bindParam(':email', $user->email);
+                $statement->bindParam(':pass', $user->password);
                 $statement->execute();
             }
         } catch (EXCEPTION $err) {
