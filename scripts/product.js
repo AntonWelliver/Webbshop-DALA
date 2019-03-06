@@ -1,16 +1,18 @@
 $(document).ready(function(){
+
     $('#addProduct').click(function(){
+        console.log('Hello world');
+        var productName = $("#productName").val();
+        var productPrice = $("#productPrice").val();
+        var addImage = $("#addImage").val();
+        var productCategory = $("#productCategory").val();
+
         $.ajax({
             type: "POST",
-            url:{},
-            data:{},
+            url:"api/handlers/productHandler.php",
+            data:{action: "addProduct", name: productName, price: productPrice, image: addImage, category: productCategory},
             success: function(data){
-                if(parseInt(data) > 0){
-                    alert('Product with ID '+data+' stored!');
-                    console.log(data);
-                }else{
-                    alert('Error:'+data+'')
-                }
+                alert('Du har lagt till en produkt!');
             }
         });
     })

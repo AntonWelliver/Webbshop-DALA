@@ -24,7 +24,7 @@
             </div>
         
             </h2>
-            <form ui large form register-form>
+            <!-- <form ui large form register-form> -->
             <div class="ui form" >
                 <div class="field">
                 <label for="productID"> Produkt ID:</label>
@@ -54,14 +54,14 @@
                 <label for="productCategory"> Produktkategori:</label>
                 <input type="text" name="productCategory" id="productCategory" maxlength="50"/>
 
-                <button class="ui button" id="addProduct">Lägg till/Ta bort produkter</button>
+                <button class="ui button" name="addproduct" id="addProduct">Lägg till/Ta bort produkter</button>
                 </div>
 
                 <div>
                 <button class="ui button" id="seeOrders">Se gjorda beställningar</button>
                 <button class="ui button" id="newsletterList">Lista över nyhetsbrev</button>
                 </div>
-                </form>
+               <!--  </form> -->
             </div>
         </div>
     </div>

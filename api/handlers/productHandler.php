@@ -4,12 +4,13 @@ require_once('../../includes/product.php');
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $id = ''; // schould be created automatically?
-        $name = $_POST[''];
-        $price = $_POST[''];
-        $category = $_POST[''];
-        $image = $_POST[''];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $category = $_POST['category'];
+        $image = $_POST['image'];
 
         if($_POST["action"] == "addProduct") {
+            $user = new Product($id, $name, $price, $category, $image);
             $user->addProduct();
         }
     }
