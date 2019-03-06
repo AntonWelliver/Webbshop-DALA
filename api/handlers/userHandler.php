@@ -3,10 +3,14 @@ require_once('../../includes/user.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $email = $_POST['email'];
-        $pass = $_POST['password'];
-        $user = new User($email, $pass);
 
+        // Email from input field
+        $email = $_POST['email'];
+        // Hashing password from input field
+        $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        // Creates new user object
+        $user = new User($email, $pass);
+        // If ajax action is RegisterUser, run function and save user into database
         if($_POST["action"] == "registerUser") {
             $user->register();
         }

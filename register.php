@@ -32,8 +32,9 @@
         DALAMAT
       </div>
     </h2>
-            <form class="ui large form register-form" action="index.php">
+            <form class="ui large form register-form" method="POST">
                 <div class="ui stacked segment">
+                <div class="emailExists"></div>
                     <div class="required field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
@@ -64,9 +65,10 @@
                     </div>
 
                     <div class="ui error message"></div>
+                    
 
             </form>
-
+            
             <div class="ui message">
                 Har redan ett konto? <a href="index.php">Logga in</a>
             </div>
