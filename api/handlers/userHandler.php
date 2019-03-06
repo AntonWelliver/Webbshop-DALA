@@ -3,17 +3,16 @@ require_once('../../includes/user.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-        $user = new User();
         $email = $_POST['email'];
         $pass = $_POST['password'];
+        $user = new User($email, $pass);
 
         if($_POST["action"] == "registerUser") {
-            $user->register($email, $pass);
+            $user->register();
         }
         if($_POST["action"] == "logIn") {            
             // Later: Match with database and authenticate
-            $user->login($email, $pass);
+            $user->login();
         }
     }
 

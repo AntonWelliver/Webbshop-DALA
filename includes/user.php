@@ -15,26 +15,25 @@ class User {
     }
 
 
-    function register($email,$password) {
+    function register() {
         try {
-            $user = new User($email, $password);
             $sql = "SELECT COUNT(Email) AS num FROM account WHERE Email = :email";
             $statement = $this->connection->prepare($sql);
-            $statement->bindParam(':email', $user->email);
+            $statement->bindParam(':email', $this->email);
             $statement->execute();
 
             $emailExists = $statement->fetch(PDO::FETCH_ASSOC);
 
             if($emailExists['num'] > 0) {
                 $response_array['status'] = 'error'; 
-                 
+                $response_array['message'] = 'Det finns redan ett konto med denna email!'; 
                 header('Content-type: application/json');
                 echo json_encode($response_array);  
             } else {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Email, Password) VALUES (:email, :pass)");
-                $statement->bindParam(':email', $user->email);
-                $statement->bindParam(':pass', $user->password);
+                $statement->bindParam(':email', $this->email);
+                $statement->bindParam(':pass', $this->password);
                 $statement->execute();
             }
         } catch (EXCEPTION $err) {
@@ -42,12 +41,12 @@ class User {
         }
     }
 
-    function login($email, $password) {
+    function login() {
         try {
             $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
 
-            $statement->bindParam(':email', $email);
-            $statement->bindParam(':pass', $password);
+            $statement->bindParam(':email', $this->email);
+            $statement->bindParam(':pass', $this->password);
             $statement->execute();
         } catch (EXCEPTION $err) {
             throw new Exception($err);
