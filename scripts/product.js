@@ -15,5 +15,16 @@ $(document).ready(function(){
                 alert('Du har lagt till en produkt!');
             }
         });
-    })
+    });
+
+    $.ajax({
+        async: false,
+        type: "POST",
+        url:"api/handlers/productHandler.php",
+        data:{action: "getProductsWithCategory", category: 'Frukt'},
+        success: function(data){
+            console.log(data);
+            // ex för att få första produktens namn: data[0]['Name']
+        }
+    });
 })
