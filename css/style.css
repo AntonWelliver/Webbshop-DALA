@@ -68,20 +68,6 @@ body {
     width: 50%;
     padding: 2em;
 }
-/* style newsletter */
-.ui.modal.news{
-    width: 50%;
-    padding: 2em;
-    
-}
-#emailNews{
-    width: 28em;    
-}
-#newsReg{
-    margin-top: 1em!important;    
-}
-
-
 
 /* Email exists text display red */
 
