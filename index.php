@@ -15,6 +15,7 @@
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/logIn.js"></script>
+    <script src="scripts/newsLetter.js"></script>
     <script src="scripts/formValidation.js"></script>
     <!-- Accept cookies -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
@@ -91,6 +92,10 @@
             </div>
             
         </div>
+        <div class="ui checkbox">
+            <input type="checkbox" name="ja" value="jaNyhetsbrev" id="newsYes">
+            <label>Nyhetsbrev</label>
+        </div>
 
         <div class="ui error message"></div>
     </form>
@@ -108,7 +113,31 @@
                 <a class="item">Vanliga frågor</a>
                 <a class="item">Leveransvillkor</a>
                 <a class="item">Integritetspolicy</a>
-            </div>
+               
+            <!-- Click input to redirect to newsLetter.js too save email too database -->
+<div class="ui form" >
+    <a class="item" id="newsLetter">Nyhetsbrev</a>
+        <div class="ui modal news">  
+            <div class="ui middle aligned center aligned grid">
+                <div class="column">
+                    <h2 class="ui red header">
+                        <div class="content">Nyhetsbrev</div>
+                    </h2>
+                        <div class="ui segment">
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                        <input type="text" name="email" id="emailNews" placeholder="E-mail address">
+                                </div>
+                                    <div>
+                                        <input type="submit" name="registera" value="Registera dig" class="ui fluid large green submit button" id="newsReg" />
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+            </div>             
+        </div>
+</div>    
             <div class="footer-images">
                 <!-- <img class="payment-method" src="assets/klarna.png">
                 <img class="payment-method" src="assets/payment-cards.png">
