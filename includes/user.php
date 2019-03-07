@@ -2,14 +2,16 @@
 require_once('../../includes/database.php');
 
 class User {
+    public $username;
     public $email;
     public $password;
     private $connection;
     private $database;
 
-    function __construct($email, $password) {
+    function __construct($username, $email, $password) {
         $this->database = new Database();
         $this->connection = $this->database->connect();
+        $this->username = $username;
         $this->email = $email;
         $this->password = $password;
     }
@@ -31,7 +33,8 @@ class User {
                 echo json_encode($response_error);  
             } else {
                 // save user with prepare statenents
-                $statement = $this->connection->prepare("INSERT INTO account (Email, Password) VALUES (:email, :pass)");
+                $statement = $this->connection->prepare("INSERT INTO account (Username, Email, Password) VALUES ( :username, :email, :pass)");
+                $statement->bindParam(':username', $this->username);
                 $statement->bindParam(':email', $this->email);
                 $statement->bindParam(':pass', $this->password);
                 $statement->execute();

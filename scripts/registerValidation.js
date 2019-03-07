@@ -5,6 +5,15 @@ $(document).ready(function() {
     $('.register-form')
       .form({
         fields: {
+          username: {
+            identifier  : 'username',
+            rules: [
+              {
+                type   : 'empty',
+                prompt : 'Please enter your username'
+              },
+            ]
+          },
           email: {
             identifier  : 'email',
             rules: [

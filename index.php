@@ -45,7 +45,7 @@
                     <div class="borderless align right item">
                         <a class="login-button" id="logIn"><i class="user icon"></i>Logga in</a>
                         <!-- <a class="ui button primary""login-button" id="test"> Login </a> -->
-                        <a class="ui button cart-button"><i class="shopping cart icon"></i>0</a>
+                        <a class="ui button cart-button" href="cart.php"><i class="shopping cart icon"></i>0</a>
                     </div>
                 </div>
             </div>
@@ -69,6 +69,7 @@
         <div class="ui form ">
             <div class="field">
                 <label>Anmäl dig för nyhetsbrev</label>
+                <input type="text" id="username" placeholder="Username">
                 <input type="email" id="emailNews" placeholder="E-mail adress">
             </div>
             <input type="submit" id="newsReg" name="registrera" value="Jag vill ha nyhetsbrev" class="ui submit green button">
@@ -90,6 +91,12 @@
                             <!--     Form with email and password with placeholder and style for log-in-->
                             <form class="ui large form login-form" method="POST">
                                 <div class="ui segment">
+                                    <div class="field">
+                                        <div class="ui left icon input">
+                                            <i class="user icon"></i>
+                                            <input type="text" name="email" id="username" placeholder="Username">
+                                        </div>
+                                    </div>
                                     <div class="field">
                                         <div class="ui left icon input">
                                             <i class="user icon"></i>

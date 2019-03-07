@@ -3,7 +3,7 @@ function registerUser(event, fields) {
         async : false,
         type: "POST",
         url: "api/handlers/userHandler.php",
-        data:{action: "registerUser", email: fields.email, password: fields.password},
+        data:{action: "registerUser", username: fields.username, email: fields.email, password: fields.password},
         success: function(data){ 
             if(data.status == 'error'){
                 $( ".emailExists" ).html(data.failMessage);

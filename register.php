@@ -38,6 +38,12 @@
                     <div class="required field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
+                            <input type="text" name="username" placeholder="Username" id="username">
+                        </div>
+                    </div>
+                    <div class="required field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
                             <input type="text" name="email" placeholder="E-mail address" id="email">
                         </div>
                     </div>
