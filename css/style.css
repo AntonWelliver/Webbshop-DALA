@@ -83,6 +83,12 @@ body {
 
 
 
+/* Email exists text display red */
+
+.emailExists {
+    color: red;
+}
+
 /* Footer */
 
 footer {

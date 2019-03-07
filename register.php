@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/register.js"></script>
-    <script src="scripts/formValidation.js"></script>
+    <script src="scripts/registerValidation.js"></script>
 
 </head>
 <body>
@@ -32,8 +32,9 @@
         DALAMAT
       </div>
     </h2>
-            <form class="ui large form register-form" action="index.php">
+            <form class="ui large form register-form" method="POST">
                 <div class="ui stacked segment">
+                <div class="emailExists"></div>
                     <div class="required field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
@@ -59,14 +60,15 @@
                                 <label>I agree to the terms and conditions</label>
                             </div>
                         </div>
-                        <input type="submit" name="Submit" value="Skapa konto" class="ui fluid large green submit button" id="Button" />
+                        <input type="submit" name="Submit" value="Skapa konto" class="ui fluid large green submit button"/>
 
                     </div>
 
                     <div class="ui error message"></div>
+                    
 
             </form>
-
+            
             <div class="ui message">
                 Har redan ett konto? <a href="index.php">Logga in</a>
             </div>

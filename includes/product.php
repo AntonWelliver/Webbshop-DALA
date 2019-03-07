@@ -36,11 +36,12 @@ class Product{
                 echo json_encode($response_array);
             }else{
                /*  Lägg till image i database */
-                $statement = $this->connection->prepare("INSERT INTO product (ProductID, Name, Price, Category) VALUES (:productID, :name, :price, :category)");
+                $statement = $this->connection->prepare("INSERT INTO product (ProductID, Name, Price, Category, imageSource) VALUES (:productID, :name, :price, :category, :image)");
                 $statement->bindParam(':productID', $this->productID);
                 $statement->bindParam(':name', $this->name);
                 $statement->bindParam(':price', $this->price);
                 $statement->bindParam(':category', $this->category);
+                $statement->bindParam(':image', $this->image);
                 /* $statement->bindParam(':image', $this->image); */
                 $statement->execute();
             }
