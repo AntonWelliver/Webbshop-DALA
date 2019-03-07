@@ -43,15 +43,34 @@ class User {
 
     function login() {
         try {
-            $userExists = $statement->fetch(PDO::FETCH_ASSOC);
-            
-            if($userExists['num'] > 0) {
-                $sql = "SELECT Password FROM Account WHERE Email = :email";
+            if(empty($_POST["email"]) || empty($_POST["password"])) {  
+                echo "wrong password";
+            } else {
+                $sql = "SELECT COUNT(Email) as num, Password FROM account WHERE Email = :email";
                 $statement = $this->connection->prepare($sql);
-
                 $statement->bindParam(':email', $this->email);
                 $statement->execute();
             }
+                $fetchPass = $statement->fetch(PDO::FETCH_ASSOC);
+            // If account (email) exists
+            if($fetchPass['num'] > 0) {  
+ 
+                // verify hashed password with input
+                if (password_verify($_POST["password"], $fetchPass["Password"])){
+                    $message['status'] = 'password is valid'; 
+                    header('Content-type: application/json');
+                    echo json_encode($message); 
+                } else {
+                    $message['status'] = 'password is not valid'; 
+                    header('Content-type: application/json');
+                    echo json_encode($message); 
+                }
+
+            } else {
+                // dont exist error message
+            }
+
+         
         } catch (EXCEPTION $err) {
             throw new Exception($err);
         }

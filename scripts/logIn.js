@@ -12,14 +12,19 @@ $(function(){
   
 /*   Function for login looking in userHandler for matching */
 function loginUser(event, fields) {
-  console.log("halu", fields.email, fields.password)
-    event.preventDefault();
+      event.preventDefault();
       $.ajax({   
         type: "POST",
         url: "api/handlers/userHandler.php",
         data:{action: "loginUser", email: fields.email, password: fields.password},
         success: function(data){ 
-            console.log(data);
+          console.log(data);
+          if(data.status == 'pass is valid'){
+            alert(data.status);
+        }else {
+            alert(data.status);
+            event.preventDefault();
+        }
         }
       });
 

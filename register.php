@@ -56,11 +56,10 @@
                         </div>
                         <div class="field">
                             <div class="ui checkbox">
-                                <input type="checkbox">
+                                <input type="checkbox" name="nyhetsbrev" id="nyhetsbrev">
                                 <label>Jag vill gärna ha nyhetsbrev!</label>
                             </div>
-                            
-                        </div>
+                       </div>
                         <div class="field">
                             <div class="ui checkbox">
                                 <input type="checkbox" name="terms">
