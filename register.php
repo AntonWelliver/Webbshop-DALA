@@ -56,6 +56,13 @@
                         </div>
                         <div class="field">
                             <div class="ui checkbox">
+                                <input type="checkbox">
+                                <label>Jag vill gärna ha nyhetsbrev!</label>
+                            </div>
+                            
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
                                 <input type="checkbox" name="terms">
                                 <label>I agree to the terms and conditions</label>
                             </div>
@@ -63,6 +70,7 @@
                         <input type="submit" name="Submit" value="Skapa konto" class="ui fluid large green submit button"/>
 
                     </div>
+                   
 
                     <div class="ui error message"></div>
                     

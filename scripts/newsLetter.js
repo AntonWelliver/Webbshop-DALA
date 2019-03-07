@@ -1,12 +1,4 @@
-/* Click function for log-in form and close out line */
-$(function(){
-    $("#newsLetter").click(function(){
-      $(".news").modal('show');
-    });
-    $(".news").modal({
-      closable: true
-    });
-  });
+
 /* Function for check in newsHandler for matching */
 $(document).ready(function(){
     $("#newsReg").click(function(){
