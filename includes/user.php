@@ -43,11 +43,16 @@ class User {
 
     function login() {
         try {
-            $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
+            $userExists = $statement->fetch(PDO::FETCH_ASSOC);
+            
+            if($userExists['num'] > 0) {
+                $sql = "SELECT Email, Password FROM Account WHERE Email = :email AND Password = :pass";
+                $statement = $this->connection->prepare($sql);
 
-            $statement->bindParam(':email', $this->email);
-            $statement->bindParam(':pass', $this->password);
-            $statement->execute();
+                $statement->bindParam(':email', $this->email);
+                $statement->bindParam(':pass', $this->password);
+                $statement->execute();
+            }
         } catch (EXCEPTION $err) {
             throw new Exception($err);
         }

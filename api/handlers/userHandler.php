@@ -14,7 +14,7 @@ try {
         if($_POST["action"] == "registerUser") {
             $user->register();
         }
-        if($_POST["action"] == "logIn") {            
+        if($_POST["action"] == "loginUser") {            
             // Later: Match with database and authenticate
             $user->login();
         }

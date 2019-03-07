@@ -14,8 +14,9 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/loginValidation.js"></script>
     <script src="scripts/logIn.js"></script>
-    <script src="scripts/formValidation.js"></script>
+   
     <!-- Accept cookies -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
     
@@ -72,7 +73,7 @@
                 DALAMAT
             </div></h2>
 <!--     Form with email and password with placeholder and style for log-in-->
-    <form class="ui large form login-form">
+    <form class="ui large form login-form" method="POST">
         <div class="ui segment">
             <div class="field">
                 <div class="ui left icon input">
@@ -87,7 +88,7 @@
             </div>
         </div>
             <div>
-                <input type="submit" name="Login" value="Logga in" class="ui fluid large green submit button" id="buttonLog" />
+                <input type="submit" name="Login" value="Logga in" class="ui fluid large green submit button"/>
             </div>
             
         </div>

@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/register.js"></script>
-    <script src="scripts/formValidation.js"></script>
+    <script src="scripts/registerValidation.js"></script>
 
 </head>
 <body>
@@ -60,7 +60,7 @@
                                 <label>I agree to the terms and conditions</label>
                             </div>
                         </div>
-                        <input type="submit" name="Submit" value="Skapa konto" class="ui fluid large green submit button" id="Button" />
+                        <input type="submit" name="Submit" value="Skapa konto" class="ui fluid large green submit button"/>
 
                     </div>
 
