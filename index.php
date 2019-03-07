@@ -21,6 +21,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
     
 </head>
+
     <body>
         <header>
             <div class="ui grid">
@@ -32,6 +33,8 @@
                         <a class="logo" href="#">DALAMAT</a>
                     <div class="ui computer only grid">
                         <div class="borderless item">
+
+
                         <div class="ui icon input">
                             <input class="prompt" type="text" placeholder="Vad letar du efter?">
                             <i class="search icon"></i>
@@ -47,6 +50,7 @@
                     </div>
                 </div>
             </div>
+
         </header>
         <div class="placeholder-under-menu"></div>
     
@@ -103,39 +107,59 @@
          </div>
       </div>
       </div>
+
+        </div>
+            <div>
+                <input type="submit" name="Login" value="Logga in" class="ui fluid large green submit button" id="buttonLog" />
             </div>
-                  </div>
+            
+        </div>
+        <div class="ui checkbox">
+            <input type="checkbox" name="ja" value="jaNyhetsbrev" id="newsYes">
+            <label>Nyhetsbrev</label>
+        </div>
+
+        <div class="ui error message"></div>
+    </form>
+<!-- Redirect too register.php with message -->
+    <div class="ui message">
+        Ny hos oss? <a href="register.php">Registera dig</a>
+    </div>
+</div>
+</div>
+       </div>
             </div>
-            <footer>
-                  <div class="ui list" id="footer-links">
-                     <a class="item">Vanliga frågor</a>
-                     <a class="item">Leveransvillkor</a>
-                     <a class="item">Integritetspolicy</a>
-                     
-                  <!-- Click input to redirect to newsLetter.js too save email too database -->
-      <div class="ui form" >
-         <a class="item" id="newsLetter">Nyhetsbrev</a>
-            <div class="ui modal news">  
-                  <div class="ui middle aligned center aligned grid">
-                     <div class="column">
-                        <h2 class="ui red header">
-                              <div class="content">Nyhetsbrev</div>
-                        </h2>
-                              <div class="ui segment">
-                                 <div class="field">
-                                    <div class="ui left icon input">
-                                          <i class="user icon"></i>
-                                             <input type="text" name="email" id="emailNews" placeholder="E-mail address">
+        </div>
+        <footer>
+            <div class="ui list" id="footer-links">
+                <a class="item">Vanliga frågor</a>
+                <a class="item">Leveransvillkor</a>
+                <a class="item">Integritetspolicy</a>
+               
+            <!-- Click input to redirect to newsLetter.js too save email too database -->
+<div class="ui form" >
+    <a class="item" id="newsLetter">Nyhetsbrev</a>
+        <div class="ui modal news">  
+            <div class="ui middle aligned center aligned grid">
+                <div class="column">
+                    <h2 class="ui red header">
+                        <div class="content">Nyhetsbrev</div>
+                    </h2>
+                        <div class="ui segment">
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                        <input type="text" name="email" id="emailNews" placeholder="E-mail address">
+                                </div>
+                                    <div>
+                                        <input type="submit" name="registera" value="Registera dig" class="ui fluid large green submit button" id="newsReg" />
                                     </div>
-                                          <div>
-                                             <input type="submit" name="registera" value="Registera dig" class="ui fluid large green submit button" id="newsReg" />
-                                          </div>
-                                 </div>
-                              </div>
-                     </div>
-                  </div>             
-            </div>
-      </div>    
+                            </div>
+                        </div>
+                </div>
+            </div>             
+        </div>
+</div>    
             <div class="footer-images">
                 <!-- <img class="payment-method" src="assets/klarna.png">
                 <img class="payment-method" src="assets/payment-cards.png">
@@ -145,7 +169,9 @@
                     <img class="certifierad-logo" src="assets/certifierad-ehandel.png">
                 </div>
                 <img class="payment-method" src="assets/payment-method.png">
-            </div>
+
+
+              </div>
         </footer>
     </body>
 </html>
