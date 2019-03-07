@@ -20,5 +20,14 @@ class Helper {
         /* $res = $statement->fetch(PDO::FETCH_OBJ); */
         return $res;
     }
+
+    function showSubscribers() {
+        $sql = "SELECT Email, Username FROM account WHERE IsSubscriber = 1";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        /* $res = $statement->fetch(PDO::FETCH_OBJ); */
+        return $res;
+    }
 }
 ?>
