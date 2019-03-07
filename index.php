@@ -45,7 +45,7 @@
                     <div class="borderless align right item">
                         <a class="login-button" id="logIn"><i class="user icon"></i>Logga in</a>
                         <!-- <a class="ui button primary""login-button" id="test"> Login </a> -->
-                        <a class="ui button cart-button"><i class="shopping cart icon"></i>0</a>
+                        <a class="ui button cart-button" href="cart.php"><i class="shopping cart icon"></i>0</a>
                     </div>
                 </div>
             </div>
