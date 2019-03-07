@@ -5,7 +5,7 @@ try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $email = $_POST['email'];
         $pass = $_POST['password'];
-        $user = new User($email, $pass);
+        $user = new User();
 
         if($_POST["action"] == "registerUser") {
             $user->register();
