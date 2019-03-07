@@ -72,6 +72,19 @@ body {
 .nyhetsbrev-container {
     margin: 2em!important;
 }
+/* shipping-adress */
+.shipping-container {
+    margin: 2em!important;
+}
+.fields.adress{
+    width: 138%;
+}
+@media screen and (max-width: 766px) {
+    .fields.adress {
+      width: 100%;
+    }
+  }
+
 
 
 
@@ -86,6 +99,10 @@ body {
 footer {
     background-color: rgb(13, 120, 17);
     text-align: center;
+}
+.footerbot{
+    position: fixed; bottom: 0;
+    width: 100%;
 }
 
 .trygg-logo {
