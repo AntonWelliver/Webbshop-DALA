@@ -1,17 +1,24 @@
 <?php
 require_once('../../includes/product.php');
+require_once('../../includes/helper.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $id = ''; // schould be created automatically?
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-        $category = $_POST['category'];
-        $image = $_POST['image'];
-
         if($_POST["action"] == "addProduct") {
-            $user = new Product($id, $name, $price, $category, $image);
+            $name = $_POST['name'];
+            $price = $_POST['price'];
+            $category = $_POST['category'];
+            $image = $_POST['image'];
+            $user = new Product('', $name, $price, $category, $image);
             $user->addProduct();
+        }
+        
+        if ($_POST["action"] == "getProductsWithCategory") {
+            $helper = new Helper(); 
+            $category = $_POST['category'];
+            $products = $helper->showProductsWithCategory($category);
+            header('Content-type: application/json');
+            echo json_encode($products);  
         }
     }
 

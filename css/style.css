@@ -132,3 +132,8 @@ footer {
   .column {
     max-width: 450px!important;
   }
+
+  .resultsDiv {
+      background: white;
+      text-align: initial;
+  }
