@@ -16,6 +16,7 @@ try {
         }
         if($_POST["action"] == "loginUser") {            
             // Later: Match with database and authenticate
+            $pass = password_verify($_POST['password'], o);
             $user->login();
         }
     }

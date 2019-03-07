@@ -46,11 +46,10 @@ class User {
             $userExists = $statement->fetch(PDO::FETCH_ASSOC);
             
             if($userExists['num'] > 0) {
-                $sql = "SELECT Email, Password FROM Account WHERE Email = :email AND Password = :pass";
+                $sql = "SELECT Password FROM Account WHERE Email = :email";
                 $statement = $this->connection->prepare($sql);
 
                 $statement->bindParam(':email', $this->email);
-                $statement->bindParam(':pass', $this->password);
                 $statement->execute();
             }
         } catch (EXCEPTION $err) {
