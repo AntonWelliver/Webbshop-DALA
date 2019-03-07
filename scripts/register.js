@@ -6,12 +6,14 @@ function registerUser(event, fields) {
         data:{action: "registerUser", email: fields.email, password: fields.password},
         success: function(data){ 
             if(data.status == 'error'){
-                alert(data.message);
+                $( ".emailExists" ).html(data.failMessage);
+                event.preventDefault();
             }else {
-                alert("Du har skapat konto");
+                alert("Grattis, du har skapat ett konto");
             }
         }
      });
+     
 }
 
 

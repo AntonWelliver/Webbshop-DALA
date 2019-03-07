@@ -25,10 +25,10 @@ class User {
             $emailExists = $statement->fetch(PDO::FETCH_ASSOC);
 
             if($emailExists['num'] > 0) {
-                $response_array['status'] = 'error'; 
-                $response_array['message'] = 'Det finns redan ett konto med denna email!'; 
+                $response_error['status'] = 'error'; 
+                $response_error['failMessage'] = 'Det finns redan ett konto med denna email!'; 
                 header('Content-type: application/json');
-                echo json_encode($response_array);  
+                echo json_encode($response_error);  
             } else {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Email, Password) VALUES (:email, :pass)");
@@ -43,11 +43,16 @@ class User {
 
     function login() {
         try {
-            $statement = $this->connection->prepare("SELECT Email, Password FROM Account VALUES (:email, :pass");
+            $userExists = $statement->fetch(PDO::FETCH_ASSOC);
+            
+            if($userExists['num'] > 0) {
+                $sql = "SELECT Email, Password FROM Account WHERE Email = :email AND Password = :pass";
+                $statement = $this->connection->prepare($sql);
 
-            $statement->bindParam(':email', $this->email);
-            $statement->bindParam(':pass', $this->password);
-            $statement->execute();
+                $statement->bindParam(':email', $this->email);
+                $statement->bindParam(':pass', $this->password);
+                $statement->execute();
+            }
         } catch (EXCEPTION $err) {
             throw new Exception($err);
         }

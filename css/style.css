@@ -69,6 +69,12 @@ body {
     padding: 2em;
 }
 
+/* Email exists text display red */
+
+.emailExists {
+    color: red;
+}
+
 /* Footer */
 
 footer {

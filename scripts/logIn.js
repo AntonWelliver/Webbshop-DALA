@@ -1,4 +1,5 @@
 /* Click function for log-in form and close out line */
+
 $(function(){
     $("#logIn").click(function(){
       $(".test").modal('show');
@@ -7,21 +8,20 @@ $(function(){
       closable: true
     });
   });
-/*   Function for login looking in userHandler for matching */
-  $(document).ready(function(){
-    $("#buttonLog").click(function(){
-        var name = $("#email").val();
-        var password = $("#password").val();
-        console.log(password,name);
-        $.ajax({   
-            type: "POST",
-            url: "api/handlers/userHandler.php",
-            data:{requestType: "logInUser", email: name, password: password},
-            success: function(result){ 
-                console.log(result);
-            }
-        });
 
-    });
+  
+/*   Function for login looking in userHandler for matching */
+function loginUser(event, fields) {
+  console.log("halu", fields.email, fields.password)
+    event.preventDefault();
+      $.ajax({   
+        type: "POST",
+        url: "api/handlers/userHandler.php",
+        data:{action: "loginUser", email: fields.email, password: fields.password},
+        success: function(data){ 
+            console.log(data);
+        }
+      });
+
+};
        
-});
