@@ -18,6 +18,7 @@
     <script src="scripts/logIn.js"></script>
     <script src="scripts/newsLetter.js"></script>
     <script src="scripts/formValidation.js"></script>
+    <script src="scripts/homepage.js"></script>
     <!-- Accept cookies -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
 
@@ -56,11 +57,11 @@
 
     <div class="ui pushable segment">
         <div class="ui fixed sidebar thin vertical menu">
-            <a class="item">Frukt <i class="angle right icon"></i></a>
-            <a class="item">Grönsaker <i class="angle right icon"></i></a>
-            <a class="item">Kött & fisk <i class="angle right icon"></i></a>
-            <a class="item">Mejeri & Ost <i class="angle right icon"></i></a>
-            <a class="item">Dryck <i class="angle right icon"></i></a>
+            <a class="item" id="fruit">Frukt <i class="angle right icon"></i></a>
+            <a class="item" id="vegetables">Grönsaker <i class="angle right icon"></i></a>
+            <a class="item" id="meat">Kött & fisk <i class="angle right icon"></i></a>
+            <a class="item" id="dairy">Mejeri & Ost <i class="angle right icon"></i></a>
+            <a class="item" id="drinks">Dryck <i class="angle right icon"></i></a>
         </div>
 
         <div class="pusher">
