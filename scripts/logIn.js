@@ -19,12 +19,14 @@ function loginUser(event, fields) {
         data:{action: "loginUser", email: fields.email, password: fields.password},
         success: function(data){ 
           console.log(data);
-          if(data.status == 'pass is valid'){
+          /* if(data.status == 'pass is valid'){
             alert(data.status);
-        }else {
-            alert(data.status);
-            event.preventDefault();
-        }
+          } else {
+              alert(data.status);
+              event.preventDefault();
+          } */
+        }, error: (err) => {
+          console.log("err", err)
         }
       });
 
