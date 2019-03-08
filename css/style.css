@@ -79,11 +79,13 @@ body {
 .fields.adress{
     width: 138%;
 }
+
 @media screen and (max-width: 766px) {
     .fields.adress {
       width: 100%;
     }
   }
+
 
 
 
