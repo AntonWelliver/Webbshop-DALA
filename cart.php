@@ -61,29 +61,19 @@
                         <label>Name</label>
                         <div class="two fields">
                             <div class="field">
-
                                 <input type="text" id="firstname" name="shipping[first-name]" placeholder="First Name">
                             </div>
                                 <div class="field">
                                     <input type="text" id="lastname" name="shipping[last-name]" placeholder="Last Name">
-
-                                <input type="text" name="shipping[first-name]" placeholder="First Name">
-                            </div>
-                                <div class="field">
-                                    <input type="text" name="shipping[last-name]" placeholder="Last Name
                                 </div>
-                        </div>
+                            
                     </div>
 
                 <div class="field">
                     <label>Billing Address</label>
                         <div class="fields adress">
                             <div class="twelve wide field">
-
                                 <input type="text" id="billing" name="shipping[address]" placeholder="Street Address">
-
-                                <input type="text" name="shipping[address]" placeholder="Street Address">
-
                             </div>
                         </div>
                 </div>
@@ -110,29 +100,16 @@
                    
                     </div>
         </div>
-        <div class="field">
-                    <label>Email Address</label>
-                        <div class="fields adress">
-                            <div class="twelve wide field">
-                                <input type="text" id="emailAd" name="shipping[email-address]" placeholder="Email Address">
-                            </div>
-                        </div>
-                </div>
-
-                        <select class="ui fluid dropdown">
-                            <option value="">Stad</option>
-                            <option value="AL">Göteborg</option>
-                        </select>      
-                </div>
             <div class="field">
-                <label>Country</label>
-                    <select class="ui fluid dropdown">
-                        <option value="">Land</option>
-                        <option value="AL">Sverige</option>
-                    </select>
-                   
+                <label>Email Address</label>
+                    <div class="fields adress">
+                        <div class="twelve wide field">
+                            <input type="text" id="emailAd" name="shipping[email-address]" placeholder="Email Address">
+                        </div>
+                    </div>
             </div>
-        </div>
+
+        
 
             <div>
                 <input type="submit" id="shipping" name="shipping" value="Adress sign" class="ui submit green button">
@@ -150,12 +127,9 @@
                 <a class="item">Leveransvillkor</a>
                 <a class="item">Integritetspolicy</a>
 
-                <a class="login-button" href="index.php" id="logIn"><i></i>Logga in</a>
-                
-
-
-
+                <a class="login-button" href="index.php" id="logIn"><i></i>Logga in</a>   
             </div>
+
             <div class="footer-images">
                 <!-- <img class="payment-method" src="assets/klarna.png">
                 <img class="payment-method" src="assets/payment-cards.png">
