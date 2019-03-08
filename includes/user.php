@@ -2,26 +2,21 @@
 require_once('../../includes/database.php');
 
 class User {
-    public $username;
-    public $email;
-    public $password;
     private $connection;
     private $database;
 
-    function __construct($username, $email, $password) {
+    function __construct() {
         $this->database = new Database();
         $this->connection = $this->database->connect();
-        $this->username = $username;
-        $this->email = $email;
-        $this->password = $password;
+        
     }
 
 
-    function register() {
+    function register($username, $email, $password) {
         try {
             $sql = "SELECT COUNT(Email) AS num FROM account WHERE Email = :email";
             $statement = $this->connection->prepare($sql);
-            $statement->bindParam(':email', $this->email);
+            $statement->bindParam(':email', $email);
             $statement->execute();
 
             $emailExists = $statement->fetch(PDO::FETCH_ASSOC);
@@ -34,9 +29,9 @@ class User {
             } else {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Username, Email, Password) VALUES ( :username, :email, :pass)");
-                $statement->bindParam(':username', $this->username);
-                $statement->bindParam(':email', $this->email);
-                $statement->bindParam(':pass', $this->password);
+                $statement->bindParam(':username', $username);
+                $statement->bindParam(':email', $email);
+                $statement->bindParam(':pass', $password);
                 $statement->execute();
             }
         } catch (EXCEPTION $err) {
@@ -44,19 +39,38 @@ class User {
         }
     }
 
-    function login() {
+    function login($email, $password) {
         try {
-            $userExists = $statement->fetch(PDO::FETCH_ASSOC);
-            
-            if($userExists['num'] > 0) {
-                $sql = "SELECT Password FROM Account WHERE Email = :email";
-                $statement = $this->connection->prepare($sql);
+            if(empty($email) || empty($password)) {  
+                return json_encode("Wrong password");
+            } 
 
-                $statement->bindParam(':email', $this->email);
-                $statement->execute();
+            $sql = "SELECT COUNT(Email) as num, Password FROM account WHERE Email = :email";
+            $statement = $this->connection->prepare($sql);
+            $statement->bindParam(':email', $email);
+            $statement->execute();
+
+            $fetchPass = $statement->fetch(PDO::FETCH_ASSOC);
+ 
+            // If account (email) exists
+            if($fetchPass['num'] > 0) {  
+                // verify hashed password with input
+                if (password_verify($_POST["password"], $fetchPass["Password"])){
+                    header('Content-type: application/json');
+                    return json_encode(array("status"=>"success")); 
+                } else {
+                    $message['status'] = 'password is not valid'; 
+                    header('Content-type: application/json');
+                    return json_encode($message); 
+                }
+
+            } else {
+                echo json_encode("Nått gick fel!");
             }
+
+         
         } catch (EXCEPTION $err) {
-            throw new Exception($err);
+            throw $err;
         }
     }
 }

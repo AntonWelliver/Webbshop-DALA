@@ -17,7 +17,7 @@
     <script src="scripts/script.js"></script>
     <script src="scripts/logIn.js"></script>
     <script src="scripts/newsLetter.js"></script>
-    <script src="scripts/formValidation.js"></script>
+    <script src="scripts/loginValidation.js"></script>
     <script src="scripts/homepage.js"></script>
     <!-- Accept cookies -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
@@ -90,14 +90,8 @@
                </h2>
 
                             <!--     Form with email and password with placeholder and style for log-in-->
-                            <form class="ui large form login-form">
+                            <form class="ui large form login-form" method="POST">
                                 <div class="ui segment">
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="user icon"></i>
-                                            <input type="text" name="email" id="username" placeholder="Username">
-                                        </div>
-                                    </div>
                                     <div class="field">
                                         <div class="ui left icon input">
                                             <i class="user icon"></i>
