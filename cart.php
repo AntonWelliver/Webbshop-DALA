@@ -15,6 +15,10 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
+
+    <script src="scripts/customer.js"></script>
+
+
     <script src="scripts/logIn.js"></script>
     <script src="scripts/newsLetter.js"></script>
     <script src="scripts/formValidation.js"></script>
@@ -47,16 +51,26 @@
         <div class="pusher">
 <!-- Shipping adress -->
 <div class="ui grid shipping-container">
+
+    <form class="ui form" method="POST">
+
     <form class="ui form">
+
                 <h4 class="ui dividing header">Shipping Information</h4>
                     <div class="field">
                         <label>Name</label>
                         <div class="two fields">
                             <div class="field">
+
+                                <input type="text" id="firstname" name="shipping[first-name]" placeholder="First Name">
+                            </div>
+                                <div class="field">
+                                    <input type="text" id="lastname" name="shipping[last-name]" placeholder="Last Name">
+
                                 <input type="text" name="shipping[first-name]" placeholder="First Name">
                             </div>
                                 <div class="field">
-                                    <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                                    <input type="text" name="shipping[last-name]" placeholder="Last Name
                                 </div>
                         </div>
                     </div>
@@ -65,7 +79,11 @@
                     <label>Billing Address</label>
                         <div class="fields adress">
                             <div class="twelve wide field">
+
+                                <input type="text" id="billing" name="shipping[address]" placeholder="Street Address">
+
                                 <input type="text" name="shipping[address]" placeholder="Street Address">
+
                             </div>
                         </div>
                 </div>
@@ -73,6 +91,34 @@
         <div class="two fields">
                 <div class="field">
                     <label>State</label>
+
+                        <select class="ui fluid dropdown" id="city">
+                            <option value="">Stad</option>
+                            <option value="Göteborg">Göteborg</option>
+                            <option value="Lerum">Lerum</option>
+                            <option value="Partille">Partille</option>
+                            <option value="Mölndal">Mölndal</option>
+                            <option value="Alingsås">Alingsås</option>
+                        </select>      
+                </div>
+                    <div class="field">
+                            <label>PhoneNumber</label>
+                                <div class="field">
+                                    <label></label>
+                                    <input type="text" id="phoneNr" name="shipping[phoneNr]" placeholder="Number">
+                                </div>
+                   
+                    </div>
+        </div>
+        <div class="field">
+                    <label>Email Address</label>
+                        <div class="fields adress">
+                            <div class="twelve wide field">
+                                <input type="text" id="emailAd" name="shipping[email-address]" placeholder="Email Address">
+                            </div>
+                        </div>
+                </div>
+
                         <select class="ui fluid dropdown">
                             <option value="">Stad</option>
                             <option value="AL">Göteborg</option>
@@ -87,6 +133,7 @@
                    
             </div>
         </div>
+
             <div>
                 <input type="submit" id="shipping" name="shipping" value="Adress sign" class="ui submit green button">
             </div>
@@ -102,6 +149,11 @@
                 <a class="item">Vanliga frågor</a>
                 <a class="item">Leveransvillkor</a>
                 <a class="item">Integritetspolicy</a>
+
+                <a class="login-button" href="index.php" id="logIn"><i></i>Logga in</a>
+                
+
+
 
             </div>
             <div class="footer-images">
