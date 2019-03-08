@@ -139,3 +139,13 @@ footer {
       background: white;
       text-align: initial;
   }
+
+  .productImage {
+      width: 10rem;
+      margin: 0 auto;
+  }
+
+  .singleProduct {
+    margin-top: 2em !important;
+    margin-left: 2em !important;
+  }

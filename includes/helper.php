@@ -12,13 +12,19 @@ class Helper {
     }
 
     function showProductsWithCategory($category) {
-        $sql = "SELECT * FROM product WHERE Category = :category";
-        $statement = $this->connection->prepare($sql);
-        $statement->bindParam(':category', $category);
-        $statement->execute();
-        $res = $statement->fetchAll();
-        /* $res = $statement->fetch(PDO::FETCH_OBJ); */
-        return $res;
+        try {
+            // PDO gillar inte åäö, måste lägga till UTF8-standard
+            $sql = "SELECT * FROM product WHERE Category = :category";
+            $statement = $this->connection->prepare($sql);
+            $statement->bindParam(':category', $category);
+            $statement->execute();
+            $res = $statement->fetchAll();
+            /* $res = $statement->fetch(PDO::FETCH_OBJ); */
+            return $res;
+           /*  return $res; */
+        } catch (Exeption $e) {
+            throw $e;
+        }
     }
 
     function showSubscribers() {
