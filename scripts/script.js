@@ -34,7 +34,4 @@ $(document).ready(function(){
         $('.ui.sidebar').addClass("visible");
         $('.ui.sidebar').addClass("left");
     }
-
-   
 });
-  
