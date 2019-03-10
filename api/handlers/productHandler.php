@@ -9,7 +9,7 @@ try {
             $price = $_POST['price'];
             $category = $_POST['category'];
             $image = $_POST['image'];
-            $user = new Product('', $name, $price, $category, $image);
+            $user = new Product($name, $price, $category, $image);
             $user->addProduct();
         }
         
