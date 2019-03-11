@@ -28,17 +28,16 @@ function loginUser(event, fields) {
         }
       });
 };
-$( document ).ready(function() {
+$(document).ready(function() {
   $("#logOut").click(function() {
-      console.log("logga ut");
         $.ajax({
             type: "POST",
             url: "api/handlers/userHandler.php",
             data: {action: "logout" },
             success: function(data){
-              console.log(data);
                 if (data = "success") {
-                  window.location.href = "index.php";
+                    console.log(data);
+                    window.location.href = "index.php";
                 }
             }
         });

@@ -29,9 +29,9 @@ try {
             }
 
             if ($_POST["action"] == 'logout') {   
+                return "success";
                 unset($_SESSION["user"]);
                 session_destroy();
-                echo "success";
             }
         }
     }

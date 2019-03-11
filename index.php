@@ -1,6 +1,3 @@
-<?php 
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,9 +51,11 @@
                     
                     <div class="borderless align right item">
                         <?php
+                            session_start();
                             if (isset($_SESSION["user"])) {
                                 echo "Hej", " ", $_SESSION["user"], "!";
-                            }
+                            } 
+                            
                         ?>
                         <?php 
                             if (isset($_SESSION['user']) && !empty($_SESSION['user']))
