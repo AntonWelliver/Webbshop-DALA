@@ -12,8 +12,8 @@ Klicka [här](https://antonwelliver.github.io/Webbshop-DALA/)!
 
 Kravspecifikation:
 
-• Alla sidor skall vara responsiva. (G)
-• Arbetet ska implementeras med objektorienterade principer. (G)
+- [ ] • Alla sidor skall vara responsiva. (G)
+- [ ] • Arbetet ska implementeras med objektorienterade principer. (G)
 • Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
 • Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 • All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
