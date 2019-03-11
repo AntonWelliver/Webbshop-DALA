@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("#fruit").click(function() {
+        showProductsHeader("Frukt");
         $.ajax({
             type: "POST",
             url:"api/handlers/productHandler.php",
@@ -12,6 +13,7 @@ $(document).ready(function(){
         });
     });
     $("#vegetables").click(function() {
+        showProductsHeader("Grönsaker");
         $.ajax({
             async: false,
             type: "POST",
@@ -23,28 +25,31 @@ $(document).ready(function(){
         });
     });
     $("#meat").click(function() {
+        showProductsHeader("Kött & fisk");
         $.ajax({
             async: false,
             type: "POST",
             url:"api/handlers/productHandler.php",
-            data:{action: "getProductsWithCategory", category: 'Kött'},
+            data:{action: "getProductsWithCategory", category: 'Kött & fisk'},
             success: function(data){
                 showProducts(data, 'kött');
             }
         });
     });
     $("#dairy").click(function() {
+        showProductsHeader("Mejeri & Ost");
         $.ajax({
             async: false,
             type: "POST",
             url:"api/handlers/productHandler.php",
-            data:{action: "getProductsWithCategory", category: 'Mejeri'},
+            data:{action: "getProductsWithCategory", category: 'Mejeri & Ost'},
             success: function(data){
                 showProducts(data, 'mejeri');
             }
         });
     });
     $("#drinks").click(function() {
+        showProductsHeader("Dryck");
         $.ajax({
             async: false,
             type: "POST",
@@ -56,6 +61,12 @@ $(document).ready(function(){
         });
     });
 });
+
+function showProductsHeader(category){
+    var categoryName = document.getElementById("categoryName");
+    categoryName.innerHTML = "<h1>" + category + "</h1>";
+    console.log(category);
+}
 
 function showProducts(data, imgFilePath) {
     $(".productOuterDiv").remove();
