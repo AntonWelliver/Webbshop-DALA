@@ -2,7 +2,7 @@
 require_once('../../includes/order.php');
 
 
-require_once('../../includes/helper.php');
+require_once('../../includes/helper.php'); // Delete this, we don't use it
 
 
 try {
