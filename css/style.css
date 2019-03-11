@@ -94,6 +94,10 @@ body {
     color: red;
 }
 
+#categoryName {
+    text-align: center;
+}
+
 /* Footer */
 
 footer {
