@@ -85,7 +85,7 @@ function showProducts(data) {
     var imgFilePath = "";
     $(".productOuterDiv").remove();
     var wrapper = document.createElement("div");
-    wrapper.classList.add("ui", "stackable", "two", "column", "grid", "productOuterDiv");
+    wrapper.classList.add("productOuterDiv");
     for (var i = 0; i < data.length; i++) {
         switch(data[i]["Category"]) {
             case "Frukt":
@@ -118,7 +118,7 @@ function showProducts(data) {
         image.classList.add("productImage");
         card.appendChild(image);
         // titel
-        var title = document.createElement("h1");
+        var title = document.createElement("h4");
         title.innerHTML = name;
         card.appendChild(title);
         // pris
