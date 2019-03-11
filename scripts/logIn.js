@@ -16,19 +16,32 @@ function loginUser(event, fields) {
       $.ajax({   
         type: "POST",
         url: "api/handlers/userHandler.php",
-        data:{action: "loginUser", email: fields.email, password: fields.password},
-        success: function(data){ 
-          console.log(data);
-          /* if(data.status == 'pass is valid'){
-            alert(data.status);
+        data:{action: "loginUser", username: fields.username, password: fields.password},
+        success: function(data){
+          $('.error-message').html(data); 
+          
+          /* if (data = "success") {
+            alert("Du har loggat in");
           } else {
-              alert(data.status);
-              event.preventDefault();
+            window.location.href = 'register.php';
           } */
-        }, error: (err) => {
-          console.log("err", err)
         }
       });
-
 };
+
+ /* $("#logOut").click(function() {
+    console.log("logga ut");
+      $.ajax({
+          type: "POST",
+          url: "api/handlers/userHandler.php",
+          data: { action = "logout" },
+          success: function(data){
+              if (data = "success") {
+                window.location.href = "index.php";
+              }
+          }
+      });
+    }); */
+ 
+
        
