@@ -13,7 +13,6 @@ class Helper {
 
     function showProductsWithCategory($category) {
         try {
-            // PDO gillar inte åäö, måste lägga till UTF8-standard
             $sql = "SELECT * FROM product WHERE Category = :category";
             $statement = $this->connection->prepare($sql);
             $statement->bindParam(':category', $category);
@@ -21,7 +20,17 @@ class Helper {
             $res = $statement->fetchAll();
             /* $res = $statement->fetch(PDO::FETCH_OBJ); */
             return $res;
-           /*  return $res; */
+        } catch (Exeption $e) {
+            throw $e;
+        }
+    }
+    function showProducts() {
+        try {
+            $sql = "SELECT * FROM product";
+            $statement = $this->connection->prepare($sql);
+            $statement->execute();
+            $res = $statement->fetchAll();
+            return $res;
         } catch (Exeption $e) {
             throw $e;
         }
