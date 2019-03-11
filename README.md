@@ -11,6 +11,7 @@ Idea for Webshop: A webshop for food delivery to the door. The food can be divid
 Klicka [här](https://antonwelliver.github.io/Webbshop-DALA/)!
 
 Kravspecifikation:
+
 • Alla sidor skall vara responsiva. (G)
 • Arbetet ska implementeras med objektorienterade principer. (G)
 • Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
