@@ -20,6 +20,13 @@ try {
             header('Content-type: application/json');
             echo json_encode($products);  
         }
+
+        if ($_POST["action"] == "getAllProducts") {
+            $helper = new Helper(); 
+            $products = $helper->showProducts();
+            header('Content-type: application/json');
+            echo json_encode($products);  
+        }
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
