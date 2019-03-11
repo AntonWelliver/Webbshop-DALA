@@ -30,7 +30,6 @@ $(document).ready(function(){
             }
         })
     })
-})
     $.ajax({
         type: "POST",
         url:"api/handlers/orderHandler.php",
