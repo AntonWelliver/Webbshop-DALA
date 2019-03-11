@@ -24,9 +24,6 @@ body {
     color: #fff!important;
 }
 
-#footer-links .item {
-    color: rgb(228, 228, 228);
-}
 
 /* Logotype */
 
@@ -80,6 +77,7 @@ body {
     width: 138%;
 }
 
+/* Mobile */
 @media screen and (max-width: 766px) {
     .fields.adress {
       width: 100%;
@@ -102,6 +100,14 @@ footer {
     background-color: rgb(13, 120, 17);
     text-align: center;
 }
+
+#footer-links {
+    padding-top: 2em;
+}
+#footer-links .item {
+    color: rgb(228, 228, 228);
+}
+
 .footerbot{
     position: fixed; bottom: 0;
     width: 100%;
@@ -124,12 +130,15 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+/* Whole body */
 .body-container {
     background-color: #DADADA!important;
     height: 100vh;
- padding-top: 10em;
+    padding-top: 10em;
  
   }
+
 
   .column {
     max-width: 450px!important;
