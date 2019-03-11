@@ -3,12 +3,12 @@ $(document).ready(function() {
     $('.login-form')
     .form({
       fields: {
-        email: {
-          identifier  : 'email',
+        username: {
+          identifier  : 'username',
           rules: [
             {
               type   : 'empty',
-              prompt : 'Please enter your e-mail'
+              prompt : 'Please enter your username'
             },
           ]
         },

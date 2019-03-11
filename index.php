@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +27,8 @@
 
 </head>
 
+
+
 <body>
     <header>
         <div class="ui grid">
@@ -35,7 +40,6 @@
                     <a class="logo" href="#">DALAMAT</a>
                     <div class="ui computer only grid">
                         <div class="borderless item">
-
                             <div class="ui icon input">
                                 <input class="prompt" type="text" placeholder="Vad letar du efter?">
                                 <i class="search icon"></i>
@@ -44,7 +48,18 @@
 
                     </div>
                     <div class="borderless align right item">
-                        <a class="login-button" id="logIn"><i class="user icon"></i>Logga in</a>
+                        <?php 
+                            if (isset($_SESSION['user']) && !empty($_SESSION['user']))
+                            {
+                        ?>
+                            <a class="login-button" id="logIn"><i class="user icon"></i>Logga ut</a>
+                        <?php 
+                            } else{ 
+                        ?>
+                            <a class="login-button" id="logIn"><i class="user icon"></i>Logga in</a>
+                        <?php 
+                            } 
+                        ?>
                         <!-- <a class="ui button primary""login-button" id="test"> Login </a> -->
                         <a class="ui button cart-button" href="cart.php"><i class="shopping cart icon"></i>0</a>
                     </div>
@@ -65,9 +80,10 @@
         </div>
 
         <div class="pusher">
+        
         <!-- NYHETSBREV -->
         <div class="ui grid nyhetsbrev-container">
-        <div class="ui form ">
+        <div class="ui form">
             <div class="field">
                 <label>Anmäl dig för nyhetsbrev</label>
                 <input type="text" id="username" placeholder="Username">
@@ -90,12 +106,12 @@
                </h2>
 
                             <!--     Form with email and password with placeholder and style for log-in-->
-                            <form class="ui large form login-form" method="POST">
+                            <form class="ui large form login-form" method="POST" data-ajax="false">
                                 <div class="ui segment">
                                     <div class="field">
                                         <div class="ui left icon input">
                                             <i class="user icon"></i>
-                                            <input type="text" name="email" id="email" placeholder="E-mail address">
+                                            <input type="text" name="username" id="username" placeholder="Användarnamn">
                                         </div>
                                     </div>
                                     <div class="field">
@@ -111,6 +127,7 @@
                                 </div>
                     
                                 <div class="ui error message"></div>
+                                <div class="error-message"></div>
                             </form>
                             <!-- Redirect too register.php with message -->
                             <div class="ui message">
@@ -124,10 +141,15 @@
         </div>
 
         <footer>
+        <?php
+                                if (isset($_SESSION["user"])) {
+                                    echo json_encode($_SESSION["user"]);
+                                }
+                            ?>
             <div class="ui list" id="footer-links">
-                <a class="item">Vanliga frågor</a>
-                <a class="item">Leveransvillkor</a>
-                <a class="item">Integritetspolicy</a>
+                <a href="#vanligafrågor" class="item">Vanliga frågor</a>
+                <a href="#leveransvillkor" class="item">Leveransvillkor</a>
+                <a href="#policy" class="item">Integritetspolicy</a>
 
             </div>
             <div class="footer-images">

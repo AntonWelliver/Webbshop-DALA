@@ -1,5 +1,5 @@
 <?php
-require_once('../../includes/database.php');
+require_once('database.php');
 
 class User {
     private $connection;
@@ -22,10 +22,10 @@ class User {
             $emailExists = $statement->fetch(PDO::FETCH_ASSOC);
 
             if($emailExists['num'] > 0) {
-                $response_error['status'] = 'error'; 
-                $response_error['failMessage'] = 'Det finns redan ett konto med denna email!'; 
+                $message['status'] = 'error'; 
+                $message['failMessage'] = 'Det finns redan ett konto med denna email!'; 
                 header('Content-type: application/json');
-                echo json_encode($response_error);  
+                echo json_encode($message);  
             } else {
                 // save user with prepare statenents
                 $statement = $this->connection->prepare("INSERT INTO account (Username, Email, Password) VALUES ( :username, :email, :pass)");
@@ -39,40 +39,43 @@ class User {
         }
     }
 
-    function login($email, $password) {
+    function login($username, $password) {
         try {
-            if(empty($email) || empty($password)) {  
-                return json_encode("Wrong password");
-            } 
-
-            $sql = "SELECT COUNT(Email) as num, Password FROM account WHERE Email = :email";
+            $sql = "SELECT COUNT(Username) as num, Password FROM account WHERE Username = :username";
             $statement = $this->connection->prepare($sql);
-            $statement->bindParam(':email', $email);
+            $statement->bindParam(':username', $username);
             $statement->execute();
 
             $fetchPass = $statement->fetch(PDO::FETCH_ASSOC);
- 
+
+            header('Content-type: application/json');
+
+            $error = '';
+            
+
             // If account (email) exists
-            if($fetchPass['num'] > 0) {  
-                // verify hashed password with input
-                if (password_verify($_POST["password"], $fetchPass["Password"])){
-                    header('Content-type: application/json');
-                    return json_encode(array("status"=>"success")); 
+            if ($fetchPass['num'] > 0) {  
+                // If password match
+                if (password_verify($_POST["password"], $fetchPass["Password"])) {
+                    $_SESSION["user"] = $username;  
+                    $error = json_encode("success");
                 } else {
-                    $message['status'] = 'password is not valid'; 
-                    header('Content-type: application/json');
-                    return json_encode($message); 
+                    // If password doesn't match
+                    $error = json_encode("Lösenord matchar inte");
                 }
 
             } else {
-                echo json_encode("Nått gick fel!");
+                // If email doesn't exist
+                $error = json_encode("Email finns inte"); 
             }
 
+            echo $error;
          
         } catch (EXCEPTION $err) {
             throw $err;
         }
     }
+
 }
 
 ?>
