@@ -68,21 +68,25 @@
         </div>
 
     </header>
-    <div class="placeholder-under-menu"></div>
+        <div class="placeholder-under-menu"></div>
 
 
-    <div class="ui pushable segment">
-        <div class="ui fixed sidebar thin vertical menu">
-            <a class="item" id="fruit">Frukt <i class="angle right icon"></i></a>
-            <a class="item" id="vegetables">Grönsaker <i class="angle right icon"></i></a>
-            <a class="item" id="meat">Kött & fisk <i class="angle right icon"></i></a>
-            <a class="item" id="dairy">Mejeri & Ost <i class="angle right icon"></i></a>
-            <a class="item" id="drinks">Dryck <i class="angle right icon"></i></a>
+        <div class="ui pushable segment">
+            <div class="ui fixed sidebar thin vertical menu">
+                <a class="item" id="fruit">Frukt <i class="angle right icon"></i></a>
+                <a class="item" id="vegetables">Grönsaker <i class="angle right icon"></i></a>
+                <a class="item" id="meat">Kött & fisk <i class="angle right icon"></i></a>
+                <a class="item" id="dairy">Mejeri & Ost <i class="angle right icon"></i></a>
+                <a class="item" id="drinks">Dryck <i class="angle right icon"></i></a>
+            </div>
+            
+        <div id="foodBackgroundImage">
+                
         </div>
 
-    <div id="categoryName">
-        
-    </div>
+        <div id="categoryName">
+            
+        </div>
 
         <div class="pusher">
         
@@ -145,7 +149,7 @@
             </div>
         </div>
 
-        <footer>
+    <footer>
         <?php
                                 if (isset($_SESSION["user"])) {
                                     echo json_encode($_SESSION["user"]);
@@ -168,7 +172,7 @@
                 <img class="payment-method" src="assets/payment-method.png">
 
             </div>
-        </footer>
+    </footer>
 </body>
 
 </html>

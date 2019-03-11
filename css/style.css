@@ -98,6 +98,13 @@ body {
     text-align: center;
 }
 
+#foodBackgroundImage {
+    background-image: url("../productImages/matvaror.jpg");
+    height: 15em;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* Footer */
 
 footer {
