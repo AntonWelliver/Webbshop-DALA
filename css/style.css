@@ -82,13 +82,12 @@ body {
     .fields.adress {
       width: 100%;
     }
-  }
+    .productOuterDiv {
+        justify-content: center;
+    }
 .ui.radio.checkbox{
     margin: 1em!important;
 }
-
-
-
 
 /* Email exists text display red */
 
@@ -121,6 +120,7 @@ footer {
     color: rgb(228, 228, 228);
 }
 
+
 .footerbot{   
     position: fixed; bottom: 0;
     width: 100%;
@@ -131,6 +131,7 @@ footer {
       position: static; bottom: 0;
     }
   }
+
 
 .trygg-logo {
     width: 4em;
@@ -172,8 +173,27 @@ footer {
       width: 10rem;
       margin: 0 auto;
   }
-
+  
   .singleProduct {
-    margin-top: 2em !important;
-    margin-left: 2em !important;
+      margin-left: 1em!important;
+        margin-top: 1em!important;
+        padding-top: 1em!important;
   }
+
+  .productOuterDiv {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .productOuterDiv h4 {
+    padding-left: 0.3em;
+}
+  .productOuterDiv input {
+    padding-left: 0.5em;
+}
+  .productOuterDiv span {
+    padding-left: 0.5em;
+}
+  .productOuterDiv img {
+    height: 10em;
+}

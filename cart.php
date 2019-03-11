@@ -47,14 +47,13 @@
                 </div>
             </div>
         </div>
+        </header>
         <div class="placeholder-under-menu"></div>
         <div class="pusher">
 <!-- Shipping adress -->
 <div class="ui grid shipping-container">
 
     <form class="ui form" method="POST">
-
-    <form class="ui form">
 
                 <h4 class="ui dividing header">Shipping Information</h4>
                     <div class="field">
@@ -126,9 +125,9 @@
     </form>
 </div>
         </div>
-    </header>
-
-    <div class="placeholder-under-menu"></div>
+    
+lkkl
+    <div class="placeholder-under-cart">öklklökllkölkö</div>
 <footer class="footerbot">
             <div class="ui list" id="footer-links">
                 <a class="item">Vanliga frågor</a>
