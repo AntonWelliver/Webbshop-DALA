@@ -121,10 +121,16 @@ footer {
     color: rgb(228, 228, 228);
 }
 
-.footerbot{
+.footerbot{   
     position: fixed; bottom: 0;
     width: 100%;
 }
+@media screen and (max-width: 766px) {
+    .footerbot {
+      width: 100%;
+      position: static; bottom: 0;
+    }
+  }
 
 .trygg-logo {
     width: 4em;
