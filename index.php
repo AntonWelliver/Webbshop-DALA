@@ -18,7 +18,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
-    <script src="scripts/logIn.js"></script>
+    <script src="scripts/loginHandler.js"></script>
     <script src="scripts/newsLetter.js"></script>
     <script src="scripts/loginValidation.js"></script>
     <script src="scripts/homepage.js"></script>
@@ -34,25 +34,35 @@
         <div class="ui grid">
             <div class="column">
                 <div class="ui fixed menu">
+                
                     <div class="ui container mobile tablet only grid hamburger-container">
                         <i class="bars icon" onclick="showSidebar()" id="mobile-item"></i>
                     </div>
                     <a class="logo" href="#">DALAMAT</a>
                     <div class="ui computer only grid">
+    
                         <div class="borderless item">
+                        
                             <div class="ui icon input">
                                 <input class="prompt" type="text" placeholder="Vad letar du efter?">
                                 <i class="search icon"></i>
                             </div>
+                            
                         </div>
-
+                        
                     </div>
+                    
                     <div class="borderless align right item">
+                        <?php
+                            if (isset($_SESSION["user"])) {
+                                echo "Hej", " ", $_SESSION["user"], "!";
+                            }
+                        ?>
                         <?php 
                             if (isset($_SESSION['user']) && !empty($_SESSION['user']))
                             {
                         ?>
-                            <a class="login-button" id="logIn"><i class="user icon"></i>Logga ut</a>
+                            <a class="login-button" id="logOut"><i class="user icon"></i>Logga ut</a>
                         <?php 
                             } else{ 
                         ?>
@@ -141,11 +151,7 @@
         </div>
 
         <footer>
-        <?php
-                                if (isset($_SESSION["user"])) {
-                                    echo json_encode($_SESSION["user"]);
-                                }
-                            ?>
+        
             <div class="ui list" id="footer-links">
                 <a href="#vanligafrågor" class="item">Vanliga frågor</a>
                 <a href="#leveransvillkor" class="item">Leveransvillkor</a>
