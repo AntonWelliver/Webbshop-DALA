@@ -98,7 +98,7 @@
                                 </div>
                    
                     </div>
-        </div>
+                </div>
             <div class="field">
                 <label>Email Address</label>
                     <div class="fields adress">
@@ -107,7 +107,15 @@
                         </div>
                     </div>
             </div>
-
+            <label>Fraktalternativ</label>
+            <div class="ui radio checkbox">
+                <input id="shippingOptions1" type="radio" name="radio" checked="checked">
+                <label id="text1"></label>
+            </div>      
+            <div class="ui radio checkbox">
+                <input id="shippingOptions2" type="radio" name="radio" checked="checked">
+                <label id="text2"></label>
+            </div>      
         
 
             <div>

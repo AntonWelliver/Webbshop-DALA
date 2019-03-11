@@ -82,14 +82,12 @@ body {
     .fields.adress {
       width: 100%;
     }
-
     .productOuterDiv {
         justify-content: center;
     }
-  }
-
-
-
+.ui.radio.checkbox{
+    margin: 1em!important;
+}
 
 /* Email exists text display red */
 
@@ -99,6 +97,13 @@ body {
 
 #categoryName {
     text-align: center;
+}
+
+#foodBackgroundImage {
+    background-image: url("../productImages/matvaror.jpg");
+    height: 15em;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Footer */
@@ -114,6 +119,18 @@ footer {
 #footer-links .item {
     color: rgb(228, 228, 228);
 }
+
+
+.footerbot{   
+    position: fixed; bottom: 0;
+    width: 100%;
+}
+@media screen and (max-width: 766px) {
+    .footerbot {
+      width: 100%;
+      position: static; bottom: 0;
+    }
+  }
 
 
 .trygg-logo {
