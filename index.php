@@ -82,6 +82,8 @@
             </div>
             
         <div id="foodBackgroundImage">
+                
+        </div>
 
         <div id="categoryName">
             
