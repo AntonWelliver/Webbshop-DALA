@@ -26,7 +26,7 @@ class Helper {
             throw $e;
         }
     }
-
+    /* En function som ser subscriber count */
     function showSubscribers() {
         $sql = "SELECT Email, Username FROM account WHERE IsSubscriber = 1";
         $statement = $this->connection->prepare($sql);
