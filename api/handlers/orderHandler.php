@@ -15,6 +15,7 @@ try {
             $history = $order->orderHistory();
             header('Content-type: application/json');
             echo json_encode($history);  
+        }
 
         if($_POST["action"] == "getShippingOptions") {
             $order = new Order();
