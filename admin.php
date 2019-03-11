@@ -14,6 +14,7 @@
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/product.js"></script>
     <script src="scripts/newsLetter.js"></script>
+    <script src="scripts/order.js"></script>
     <title>Admin page</title>
 </head>
 <body class="body-container">
