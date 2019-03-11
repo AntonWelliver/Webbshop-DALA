@@ -24,6 +24,15 @@ try {
             echo json_encode($shippingOptions);  
         }
 
+        if($_POST["action"] == "addToCart") {
+            $amount = $_POST["amount"];
+            $itemID = $_POST["itemID"];
+            $order = new Order();
+            $order->addToCart($amount,$itemID);
+        }
+        
+        
+
 
     }
 
