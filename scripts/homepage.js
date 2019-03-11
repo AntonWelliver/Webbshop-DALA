@@ -1,4 +1,17 @@
 $(document).ready(function(){
+    $("#allProducts").click(function() {
+        showProductsHeader("Alla produkter");
+        $.ajax({
+            type: "POST",
+            url:"api/handlers/productHandler.php",
+            data:{action: "getAllProducts"},
+            success: function(data){
+                showProducts(data);
+            }, error: function(data) {
+                console.log('Error');
+            }            
+        });
+    });
     $("#fruit").click(function() {
         showProductsHeader("Frukt");
         $.ajax({
@@ -6,7 +19,7 @@ $(document).ready(function(){
             url:"api/handlers/productHandler.php",
             data:{action: "getProductsWithCategory", category: 'Frukt'},
             success: function(data){
-                showProducts(data, 'frukt');
+                showProducts(data);
             }, error: function(data) {
                 console.log('Error');
             }
@@ -20,7 +33,7 @@ $(document).ready(function(){
             url:"api/handlers/productHandler.php",
             data:{action: "getProductsWithCategory", category: 'Grönsaker'},
             success: function(data){
-                showProducts(data, 'grönsaker');
+                showProducts(data);
             }
         });
     });
@@ -32,7 +45,7 @@ $(document).ready(function(){
             url:"api/handlers/productHandler.php",
             data:{action: "getProductsWithCategory", category: 'Kött & fisk'},
             success: function(data){
-                showProducts(data, 'kött');
+                showProducts(data);
             }
         });
     });
@@ -44,7 +57,7 @@ $(document).ready(function(){
             url:"api/handlers/productHandler.php",
             data:{action: "getProductsWithCategory", category: 'Mejeri & Ost'},
             success: function(data){
-                showProducts(data, 'mejeri');
+                showProducts(data);
             }
         });
     });
@@ -56,7 +69,7 @@ $(document).ready(function(){
             url:"api/handlers/productHandler.php",
             data:{action: "getProductsWithCategory", category: 'Dryck'},
             success: function(data){
-                showProducts(data, 'dryck');
+                showProducts(data);
             }
         });
     });
@@ -68,11 +81,29 @@ function showProductsHeader(category){
     console.log(category);
 }
 
-function showProducts(data, imgFilePath) {
+function showProducts(data) {
+    var imgFilePath = "";
     $(".productOuterDiv").remove();
     var wrapper = document.createElement("div");
     wrapper.classList.add("ui", "stackable", "two", "column", "grid", "productOuterDiv");
     for (var i = 0; i < data.length; i++) {
+        switch(data[i]["Category"]) {
+            case "Frukt":
+                imgFilePath = "frukt";
+                break;
+            case "Grönsaker":
+                imgFilePath = "grönsaker";
+                break;
+            case "Mejeri & Ost":
+                imgFilePath = "mejeri";
+                break;
+            case "Kött & fisk":
+                imgFilePath = "kött";
+                break;
+            case "Dryck":
+                imgFilePath = "dryck";    
+                break;
+        }
         var innerdiv = document.createElement("div");
         innerdiv.classList.add("column");
         var name = data[i]["Name"];

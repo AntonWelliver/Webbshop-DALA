@@ -83,7 +83,9 @@ body {
       width: 100%;
     }
   }
-
+.ui.radio.checkbox{
+    margin: 1em!important;
+}
 
 
 
