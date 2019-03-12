@@ -1,3 +1,13 @@
+<?php
+    require_once('includes/user.php');
+    $user = new User();
+    if ($user->checkIfAdmin("alcr33k2") == false) {
+        header("Location: index.php");
+        exit();
+    }
+     // här ska username in från login session
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
