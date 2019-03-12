@@ -1,13 +1,3 @@
-<?php
-    require_once('includes/user.php');
-    $user = new User();
-    if ($user->checkIfAdmin("alcr33k2") == false) {
-        header("Location: index.php");
-        exit();
-    }
-     // här ska username in från login session
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,15 +28,16 @@
             </h2>
             <!-- <form ui large form register-form> -->
             <div class="ui form" >
+                <h2>Uppdatera lager</h2>
                 <div class="field">
-                <label for="productID"> Produkt ID:</label>
-                <input type="text" name="productID" id="productID" maxlength="50"/>
-                <label for="sumProducts"> Antal produkter:</label>
-                <input type="text" name="sumProducts" id="sumProducts" maxlength="50"/>
+                    <label for="productID"> Produkt ID:</label>
+                    <input type="text" name="productID" id="productID" maxlength="50"/>
+                    <label for="sumProducts"> Antal produkter:</label>
+                    <input type="text" name="sumProducts" id="sumProducts" maxlength="50"/>
 
-                <button class="ui button" id="updateProduct">Uppdatera antal produkter i lager</button>
+                    <button class="ui button" id="updateProduct">Uppdatera antal produkter i lager</button>
                 </div>
-
+                <h2>Lägg till produkt</h2>
                 <div class="field">
                 <label for="productName"> Lägg till produktnamn:</label>
                 <input type="text" name="productName" id="productName" maxlength="50"/>
@@ -68,7 +59,13 @@
 
                 <button class="ui button" name="addproduct" id="addProduct">Lägg till/Ta bort produkter</button>
                 </div>
-
+                <h2>Ta bort produkt</h2>
+                <div class="field">
+                    <label for="productID"> Produkt ID:</label>
+                    <input type="text" name="removeID" id="productID" maxlength="50"/>
+                    <button class="ui button" id="removeProduct">Ta bort produkt</button>
+                </div>
+                <h2>Listor</h2>
                 <div>
                 <button class="ui button" id="seeOrders">Se gjorda beställningar</button>
                 <button class="ui button" id="newsletterList">Lista över premunanter</button>
