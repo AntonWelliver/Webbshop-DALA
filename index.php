@@ -40,7 +40,8 @@
       </div>
       <div id="categoryName">
       </div>
-      <div class="pusher">
+        <div class="pusher">
+
          <!-- NYHETSBREV -->
          <?php      
             if (isset($_SESSION["user"])) {
@@ -56,10 +57,12 @@
                     </div>
                     </div> ';
             }
+
             ?>
          <!--     Form with email and password with placeholder and style for log-in-->
          <?php include "includes/loginForm.php" ?>
       </div>
       <?php include "includes/footer.php"; ?>
    </body>
+   
 </html>

@@ -96,5 +96,8 @@
          <?php include "includes/loginForm.php"; ?>
       </div>
       <?php include "includes/footer.php"; ?>
-   </body>
+
+</body>
+
 </html>
+

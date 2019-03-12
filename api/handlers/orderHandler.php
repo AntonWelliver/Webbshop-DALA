@@ -29,6 +29,7 @@ try {
             $itemID = $_POST["itemID"];
             $order = new Order();
             $order->addToCart($amount,$itemID);
+            echo json_encode(count($_SESSION['itemID']));
         }
         
         
