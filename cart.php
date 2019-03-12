@@ -51,21 +51,9 @@
         </header>
         <div class="placeholder-under-menu"></div>
         <div class="pusher">
-        <div id="tableCart">
-            <table class="ui single line table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Antal</th>
-                        <th>Pris</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
 <!-- Shipping adress -->
 <div class="ui grid shipping-container">
+
 
 <div>
     <form class="ui form" method="POST">
@@ -142,11 +130,26 @@
             </div>
 
     </form>
+
 </div>
+
                   
 </div>
-                
+        <div id="tableCart">
+            <table class="ui single line table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Antal</th>
+                        <th>Pris</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
+                
+    </div>
         
     
 
