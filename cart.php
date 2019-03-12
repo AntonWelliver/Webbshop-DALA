@@ -67,6 +67,7 @@
 <!-- Shipping adress -->
 <div class="ui grid shipping-container">
 
+<div>
     <form class="ui form" method="POST">
 
                 <h4 class="ui dividing header">Shipping Information</h4>
@@ -142,10 +143,13 @@
 
     </form>
 </div>
+                  
+</div>
+                
         </div>
+        
     
-lkkl
-    <div class="placeholder-under-cart">öklklökllkölkö</div>
+
 <footer class="footerbot">
             <div class="ui list" id="footer-links">
                 <a class="item">Vanliga frågor</a>
