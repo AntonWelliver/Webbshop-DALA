@@ -29,6 +29,11 @@
                   DALAMAT
                </div>
             </h2>
+            <div class="ui breadcrumb">
+               <a href="index.php" class="section">Startsida</a>
+               <i class="right arrow icon divider"></i>
+               <div class="active section">Registrera dig</div>
+            </div>
             <form class="ui large form register-form" method="POST">
                <div class="ui stacked segment">
                   <div class="emailExists"></div>
@@ -76,6 +81,7 @@
             <div class="ui message">
             Har redan ett konto? <a href="index.php">Logga in</a>
             </div>
+            
             </div>
          </div>
       </div>

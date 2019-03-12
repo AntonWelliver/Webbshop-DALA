@@ -6,7 +6,7 @@
                     <div class="ui container mobile tablet only grid hamburger-container">
                         <i class="bars icon" onclick="showSidebar()" id="mobile-item"></i>
                     </div>
-                    <a class="logo" href="#">DALAMAT</a>
+                    <a class="logo" href="index.php">DALAMAT</a>
                     <div class="ui computer only grid">
     
                         <div class="borderless item">
