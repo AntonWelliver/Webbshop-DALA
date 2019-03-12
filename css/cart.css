@@ -1,0 +1,10 @@
+.footerbot{   
+    position: fixed; bottom: 0;
+    width: 100%;
+}
+@media screen and (max-width: 766px) {
+    .footerbot {
+      width: 100%;
+      position: static; bottom: 0;
+    }
+  }
