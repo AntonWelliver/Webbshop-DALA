@@ -59,8 +59,8 @@ class User {
                 if (password_verify($_POST["password"], $fetchPass["Password"])) {
                     $_SESSION["user"] = $username;  
                     $error = json_encode("Du är nu inloggad");
-                    header("location:index.php");
-                    ob_end_flush();
+                    echo "success";
+                    die;
                 } else {
                     // If password doesn't match
                     $error = json_encode("Lösenord matchar inte");

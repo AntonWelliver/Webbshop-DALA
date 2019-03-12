@@ -27,6 +27,27 @@ class Order{
         /* $res = $statement->fetch(PDO::FETCH_OBJ); */
         return $res;
     }
+    function addToCart($amount, $itemID){
+        if(isset($_SESSION["itemID"])){
+            $itemArray = ($_SESSION["itemID"]); 
+            array_push($itemArray,$itemID);
+            $_SESSION["itemID"] = $itemArray;
+            
+        }else{
+            $_SESSION["itemID"] = $itemID;
+        } 
+        
+        if (isset($_SESSION["amount"])){
+            $amountArray = ($_SESSION["amount"]); 
+            array_push($itemArray,$amount);
+            $_SESSION["amount"] = $amountArray;
+        }else{
+            $_SESSION["amount"] = $amount;
+        }
+
+    }
+
+    
 }
 
 ?>

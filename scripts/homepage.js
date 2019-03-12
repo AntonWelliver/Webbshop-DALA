@@ -127,6 +127,7 @@ function showProducts(data) {
         card.appendChild(priceSpan);
         // antal
         var amount = document.createElement("input");
+        amount.id = data[i]["ProductID"];
         amount.classList.add("left", "attached");
         amount.setAttribute("type", "number");
         amount.setAttribute("value", "1");
