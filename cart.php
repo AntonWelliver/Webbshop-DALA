@@ -51,27 +51,10 @@
         </header>
         <div class="placeholder-under-menu"></div>
         <div class="pusher">
-        <table class="ui single line table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Antal</th>
-                    <th>Pris</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Name</th>
-                    <th>Antal</th>
-                    <th>Pris</th>
-                </tr>
-    
-    
-            </tbody>
-        </table>
 <!-- Shipping adress -->
 <div class="ui grid shipping-container">
 
+<div>
     <form class="ui form" method="POST">
 
                 <h4 class="ui dividing header">Shipping Information</h4>
@@ -147,10 +130,32 @@
 
     </form>
 </div>
+                  
+</div>
+                    <div id="tableCart">
+                        <table class="ui single line table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Antal</th>
+                                            <th>Pris</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                            
+                            
+                                    </tbody>
+                        </table>
+                    </div>
         </div>
+        
     
-lkkl
-    <div class="placeholder-under-cart">öklklökllkölkö</div>
+
 <footer class="footerbot">
             <div class="ui list" id="footer-links">
                 <a class="item">Vanliga frågor</a>
