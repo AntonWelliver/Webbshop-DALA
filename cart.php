@@ -17,6 +17,7 @@
     <script src="scripts/script.js"></script>
     <script src="scripts/order.js"></script>
     <script src="scripts/customer.js"></script>
+    <script src="scripts/addCart.js"></script>
 
 
     <script src="scripts/logIn.js"></script>
@@ -49,6 +50,24 @@
         </div>
         <div class="placeholder-under-menu"></div>
         <div class="pusher">
+        <table class="ui single line table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Antal</th>
+                    <th>Pris</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Antal</th>
+                    <th>Pris</th>
+                </tr>
+    
+    
+            </tbody>
+        </table>
 <!-- Shipping adress -->
 <div class="ui grid shipping-container">
 
@@ -116,7 +135,11 @@
             <div class="ui radio checkbox">
                 <input id="shippingOptions2" type="radio" name="radio" checked="checked">
                 <label id="text2"></label>
-            </div>      
+            </div>       
+            <div class="ui checkbox">
+                <input type="checkbox" name="nyhetsbrev" id="nyhetsbrev">
+                <label>Jag vill gärna ha nyhetsbrev!</label>
+            </div>     
         
 
             <div>
