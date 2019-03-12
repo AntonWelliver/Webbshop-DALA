@@ -20,6 +20,7 @@
       <script src="scripts/loginHandler.js"></script>
       <script src="scripts/newsLetter.js"></script>
       <script src="scripts/formValidation.js"></script>
+      <script src="scripts/cart.js"></script>
       <!-- Accept cookies -->
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
    </head>
@@ -92,6 +93,7 @@
                   <input type="submit" id="shipping" name="shipping" value="Adress sign" class="ui submit green button">
                </div>
          </form>
+         </div>
             <div id="tableCart">
             <table class="ui single line table">
                 <thead>
@@ -105,7 +107,6 @@
                 </tbody>
             </table>
         </div>
-         </div>
          <?php include "includes/loginForm.php"; ?>
       </div>
       <?php include "includes/footer.php"; ?>

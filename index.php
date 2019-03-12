@@ -16,7 +16,7 @@
       <script src="scripts/script.js"></script>
       <script src="scripts/loginHandler.js"></script>
       <script src="scripts/newsLetter.js"></script>
-      <script src="scripts/addCart.js"></script>
+      <script src="scripts/cart.js"></script>
       <script src="scripts/loginValidation.js"></script>
       <script src="scripts/homepage.js"></script>
       <!-- Accept cookies -->
