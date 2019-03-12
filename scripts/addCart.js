@@ -8,7 +8,16 @@
             url: "api/handlers/orderHandler.php",
             data: {action: "addToCart", itemID: itemID, amount: amount},
             success: function(data){
-                /* console.log(data); */
+                $("#numberCart").html(data);
             }
         })
     })
+
+    function cartProduct(){
+        var title = document.createElement("h1");
+        title.innerHTML = name;
+        card.appendChild(title);
+        var priceSpan = document.createElement("span");
+        priceSpan.innerHTML = price + " kr";
+        card.appendChild(priceSpan);
+    }
