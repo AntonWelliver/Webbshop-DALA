@@ -118,57 +118,55 @@
         ?>
             
             
-                <!-- Login to your account popup  -->
-                <div class="ui modal test">
-                    <div class="ui middle aligned center aligned grid">
-                        <div class="column">
-                            <h2 class="ui red header">
-               <div class="content">
-               DALAMAT
-               </div>
-               </h2>
+        <!-- Login to your account popup  -->
+        <div class="ui modal test">
+            <div class="ui middle aligned center aligned grid">
+                <div class="column">
+                    <h2 class="ui red header">
+                        <div class="content">
+                        DALAMAT
+                        </div>
+                    </h2>
 
-                            <!--     Form with email and password with placeholder and style for log-in-->
-                            <form class="ui large form login-form" method="POST" data-ajax="false">
-                                <div class="ui segment">
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="user icon"></i>
-                                            <input type="text" name="username" id="username" placeholder="Användarnamn">
-                                        </div>
+                        <!-- Form with email and password with placeholder and style for log-in-->
+                        <form class="ui large form login-form" method="POST" data-ajax="false">
+                            <div class="ui segment">
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="user icon"></i>
+                                        <input type="text" name="username" id="username" placeholder="Användarnamn">
                                     </div>
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="lock icon"></i>
-                                            <input type="password" name="password" id="password" placeholder="Password">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <input type="submit" name="Login" value="Logga in" class="ui fluid large green submit button" id="buttonLog" />
-                                    </div>
-
                                 </div>
-                    
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="lock icon"></i>
+                                        <input type="password" name="password" id="password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="submit" name="Login" value="Logga in" class="ui fluid large green submit button" id="buttonLog" />
+                                </div>
+                            </div> 
                                 <div class="ui error message"></div>
                                 <div class="error-message"></div>
-                            </form>
+                        </form>
+
                             <!-- Redirect too register.php with message -->
                             <div class="ui message">
                                 Ny hos oss? <a href="register.php">Registera dig</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
 
         <footer>
         
-            <div class="ui list" id="footer-links">
-                <a href="#vanligafrågor" class="item">Vanliga frågor</a>
-                <a href="#leveransvillkor" class="item">Leveransvillkor</a>
-                <a href="#policy" class="item">Integritetspolicy</a>
+        <div class="ui list" id="footer-links">
+            <a href="#vanligafrågor" class="item">Vanliga frågor</a>
+            <a href="#leveransvillkor" class="item">Leveransvillkor</a>
+            <a href="#policy" class="item">Integritetspolicy</a>
         </div>
         <div class="footer-images">
             <!-- <img class="payment-method" src="assets/klarna.png">
