@@ -40,7 +40,7 @@
       </div>
       <div id="categoryName">
       </div>
-        <div class="pusher">
+      <div class="pusher">
 
          <!-- NYHETSBREV -->
          <?php      
@@ -61,7 +61,7 @@
             ?>
          <!--     Form with email and password with placeholder and style for log-in-->
          <?php include "includes/loginForm.php" ?>
-      </div>
+    </div>
       <?php include "includes/footer.php"; ?>
    </body>
    

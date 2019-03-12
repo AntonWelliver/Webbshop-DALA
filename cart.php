@@ -92,10 +92,25 @@
                   <input type="submit" id="shipping" name="shipping" value="Adress sign" class="ui submit green button">
                </div>
          </form>
+            <div id="tableCart">
+            <table class="ui single line table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Antal</th>
+                        <th>Pris</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
          </div>
          <?php include "includes/loginForm.php"; ?>
       </div>
       <?php include "includes/footer.php"; ?>
+       
+               
 
 </body>
 

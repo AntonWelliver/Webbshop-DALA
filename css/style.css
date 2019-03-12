@@ -72,6 +72,14 @@ body {
 /* shipping-adress */
 .shipping-container {
     margin: 2em!important;
+    display: flex;
+    flex-direction: row-reverse;
+}
+th{
+    width: 10em;
+}
+#tableCart{
+    float:right;
 }
 .fields.adress{
     width: 138%;
