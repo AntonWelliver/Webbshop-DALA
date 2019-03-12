@@ -85,9 +85,13 @@ body {
     .productOuterDiv {
         justify-content: center;
     }
+}
+
 .ui.radio.checkbox{
     margin: 1em!important;
 }
+
+
 
 /* Email exists text display red */
 

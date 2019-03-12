@@ -100,19 +100,22 @@
         </div>
 
         <div class="pusher">
-        
-        <!-- NYHETSBREV -->
-        <div class="ui grid nyhetsbrev-container">
-        <div class="ui form">
-            <div class="field">
-                <label>Anmäl dig för nyhetsbrev</label>
-                <input type="text" id="username" placeholder="Username">
-                <input type="email" id="emailNews" placeholder="E-mail adress">
-            </div>
-            <input type="submit" id="newsReg" name="registrera" value="Jag vill ha nyhetsbrev" class="ui submit green button">
-        </div>
-        </div>
-       
+         <!-- NYHETSBREV -->
+        <?php      
+            if (isset($_SESSION["user"])) {
+                echo '
+                    <div class="ui grid nyhetsbrev-container">
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Anmäl dig för nyhetsbrev</label>
+                            <input type="text" id="username" placeholder="Username">
+                            <input type="email" id="emailNews" placeholder="E-mail adress">
+                        </div>
+                        <input type="submit" id="newsReg" name="registrera" value="Jag vill ha nyhetsbrev" class="ui submit green button">
+                    </div>
+                    </div> ';
+            }
+        ?>
             
             
                 <!-- Login to your account popup  -->
