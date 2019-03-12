@@ -8,8 +8,15 @@ require_once('../../includes/user.php');
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
+        if ($_POST["action"] == "logout") {
+            session_destroy();
+            unset($_SESSION["user"]);
+            echo "success";
+            die;
+        }
+
         if(empty($_POST['email']) && empty($_POST['password'])) {
-            return false;
+            die;
         } else {
             $username = $_POST['username'];
             // Hashing password from input field
@@ -28,11 +35,7 @@ try {
                 $user->login($username, $password);
             }
 
-            if ($_POST["action"] == 'logout') {   
-                unset($_SESSION["user"]);
-                session_destroy();
-                echo "success";
-            }
+            
         }
     }
 

@@ -9,8 +9,8 @@ try {
             $price = $_POST['price'];
             $category = $_POST['category'];
             $image = $_POST['image'];
-            $user = new Product($name, $price, $category, $image);
-            $user->addProduct();
+            $user = new Product();
+            $user->addProduct($name, $price, $category, $image);
         }
         
         if ($_POST["action"] == "getProductsWithCategory") {

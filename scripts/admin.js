@@ -1,5 +1,33 @@
 $(document).ready(function(){
 
+    $('#addProduct').click(function(){
+        console.log('Hello world');
+        var productName = $("#productName").val();
+        var productPrice = $("#productPrice").val();
+        var addImage = $("#addImage").val();
+        var productCategory = $("#productCategory").val();
+
+        $.ajax({
+            type: "POST",
+            url:"api/handlers/productHandler.php",
+            data:{action: "addProduct", name: productName, price: productPrice, image: addImage, category: productCategory},
+            success: function(data){
+                alert('Du har lagt till en produkt!');
+            }
+        });
+    });
+
+    $.ajax({
+        async: false,
+        type: "POST",
+        url:"api/handlers/productHandler.php",
+        data:{action: "getProductsWithCategory", category: 'Frukt'},
+        success: function(data){
+            console.log(data);
+            // ex för att få första produktens namn: data[0]['Name']
+        }
+    });
+
     $("#seeOrders").click(function(){
         $.ajax({
             type: "POST",
@@ -38,10 +66,12 @@ $(document).ready(function(){
             url:"api/handlers/orderHandler.php",
             data:{action: "getShippingOptions"},
             success: function(data){
+                console.log(data[0]["Company"]); // ger första alternativet
+                console.log(data[1]["Company"]); // ger andra alternativet
                 // work with shipping options, display them on the order form
                 $("#text1").append(data[0]["Company"]); //Första Radiobutton
                 $("#text2").append(data[1]["Company"]); //Andra Radiobutton               
             }
         });
-    
+
 })

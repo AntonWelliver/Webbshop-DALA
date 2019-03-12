@@ -72,6 +72,14 @@ body {
 /* shipping-adress */
 .shipping-container {
     margin: 2em!important;
+    display: flex;
+    flex-direction: row-reverse;
+}
+th{
+    width: 10em;
+}
+#tableCart{
+    float:right;
 }
 .fields.adress{
     width: 138%;
@@ -82,18 +90,20 @@ body {
     .fields.adress {
       width: 100%;
     }
-  }
+    .productOuterDiv {
+        justify-content: center;
+    }
+}
 .ui.radio.checkbox{
     margin: 1em!important;
 }
 
 
 
-
 /* Email exists text display red */
 
 .emailExists {
-    color: red;
+    color: rgb(207, 0, 0);
 }
 
 #categoryName {
@@ -119,11 +129,6 @@ footer {
 }
 #footer-links .item {
     color: rgb(228, 228, 228);
-}
-
-.footerbot{
-    position: fixed; bottom: 0;
-    width: 100%;
 }
 
 .trygg-logo {
@@ -163,11 +168,37 @@ footer {
   }
 
   .productImage {
-      width: 10rem;
+      width: 100%;
       margin: 0 auto;
+      padding: 2em;
+  }
+  
+  .singleProduct {
+        margin-left: 0.5em!important;
+        margin-top: 1em!important;
+        padding-top: 1em!important;
+        width: 10em!important;
+        
   }
 
-  .singleProduct {
-    margin-top: 2em !important;
-    margin-left: 2em !important;
+  .productOuterDiv {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
   }
+
+  .productOuterDiv h4 {
+    padding-left: 0.4em;
+    color: rgb(4, 88, 24);
+}
+  .productOuterDiv input {
+      padding: 0.5em;
+  }
+
+  .productOuterDiv span {
+    padding-left: 0.5em;
+    color: rgb(207, 0, 0);
+}
+  .productOuterDiv img {
+    height: 10em;
+}
