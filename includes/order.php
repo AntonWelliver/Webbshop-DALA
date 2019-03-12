@@ -1,6 +1,6 @@
 <?php
 require_once('../../includes/database.php');
-
+session_start();
 class Order{
     private $shipping;
     private $price;
@@ -34,15 +34,15 @@ class Order{
             $_SESSION["itemID"] = $itemArray;
             
         }else{
-            $_SESSION["itemID"] = $itemID;
+            $_SESSION["itemID"] = array($itemID);
         } 
         
         if (isset($_SESSION["amount"])){
             $amountArray = ($_SESSION["amount"]); 
-            array_push($itemArray,$amount);
+            array_push($amountArray,$amount);
             $_SESSION["amount"] = $amountArray;
         }else{
-            $_SESSION["amount"] = $amount;
+            $_SESSION["amount"] = array($amount);
         }
 
     }
