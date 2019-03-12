@@ -12,19 +12,17 @@ $(function(){
   
 /*   Function for login looking in userHandler for matching */
 function loginUser(event, fields) {
-      event.preventDefault();
       $.ajax({   
         type: "POST",
         url: "api/handlers/userHandler.php",
         data:{action: "loginUser", username: fields.username, password: fields.password},
         success: function(data){
           $('.error-message').html(data); 
-          
-          /* if (data = "success") {
-            alert("Du har loggat in");
+          if (data = "success") {
+            window.location.href = 'index.php';
           } else {
-            window.location.href = 'register.php';
-          } */
+            event.preventDefault();
+          } 
         }
       });
 };
@@ -36,13 +34,12 @@ $(document).ready(function() {
             data: {action: "logout" },
             success: function(data){
                 if (data = "success") {
-                    console.log(data);
                     window.location.href = "index.php";
                 }
             }
         });
   }); 
+
 });
- 
 
        
