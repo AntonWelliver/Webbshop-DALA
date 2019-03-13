@@ -18,7 +18,7 @@ class Order{
         $res = $statement->fetchAll();
         return $res;
     }
-
+    // Admin thing
     function orderHistory() {
         $sql = "SELECT * FROM orderhistory";
         $statement = $this->connection->prepare($sql);
@@ -27,6 +27,7 @@ class Order{
         /* $res = $statement->fetch(PDO::FETCH_OBJ); */
         return $res;
     }
+    // Add to cart button on home page
     function addToCart($amount, $itemID){
         if(isset($_SESSION["itemID"])){
             $itemArray = ($_SESSION["itemID"]); 
@@ -45,6 +46,18 @@ class Order{
             $_SESSION["amount"] = array($amount);
         }
 
+    }
+
+    function saveOrder() {
+        $amount = json_encode($_SESSION["amount"]);
+        $quantity = json_encode($_SESSION["itemID"]);
+        echo $amount, $quantity;
+        $sql = "INSERT INTO order (TotalPrice, Quantity) VALUES (:totalprice, :quantity)";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(":totalprice", $amount);
+        $statement->bindParam(":quantity", $quantity);
+        $statement->execute();
+       
     }
 
     

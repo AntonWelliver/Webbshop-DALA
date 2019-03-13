@@ -91,6 +91,7 @@
                </div>
                <div>
                   <input type="submit" id="shipping" name="shipping" value="Adress sign" class="ui submit green button">
+                  <input type="submit" id="purchase" name="purchase" value="Slutför köp" class="ui submit green button">
                </div>
          </form>
          </div>

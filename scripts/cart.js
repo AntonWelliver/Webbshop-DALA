@@ -13,6 +13,7 @@ $(document).ready(function() {
             }
         })
     })
+    
 
     $(".shipping-container").ready(function() {
         $.ajax({
@@ -45,6 +46,20 @@ $(document).ready(function() {
 
         // tbody
     }
+    });
+});
+
+$(document).ready(function() {
+    $("#purchase").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "api/handlers/orderHandler.php",
+            data:{action: "purchase"},
+            success: function(data){
+                console.log("lerglelgl");
+                alert(data);
+            }
+        });
     });
 });
 

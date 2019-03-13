@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#allProducts").click(function() {
+   
         showProductsHeader("Alla produkter");
         $.ajax({
             type: "POST",
@@ -11,7 +11,7 @@ $(document).ready(function(){
                 console.log('Error');
             }            
         });
-    });
+   
     $("#fruit").click(function() {
         showProductsHeader("Frukt");
         $.ajax({
