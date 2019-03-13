@@ -9,6 +9,12 @@ require_once('../../includes/helper.php'); // Delete this, we don't use it
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
+        if($_POST["action"] == "purchase") {
+            $order = new Order();
+            $order->saveOrder();
+        }
+        
+
 
         /* shippingHistory action POST the value from script */
         if ($_POST["action"] == "shippingHistory") {
@@ -25,6 +31,7 @@ try {
             echo json_encode($shippingOptions);  
         }
 
+        // Add products to cart from home page and save into SESSION
         if($_POST["action"] == "addToCart") {
             $amount = $_POST["amount"];
             $itemID = $_POST["itemID"];
@@ -69,8 +76,6 @@ try {
         if($_POST["action"] == "getTotalPrice") {
             echo $_SESSION['totalPrice'];
         }
-        
-
 
     }
 
