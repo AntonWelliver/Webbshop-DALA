@@ -27,6 +27,12 @@ try {
             header('Content-type: application/json');
             echo json_encode($products);  
         }
+        if ($_POST["action"] == "removeProduct") { 
+            $product  = new Product();
+            $productID = $_POST['productID'];
+            $product->removeProduct($productID);
+
+        }
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {

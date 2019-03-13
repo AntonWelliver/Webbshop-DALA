@@ -74,4 +74,19 @@ $(document).ready(function(){
             }
         });
 
+        $('#removeProduct').click(function(){
+            console.log('123');
+            var productID = $("#productID").val();
+              
+            $.ajax({
+                type: "POST",
+                url:"api/handlers/productHandler.php",
+                data:{action: "removeProduct", productID: productID},
+                success: function(data){
+                    console.log(data);
+                    alert(data);
+                    /* alert('Du har tagit bort en produkt!') */;
+                }
+            });
+        });
 })

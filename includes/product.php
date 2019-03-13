@@ -49,6 +49,13 @@ class Product{
         /* $res = $statement->fetch(PDO::FETCH_OBJ); */
         return $res;
     }
+    function removeProduct($productID){
+        $sql = "DELETE FROM product WHERE ProductID = :id";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(':id', $productID);
+        $statement->execute();
+
+    }
  
 }
 ?>
