@@ -8,7 +8,6 @@
       <!-- CSS files -->
       <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="stylesheet" type="text/css" href="css/cart.css">
       <!-- FontAwesome Icons -->
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
       <!-- Javascript & jQuery files -->
@@ -27,34 +26,39 @@
    <body>
       <?php
          include "includes/header.php"
-         ?>
+      ?>
       <div class="placeholder-under-menu"></div>
       <div class="pusher">
+      <?php 
+            if (empty($_SESSION["itemID"])) {
+               echo "<h1 class='empty-cart-message'>Hoppsan din varukorg är tom!</h1>";
+            }
+      ?>
       <!-- Shipping adress -->
       <div class="ui grid shipping-container">
          <form class="ui form" method="POST">
-            <h4 class="ui dividing header">Shipping Information</h4>
+            <h4 style="color: rgb(0, 142, 33)" class="ui dividing header">Leveransinformation</h4>
             <div class="field">
-               <label>Name</label>
+               <label>Namn</label>
                <div class="two fields">
                   <div class="field">
-                     <input type="text" id="firstname" name="shipping[first-name]" placeholder="First Name">
+                     <input type="text" id="firstname" name="shipping[first-name]" placeholder="Förnamn">
                   </div>
                   <div class="field">
-                     <input type="text" id="lastname" name="shipping[last-name]" placeholder="Last Name">
+                     <input type="text" id="lastname" name="shipping[last-name]" placeholder="Efternamn">
                   </div>
                </div>
                <div class="field">
-                  <label>Billing Address</label>
+                  <label>Adress</label>
                   <div class="fields adress">
                      <div class="twelve wide field">
-                        <input type="text" id="billing" name="shipping[address]" placeholder="Street Address">
+                        <input type="text" id="billing" name="shipping[address]" placeholder="Adress">
                      </div>
                   </div>
                </div>
                <div class="two fields">
                   <div class="field">
-                     <label>State</label>
+                     <label>Stad</label>
                      <select class="ui fluid dropdown" id="city">
                         <option value="">Stad</option>
                         <option value="Göteborg">Göteborg</option>
@@ -65,41 +69,41 @@
                      </select>
                   </div>
                   <div class="field">
-                     <label>PhoneNumber</label>
+                     <label>Telefonnummer</label>
                      <div class="field">
                         <label></label>
-                        <input type="text" id="phoneNr" name="shipping[phoneNr]" placeholder="Number">
+                        <input type="text" id="phoneNr" name="shipping[phoneNr]" placeholder="Telefonummer">
                      </div>
                   </div>
                </div>
                <div class="field">
-                  <label>Email Address</label>
+                  <label>E-post adress</label>
                   <div class="fields adress">
                      <div class="twelve wide field">
-                        <input type="text" id="emailAd" name="shipping[email-address]" placeholder="Email Address">
+                        <input type="text" id="emailAd" name="shipping[email-address]" placeholder="E-post adress">
                      </div>
                   </div>
                </div>
                <label>Fraktalternativ</label>
                <div class="ui radio checkbox">
                   <input id="shippingOptions1" type="radio" name="radio" checked="checked">
-                  <label id="text1"></label>
+                  <label id="text1">DHL </label>
                </div>
                <div class="ui radio checkbox">
                   <input id="shippingOptions2" type="radio" name="radio" checked="checked">
-                  <label id="text2"></label>
+                  <label id="text2">Postnord </label>
                </div>
                <div>
-                  <input type="submit" id="shipping" name="shipping" value="Adress sign" class="ui submit green button">
-                  <input type="submit" id="purchase" name="purchase" value="Slutför köp" class="ui submit green button">
+                  <input type="submit" id="shipping" name="shipping" value="Lägg till adress" class="ui submit green button">
                </div>
          </form>
          </div>
             <div id="tableCart">
-            <table class="ui single line table">
+            <h4 style="color: rgb(0, 142, 33)" class="ui dividing header">Slutför din beställning</h4>
+            <table class="ui unstackable single line table">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Namn</th>
                         <th>Antal</th>
                         <th>Pris</th>
                     </tr>
@@ -107,11 +111,17 @@
                 <tbody>
                 </tbody>
             </table>
+            <div class="price-purchase-button-container">
+            <h2 id="totalPrice"></h2>
+            <input type="submit" id="purchase" name="purchase" value="Slutför köp" class="ui submit green button">
+            </div>
         </div>
-        <p id="totalPrice"></p>
+
+        
          <?php include "includes/loginForm.php"; ?>
+         <?php include "includes/footer.php"; ?>
       </div>
-      <?php include "includes/footer.php"; ?>
+      
        
                
 

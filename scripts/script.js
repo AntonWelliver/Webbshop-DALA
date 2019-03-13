@@ -31,7 +31,7 @@ $(document).ready(function(){
         $('.ui.sidebar').addClass("left");
     }
     if ($(window).width() < 991) {
-        $('.ui.sidebar').addClass("visible");
+        $('.ui.sidebar').removeClass("visible");
         $('.ui.sidebar').addClass("left");
     }
 });

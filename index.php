@@ -17,7 +17,6 @@
       <script src="scripts/loginHandler.js"></script>
       <script src="scripts/newsLetter.js"></script>
       <script src="scripts/cart.js"></script>
-      <script src="scripts/loginValidation.js"></script>
       <script src="scripts/homepage.js"></script>
       <!-- Accept cookies -->
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
@@ -25,7 +24,7 @@
    <body>
       <?php
          include "includes/header.php";
-         ?>
+      ?>
       <div class="placeholder-under-menu"></div>
       <div class="ui pushable segment">
       <div class="ui fixed sidebar thin vertical menu">
@@ -36,12 +35,13 @@
          <a class="item" id="dairy">Mejeri & Ost <i class="angle right icon"></i></a>
          <a class="item" id="drinks">Dryck <i class="angle right icon"></i></a>
       </div>
+     
+      <div class="pusher">
       <div id="foodBackgroundImage">
       </div>
       <div id="categoryName">
       </div>
-      <div class="pusher">
-
+      <div class="print-products-container"></div>
          <!-- NYHETSBREV -->
          <?php      
             if (isset($_SESSION["user"])) {
@@ -61,8 +61,9 @@
             ?>
          <!--     Form with email and password with placeholder and style for log-in-->
          <?php include "includes/loginForm.php" ?>
+         <?php include "includes/footer.php"; ?>
     </div>
-      <?php include "includes/footer.php"; ?>
+    
    </body>
    
 </html>
