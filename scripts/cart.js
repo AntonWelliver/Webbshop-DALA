@@ -16,6 +16,7 @@ $(document).ready(function() {
     
 
     $(".shipping-container").ready(function() {
+       // show cart
         $.ajax({
             type: "POST",
             url: "api/handlers/orderHandler.php",
@@ -29,7 +30,17 @@ $(document).ready(function() {
                 
             }
         });
-        // show cart
+        // show price
+        $("#tableCart table").ready(function() {
+            $.ajax({
+                type: "POST",
+                url:"api/handlers/orderHandler.php",
+                data:{action: "getTotalPrice"},
+                success: function(data){
+                    $("#totalPrice").text(data);            
+                }
+            });
+        });
         
         // skicka till ajax för att få session
 

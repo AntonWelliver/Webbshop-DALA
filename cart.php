@@ -108,6 +108,7 @@
                 </tbody>
             </table>
         </div>
+        <p id="totalPrice"></p>
          <?php include "includes/loginForm.php"; ?>
       </div>
       <?php include "includes/footer.php"; ?>

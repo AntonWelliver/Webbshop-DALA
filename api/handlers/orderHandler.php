@@ -42,6 +42,7 @@ try {
         
         if (($_POST["action"] == "getCart") && (isset($_SESSION['itemID']))) {
             $tableData = [];
+            $totalPrice = 0;
             for ($i = 0; $i < count($_SESSION['itemID']); $i++) {
                 $ids = json_encode($_SESSION['itemID']);
                 $amounts = json_encode($_SESSION['amount']);
@@ -51,6 +52,7 @@ try {
                 $productData = $product->getSingleProduct($id);
                 $name = $productData[0]['Name'];
                 $price =  $productData[0]['Price'];
+                $totalPrice = $totalPrice + ($price * $amount);
                 $code = " 
                     <tr>
                         <td>
@@ -67,9 +69,13 @@ try {
                 array_push($tableData, $code);
             }
             echo json_encode($tableData); 
+            $_SESSION['totalPrice'] = $totalPrice;
             /* echo json_encode($_SESSION); */
         }
 
+        if($_POST["action"] == "getTotalPrice") {
+            echo $_SESSION['totalPrice'];
+        }
 
     }
 
