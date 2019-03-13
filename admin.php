@@ -1,3 +1,19 @@
+<?php
+session_start();
+   require_once("includes/user.php");
+   $user = new User();
+   if (isset($_SESSION["user"])) {
+      $username = $_SESSION["user"];
+      if ($user->checkIfAdmin($username) != true) {
+         header("Location: http://example.com/myOtherPage.php");
+         exit();
+      }
+   } else {
+      echo var_dump($_SESSION);
+      header("Location: index.php");
+      exit();
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>

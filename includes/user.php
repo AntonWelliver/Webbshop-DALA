@@ -89,7 +89,7 @@ class User {
         if ($checkAdmin["IsAdmin"] == "1") { 
             return true;
         } else {
-            return $checkAdmin["IsAdmin"];
+            return false;
         }
     }
 
