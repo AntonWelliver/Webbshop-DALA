@@ -8,11 +8,9 @@ __Project leader__: Anton
 
 __Idea for Webshop__: A webshop for food delivery to the door. The food can be divided into different categories such as "Fruit", "Drinks", "Vegetables". Administrator can log in, change price, add and delete dishes. Customers should be able to browse and shop food in the webshop without being logged in, but also be able to create an account and track their purchases and see their own purchase history. You should also be able to get recommendations according to what you bought earlier. It should also be possible to receive discounts if you register for newsletters.
 
-Klicka [här](https://antonwelliver.github.io/Webbshop-DALA/)!
-
 ## Kravspecifikation:
-- [ ] Alla sidor skall vara responsiva. (G)
-- [ ] Arbetet ska implementeras med objektorienterade principer. (G)
+- [x] Alla sidor skall vara responsiva. (G)
+- ["x"] Arbetet ska implementeras med objektorienterade principer. (G)
 - [ ] Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
 - [ ] Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 - [ ] All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
@@ -29,3 +27,7 @@ Klicka [här](https://antonwelliver.github.io/Webbshop-DALA/)!
 - [ ] Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
 - [ ] Besökare ska kunna välja ett av ﬂera fraktalternativ (G)
 - [ ] Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
+
+Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
+En administratör behöver godkännas av en tidigare administratör innan man kan logga in fösta gången (VG)
+Administratörer ska kunna markera beställningar som skickade (VG)
