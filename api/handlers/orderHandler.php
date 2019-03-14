@@ -5,16 +5,8 @@ require_once('../../includes/product.php');
 
 require_once('../../includes/helper.php'); // Delete this, we don't use it
 
-
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-        if($_POST["action"] == "purchase") {
-            $order = new Order();
-            $order->saveOrder();
-        }
-        
-
 
         /* shippingHistory action POST the value from script */
         if ($_POST["action"] == "shippingHistory") {
@@ -77,9 +69,42 @@ try {
             if(isset($_SESSION['totalPrice'])) {
                 echo $_SESSION['totalPrice'];
             } else {
-                die;
+                echo "0";
             }
             
+        }
+
+        if ($_POST["action"] == "getTotalPrice") {
+            $amounts = $_SESSION["amount"];
+            $ids = $_SESSION["itemID"]
+            // spara i customer kunden
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $adress = $_POST['adress'];
+            $city = $_POST['city'];
+            $phoneNr = $_POST['phoneNr'];
+            $email = $_POST['email'];
+            
+            $customer = new Customer($firstname, $lastname, $adress, $city, $phoneNr, $email);
+            $customer->shipping(); 
+
+            // spara i databas order: totalPrice och shippingAlternative, samt CustomeID ge id
+            $totalPrice = $_POST['totalPrice'];
+            $shippingAlternative = $_POST['shippingAlternative'];
+            $customerID = "3"; // then get based on email
+            $order = new Order();
+            $order->saveOrder($totalPrice, $shippingAlternative, $customerID);
+            // baserat på id spara i orderlist, id, produktidn samt antal,
+            // lär ligga i en for loop
+            for ($i = 0; i < count($ids); $i++) {
+                $amount = $amounts[$i];
+                $productID = $ids[$i];
+                $order->saveToOrderList($productID, $amount);
+                // spara i orderHistory
+                $order->saveOrderInHistory($customerID, $productID);
+                // minska antalet prdoukter i product
+                $order->updateStock($amount, $productID);
+            }
         }
 
     }

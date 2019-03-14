@@ -27,6 +27,9 @@ class Order{
         /* $res = $statement->fetch(PDO::FETCH_OBJ); */
         return $res;
     }
+
+    
+
     // Add to cart button on home page
     function addToCart($amount, $itemID){
         if(isset($_SESSION["itemID"])){
