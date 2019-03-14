@@ -28,6 +28,6 @@ __Idea for Webshop__: A webshop for food delivery to the door. The food can be d
 - [x] Besökare ska kunna välja ett av ﬂera fraktalternativ (G)
 - [x] Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
 
-Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
-En administratör behöver godkännas av en tidigare administratör innan man kan logga in fösta gången (VG)
-Administratörer ska kunna markera beställningar som skickade (VG)
+- [ ] Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
+- [ ] En administratör behöver godkännas av en tidigare administratör innan man kan logga in fösta gången (VG)
+- [ ] Administratörer ska kunna markera beställningar som skickade (VG)
