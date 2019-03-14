@@ -51,27 +51,41 @@ class Order{
 
     }
 
-    function saveOrder() {
-        $amount = json_encode($_SESSION["amount"]);
+    function saveOrder($totalPrice,$shippingAl,$customerID) {
 
-        $quantity = json_encode($_SESSION["itemID"]);
-
-        $vars = json_decode($quantity);
-
-        /* echo json_encode($_SESSION["itemID"][0]); */
-
-        // amount och itemid i session är vanliga arrays
-
-
-
-
-/* 
-        echo $quantity; */
-/*         $sql = "INSERT INTO order (TotalPrice, Quantity) VALUES (:totalprice, :quantity)";
+        $sql = "INSERT INTO order (TotalPrice, ShippingAlternative,CustomerID ) VALUES (:totalPrice, :shippingAl, :customerID)";
         $statement = $this->connection->prepare($sql);
-        $statement->bindParam(":totalprice", $amount);
-        $statement->bindParam(":quantity", $quantity);
-        $statement->execute(); */
+        $statement->bindParam(":totalPrice", $totalPrice);
+        $statement->bindParam(":shippingAl", $shippingAl);
+        $statement->bindParam(":customerID", $customerID);
+        $statement->execute();
+       
+    }
+    function updateStock($amount,$ProductID) {
+
+        $sql = "UPDATE product SET UnitInStock = (UnitsInstock - :amount) WHERE productID = :productID";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(":amount", $amount);
+        $statement->bindParam(":productID", $ProductID);
+        $statement->execute();
+       
+    }
+    function saveToOrderList($ProductID,$Quantity) {
+
+        $sql = "INSERT INTO orderlist (ProductID,Quantity) VALUES (:productID,:quantity)";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(":productID", $ProductID);
+        $statement->bindParam(":quantity", $Quantity);
+        $statement->execute();
+       
+    }
+    function saveOrderInHistory($CustomerID, $OrderID) {
+
+        $sql = "INSERT INTO orderHistory (CustomerID,OrderID) VALUES (:customerID, :orderID)";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(":customerID", $CustomerID);
+        $statement->bindParam(":orderID", $OrderID);
+        $statement->execute();
        
     }
 

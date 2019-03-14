@@ -1,12 +1,12 @@
 ## Webbshop-DALA
 
-__Group name__: DALA
+__Gruppnamn__: DALA
 
-__Group members__: David, Anton, Lars & Alexander
+__Gruppmedlemmar__: David, Anton, Lars & Alexander
 
-__Project leader__: Anton
+__Projektledare__: Anton
 
-__Idea for Webshop__: A webshop for food delivery to the door. The food can be divided into different categories such as "Fruit", "Drinks", "Vegetables". Administrator can log in, change price, add and delete dishes. Customers should be able to browse and shop food in the webshop without being logged in, but also be able to create an account and track their purchases and see their own purchase history. You should also be able to get recommendations according to what you bought earlier. It should also be possible to receive discounts if you register for newsletters.
+__Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan delas upp i olika kategorier som "Frukt", "Drycker", "Grönsaker". Administratören kan logga in, ändra pris, lägga till och ta bort rätter. Kunderna ska kunna bläddra och handla mat i webshopen utan att vara inloggad, men också kunna skapa ett konto och spåra sina inköp och se sin egen köphistorik. Du ska kunna få rekommendationer enligt vad du köpt tidigare. Det ska också vara möjligt att få rabatter om du registrerar dig för nyhetsbrev.
 
 ## Kravspecifikation:
 - [x] Alla sidor skall vara responsiva. (G)

@@ -57,7 +57,7 @@ class User {
             if ($fetchPass['num'] > 0) {  
                 // If password match
                 if (password_verify($_POST["password"], $fetchPass["Password"])) {
-                    $_SESSION["user"] = $username;  ;
+                    $_SESSION["user"] = $username; 
                     echo json_encode("Du är nu inloggad");
                     die;
                 } else {
@@ -77,26 +77,6 @@ class User {
         }
     }
 
-
-    function checkIfAdmin($username) {
-        $sql = "SELECT IsAdmin FROM account WHERE Username = :username";
-        $statement = $this->connection->prepare($sql);
-        $statement->bindParam(':username', $username);
-        $statement->execute();
-
-        $checkAdmin = $statement->fetch(PDO::FETCH_ASSOC);
-
-        if ($checkAdmin["IsAdmin"] == "1") { 
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-}
-
-class Admin extends User {
-    // kan fråga david eller viktor hur man kan implementera denna klass
 
 }
 
