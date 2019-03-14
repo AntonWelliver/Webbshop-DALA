@@ -37,12 +37,37 @@ $(document).ready(function() {
                 url:"api/handlers/orderHandler.php",
                 data:{action: "getTotalPrice"},
                 success: function(data){
-                    var totalPrice = "Total summa" + " " + data + ":-";
-                    $("#totalPrice").append(totalPrice);            
+                    var totalPrice = data;
+                    $("#totalPrice").text(totalPrice);   
+                             
                 }
             });
         });
         
+
+        
+        $("#purchase").click(function(){
+            var totalPrice = $("#totalPrice").html(); // totalPrice
+            // var shippingAlternative = $("input:checked").val(); 
+            // shippingAlternative funkar inte atm, lägger DHL på allt nu
+            var shippingAlternative = "DHL";
+            var firstname = $("#firstname").val();
+            var lastname = $("#lastname").val();
+            var adress = $("#billing").val();
+            var city = $("#city").val();
+            var phoneNr  = $("#phoneNr").val();
+            var email = $("#emailAd").val();
+            $.ajax({
+                type: "POST",
+                url: "api/handlers/orderHandler.php",
+                data:{action: "purchase", totalPrice: totalPrice, shippingAlternative: shippingAlternative, firstname: firstname, lastname: lastname, adress: adress, city: city, phoneNr: phoneNr, email: email},
+                success: function(data){
+                    console.log(data);
+                }
+            });
+        });
+
+
         // skicka till ajax för att få session
 
         // session data
@@ -58,20 +83,6 @@ $(document).ready(function() {
 
         // tbody
     }
-    });
-});
-
-$(document).ready(function() {
-    $("#purchase").click(function(){
-        $.ajax({
-            type: "POST",
-            url: "api/handlers/orderHandler.php",
-            data:{action: "purchase"},
-            success: function(data){
-                console.log("lerglelgl");
-                alert(data);
-            }
-        });
     });
 });
 

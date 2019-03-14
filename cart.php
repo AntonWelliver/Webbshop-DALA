@@ -86,12 +86,12 @@
                </div>
                <label>Fraktalternativ</label>
                <div class="ui radio checkbox">
-                  <input id="shippingOptions1" type="radio" name="radio" checked="checked">
-                  <label id="text1">DHL </label>
+                  <input class="shippingOption" id="shippingOptions1" type="radio" name="radio" checked="checked">
+                  <label id="text1"></label>
                </div>
                <div class="ui radio checkbox">
-                  <input id="shippingOptions2" type="radio" name="radio" checked="checked">
-                  <label id="text2">Postnord </label>
+                  <input class="shippingOption" id="shippingOptions2" type="radio" name="radio" checked="checked">
+                  <label id="text2"></label>
                </div>
                <div>
                   <input type="submit" id="shipping" name="shipping" value="Lägg till adress" class="ui submit green button">
@@ -112,7 +112,7 @@
                 </tbody>
             </table>
             <div class="price-purchase-button-container">
-            <h2 id="totalPrice"></h2>
+            <h2>Total summa <span id="totalPrice"></span>:-</h2>
             <input type="submit" id="purchase" name="purchase" value="Slutför köp" class="ui submit green button">
             </div>
         </div>

@@ -27,6 +27,9 @@ class Order{
         /* $res = $statement->fetch(PDO::FETCH_OBJ); */
         return $res;
     }
+
+    
+
     // Add to cart button on home page
     function addToCart($amount, $itemID){
         if(isset($_SESSION["itemID"])){
@@ -50,13 +53,25 @@ class Order{
 
     function saveOrder() {
         $amount = json_encode($_SESSION["amount"]);
+
         $quantity = json_encode($_SESSION["itemID"]);
-        echo $amount, $quantity;
-        $sql = "INSERT INTO order (TotalPrice, Quantity) VALUES (:totalprice, :quantity)";
+
+        $vars = json_decode($quantity);
+
+        /* echo json_encode($_SESSION["itemID"][0]); */
+
+        // amount och itemid i session är vanliga arrays
+
+
+
+
+/* 
+        echo $quantity; */
+/*         $sql = "INSERT INTO order (TotalPrice, Quantity) VALUES (:totalprice, :quantity)";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(":totalprice", $amount);
         $statement->bindParam(":quantity", $quantity);
-        $statement->execute();
+        $statement->execute(); */
        
     }
 
