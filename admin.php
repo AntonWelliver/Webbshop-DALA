@@ -60,7 +60,7 @@
           <h2>Ta bort produkt</h2>
           <div class="field">
              <label for="productID"> Produkt ID:</label>
-             <input type="text" name="removeID" id="productID" maxlength="50"/>
+             <input type="text" name="removeID" id="removeProductID" maxlength="50"/>
              <button class="ui button" id="removeProduct">Ta bort produkt</button>
           </div>
           <h2>Listor</h2>

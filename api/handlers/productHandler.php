@@ -29,8 +29,8 @@ try {
         }
         if ($_POST["action"] == "removeProduct") { 
             $product  = new Product();
-            $productID = $_POST['productID'];
-            $product->removeProduct($productID);
+            $removeProductID = $_POST['removeProductID'];
+            $product->removeProduct($removeProductID);
 
         }
     }

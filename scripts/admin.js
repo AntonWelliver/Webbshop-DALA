@@ -76,12 +76,12 @@ $(document).ready(function(){
 
         $('#removeProduct').click(function(){
             console.log('123');
-            var productID = $("#productID").val();
+            var removeProductID = $("#removeProductID").val();
               
             $.ajax({
                 type: "POST",
                 url:"api/handlers/productHandler.php",
-                data:{action: "removeProduct", productID: productID},
+                data:{action: "removeProduct", removeProductID: removeProductID},
                 success: function(data){
                     console.log(data);
                     alert(data);
