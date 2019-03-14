@@ -17,17 +17,6 @@ $(document).ready(function(){
         });
     });
 
-    $.ajax({
-        async: false,
-        type: "POST",
-        url:"api/handlers/productHandler.php",
-        data:{action: "getProductsWithCategory", category: 'Frukt'},
-        success: function(data){
-            console.log(data);
-            // ex för att få första produktens namn: data[0]['Name']
-        }
-    });
-
     $("#seeOrders").click(function(){
         $.ajax({
             type: "POST",
@@ -58,35 +47,18 @@ $(document).ready(function(){
             }
         })
     })
-    
 
-    
+    $('#removeProduct').click(function(){
+        console.log('123');
+        var removeProductID = $("#removeProductID").val();
+            
         $.ajax({
             type: "POST",
-            url:"api/handlers/orderHandler.php",
-            data:{action: "getShippingOptions"},
+            url:"api/handlers/productHandler.php",
+            data:{action: "removeProduct", removeProductID: removeProductID},
             success: function(data){
-                console.log(data[0]["Company"]); // ger första alternativet
-                console.log(data[1]["Company"]); // ger andra alternativet
-                // work with shipping options, display them on the order form
-                $("#text1").append(data[0]["Company"]); //Första Radiobutton
-                $("#text2").append(data[1]["Company"]); //Andra Radiobutton               
+                alert('Du har tagit bort en produkt!');
             }
         });
-
-        $('#removeProduct').click(function(){
-            console.log('123');
-            var removeProductID = $("#removeProductID").val();
-              
-            $.ajax({
-                type: "POST",
-                url:"api/handlers/productHandler.php",
-                data:{action: "removeProduct", removeProductID: removeProductID},
-                success: function(data){
-                    console.log(data);
-                    alert(data);
-                    /* alert('Du har tagit bort en produkt!') */;
-                }
-            });
-        });
+    });
 })
