@@ -1,9 +1,9 @@
-<footer class="footerbot">
+<footer>
         
-            <div class="ui list" id="footer-links">
-                <a href="#vanligafrågor" class="item">Vanliga frågor</a>
-                <a href="#leveransvillkor" class="item">Leveransvillkor</a>
-                <a href="#policy" class="item">Integritetspolicy</a>
+        <div class="ui list" id="footer-links">
+            <a href="#vanligafrågor" class="item">Vanliga frågor</a>
+            <a href="#leveransvillkor" class="item">Leveransvillkor</a>
+            <a href="#policy" class="item">Integritetspolicy</a>
         </div>
         <div class="footer-images">
             <!-- <img class="payment-method" src="assets/klarna.png">

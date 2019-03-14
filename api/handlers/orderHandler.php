@@ -74,7 +74,12 @@ try {
         }
 
         if($_POST["action"] == "getTotalPrice") {
-            echo $_SESSION['totalPrice'];
+            if(isset($_SESSION['totalPrice'])) {
+                echo $_SESSION['totalPrice'];
+            } else {
+                die;
+            }
+            
         }
 
     }

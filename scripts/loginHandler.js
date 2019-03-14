@@ -11,21 +11,24 @@ $(function(){
 
   
 /*   Function for login looking in userHandler for matching */
-function loginUser(event, fields) {
+function loginUser() {
+  
+      var username = $("#username").val();
+      var password = $("#password").val();
+  
       $.ajax({   
         type: "POST",
         url: "api/handlers/userHandler.php",
-        data:{action: "loginUser", username: fields.username, password: fields.password},
+        data:{action: "loginUser", username: username, password: password},
         success: function(data){
           $('.error-message').html(data); 
-          if (data = "success") {
-            window.location.href = 'index.php';
-          } else {
-            event.preventDefault();
-          } 
+          if (data == "Du är nu inloggad") {
+            window.location.href="index.php"
+          }
         }
       });
 };
+
 $(document).ready(function() {
   $("#logOut").click(function() {
         $.ajax({

@@ -1,5 +1,6 @@
 $(document).ready(function(){
-   
+    // Print out all products when clicked button
+    $("#allProducts").click(function() {
         showProductsHeader("Alla produkter");
         $.ajax({
             type: "POST",
@@ -11,6 +12,23 @@ $(document).ready(function(){
                 console.log('Error');
             }            
         });
+    });
+    // Print out all products on body load
+    function onBodyLoad() {
+        showProductsHeader("Alla produkter");
+        $.ajax({
+            type: "POST",
+            url:"api/handlers/productHandler.php",
+            data:{action: "getAllProducts"},
+            success: function(data){
+                showProducts(data);
+            }, error: function(data) {
+                console.log('Error');
+            }            
+        });
+    }
+
+    onBodyLoad();
    
     $("#fruit").click(function() {
         showProductsHeader("Frukt");
@@ -145,5 +163,5 @@ function showProducts(data) {
         wrapper.appendChild(innerdiv);
     }
 
-    $(".pusher").prepend(wrapper);
+    $(".print-products-container").prepend(wrapper);
 }

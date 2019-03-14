@@ -37,7 +37,8 @@ $(document).ready(function() {
                 url:"api/handlers/orderHandler.php",
                 data:{action: "getTotalPrice"},
                 success: function(data){
-                    $("#totalPrice").text(data);            
+                    var totalPrice = "Total summa" + " " + data + ":-";
+                    $("#totalPrice").append(totalPrice);            
                 }
             });
         });

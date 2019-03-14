@@ -57,9 +57,8 @@ class User {
             if ($fetchPass['num'] > 0) {  
                 // If password match
                 if (password_verify($_POST["password"], $fetchPass["Password"])) {
-                    $_SESSION["user"] = $username;  
-                    $error = json_encode("Du är nu inloggad");
-                    echo "success";
+                    $_SESSION["user"] = $username;  ;
+                    echo json_encode("Du är nu inloggad");
                     die;
                 } else {
                     // If password doesn't match
@@ -68,7 +67,7 @@ class User {
 
             } else {
                 // If email doesn't exist
-                $error = json_encode("Email finns inte"); 
+                $error = json_encode("Email finns inte");
             }
 
             echo $error;
@@ -77,6 +76,7 @@ class User {
             throw $err;
         }
     }
+
 
     function checkIfAdmin($username) {
         $sql = "SELECT IsAdmin FROM account WHERE Username = :username";
@@ -97,6 +97,7 @@ class User {
 
 class Admin extends User {
     // kan fråga david eller viktor hur man kan implementera denna klass
+
 }
 
 ?>
