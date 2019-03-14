@@ -238,3 +238,9 @@ footer {
     height: 10em;
     padding: 1em!important;
 }
+
+.body-container {
+    padding-top: 2em;
+    height: 100%!important;
+    background-color: #F5F5F5;
+}
