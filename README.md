@@ -11,11 +11,13 @@ __Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan
 ## Kravspecifikation:
 - [x] Alla sidor skall vara responsiva. (G)
 - [x] Arbetet ska implementeras med objektorienterade principer. (G)
+      Vi har kodat utifrån klasser som ligger i mappen Includes.
 - [x] Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
 - [x] Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 - [x] All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
 - [x] Det ska ﬁnnas ett normaliserat diagram över databasen i gitrepot G)
 - [x] Man ska kunna logga in som administratör i systemet (G)
+      Administratören sätts på dataplatsen och för att komma in i admin sidan så måste man lägga till admin.php (för säkerhets skull)
 - [x] Inga Lösenord får sparas i klartext i databasen (G)
 - [x] En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
 - [x] Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
