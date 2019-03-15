@@ -1,4 +1,5 @@
 function registerUser(event, fields) {
+    // Register user function
     $.ajax({   
         async : false,
         type: "POST",

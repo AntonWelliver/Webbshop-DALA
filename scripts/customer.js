@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // All inputs when registering
     $("#shipping").click(function(){
         var firstname = $("#firstname").val();
         var lastname = $("#lastname").val();
@@ -6,6 +7,7 @@ $(document).ready(function() {
         var city = $("#city").val();
         var phoneNr  = $("#phoneNr").val();
         var email = $("#emailAd").val();
+
         $.ajax({
             type: "POST",
             url: "api/handlers/customerHandler.php",
