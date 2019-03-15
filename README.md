@@ -18,14 +18,19 @@ __Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan
 - [x] Det ska ﬁnnas ett normaliserat diagram över databasen i gitrepot G)
 - [x] Man ska kunna logga in som administratör i systemet (G) <br>
       Administratören sätts på dataplatsen och för att komma in i admin sidan så måste man lägga till admin.php (för säkerhets skull)
-- [x] Inga Lösenord får sparas i klartext i databasen (G)
-- [x] En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
-- [x] Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
+- [x] Inga Lösenord får sparas i klartext i databasen (G) <<br>
+      Det har vi gjort med en hash
+- [x] En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G) <br>
+      När han slutför köpet så sparas produkterna in i lagersaldot i databasen.
+- [x] Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G) <br>
+      I admin.php där finns det inputfält för att uppdatera produkter i lager.
 - [x] Administratörer ska kunna se en lista på alla gjorda beställningar (G)
 - [x] Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra ﬂera (G)
-- [x] Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en kategori (G)
+- [x] Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en kategori (G) <br>
+      Vi har en all products där man kan se alla våra produkter
 - [x] Besökare ska kunna lägga produkterna i en kundkorg, som är sparad i session på servern (G)
-- [x] Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
+- [x] Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G) <br>
+      Du måste vara inloggad för att få nyhetsbrev
 - [x] Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
 - [x] Besökare ska kunna välja ett av ﬂera fraktalternativ (G)
 - [x] Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
