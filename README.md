@@ -10,7 +10,7 @@ __Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan
 
 ## Kravspecifikation:
 - [x] Alla sidor skall vara responsiva. (G)
-- [x] Arbetet ska implementeras med objektorienterade principer. (G)
+- [x] Arbetet ska implementeras med objektorienterade principer. (G) <br>
       Vi har kodat utifrån klasser som ligger i mappen Includes.
 - [x] Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
 - [x] Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
