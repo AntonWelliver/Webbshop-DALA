@@ -90,7 +90,7 @@ th{
     width: 138%;
 }
 
-#totalPrice {
+.price {
     color: rgb(207, 0, 0);
 }
 

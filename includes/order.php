@@ -51,37 +51,45 @@ class Order{
 
     }
 
-    function saveOrder($totalPrice,$shippingAl,$customerID) {
+    function saveOrder($totalPrice, $shippingAl, $customerID) {
 
-        $sql = "INSERT INTO order (TotalPrice, ShippingAlternative,CustomerID ) VALUES (:totalPrice, :shippingAl, :customerID)";
+        $sql = "INSERT INTO `order` (TotalPrice, ShippingAlternative, CustomerID) VALUES (:totalPrice, :shippingAl, :id)";  
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(":totalPrice", $totalPrice);
         $statement->bindParam(":shippingAl", $shippingAl);
-        $statement->bindParam(":customerID", $customerID);
+        $statement->bindParam(":id", $customerID);
         $statement->execute();
-       
+
+        // get orderID from this customers latest order and return it
+        $selectStmt = $this->connection->prepare("SELECT OrderID from `order` WHERE CustomerID = :customerID ORDER BY OrderID DESC LIMIT 1");
+        $selectStmt->bindParam(":customerID", $customerID);
+        $selectStmt->execute();
+        $res = $selectStmt->fetch();
+        return $res[0]; 
+
     }
     function updateStock($amount,$ProductID) {
 
-        $sql = "UPDATE product SET UnitInStock = (UnitsInstock - :amount) WHERE productID = :productID";
+        $sql = "UPDATE product SET UnitsInStock = (UnitsInstock - :amount) WHERE productID = :productID";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(":amount", $amount);
         $statement->bindParam(":productID", $ProductID);
         $statement->execute();
        
     }
-    function saveToOrderList($ProductID,$Quantity) {
+    function saveToOrderList($ProductID,$Quantity, $OrderID) {
 
-        $sql = "INSERT INTO orderlist (ProductID,Quantity) VALUES (:productID,:quantity)";
+        $sql = "INSERT INTO orderlist (OrderID, Product,Quantity) VALUES (:orderID, :productID,:quantity)";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(":productID", $ProductID);
         $statement->bindParam(":quantity", $Quantity);
+        $statement->bindParam(":orderID", $OrderID);
         $statement->execute();
        
     }
     function saveOrderInHistory($CustomerID, $OrderID) {
 
-        $sql = "INSERT INTO orderHistory (CustomerID,OrderID) VALUES (:customerID, :orderID)";
+        $sql = "INSERT INTO orderHistory (CustomerID, OrderID) VALUES (:customerID, :orderID)";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(":customerID", $CustomerID);
         $statement->bindParam(":orderID", $OrderID);
