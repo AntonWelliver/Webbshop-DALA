@@ -93,6 +93,7 @@ $(document).ready(function(){
     });
 });
 
+// Prints out category name on top of site
 function showProductsHeader(category){
     var categoryName = document.getElementById("categoryName");
     categoryName.innerHTML = "<h1>" + category + "</h1>";
@@ -130,20 +131,20 @@ function showProducts(data) {
         // div card
         var card = document.createElement("div");
         card.classList.add("ui", "card", "singleProduct");
-        // bild
+        // image
         var image = document.createElement("img");
         image.setAttribute("src", "productImages/" + imgFilePath + "/" + imageSource);
         image.classList.add("productImage");
         card.appendChild(image);
-        // titel
+        // title
         var title = document.createElement("h4");
         title.innerHTML = name;
         card.appendChild(title);
-        // pris
+        // price
         var priceSpan = document.createElement("span");
         priceSpan.innerHTML = price + " kr";
         card.appendChild(priceSpan);
-        // antal
+        // amount
         var amount = document.createElement("input");
         amount.id = data[i]["ProductID"];
         amount.classList.add("left", "attached");
@@ -152,7 +153,7 @@ function showProducts(data) {
         amount.setAttribute("min", "1");
         amount.setAttribute("max", "100");
         card.appendChild(amount);
-        // köpknapp
+        // buy button
         var buyBtn = document.createElement("button");
         buyBtn.id = data[i]["ProductID"];
         // här borde dess id vara med

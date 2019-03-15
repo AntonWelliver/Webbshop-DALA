@@ -16,7 +16,7 @@ $(document).ready(function() {
     
 
     $(".shipping-container").ready(function() {
-       // show cart
+       // shows cart
         $.ajax({
             type: "GET",
             url: "api/handlers/orderHandler.php",
@@ -29,7 +29,7 @@ $(document).ready(function() {
                 
             }
         });
-        // show price
+        // shows price
         $("#tableCart table").ready(function() {
             $.ajax({
                 type: "GET",
