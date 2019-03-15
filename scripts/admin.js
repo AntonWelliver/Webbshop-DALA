@@ -83,10 +83,76 @@ $(document).ready(function(){
                 url:"api/handlers/productHandler.php",
                 data:{action: "removeProduct", removeProductID: removeProductID},
                 success: function(data){
-                    console.log(data);
-                    alert(data);
-                    /* alert('Du har tagit bort en produkt!') */;
+                    alert('Du har tagit bort en produkt!');
+                    window.location.href = "admin.php"
                 }
             });
         });
+
+        // Update product category
+        $('#updateProductCategoryButton').click(function(){
+
+            var updateProductID = $("#updateProductID").val();
+            var updateProductCategory = $("#updateProductCategory").val();
+            
+            $.ajax({
+                type: "POST",
+                url:"api/handlers/productHandler.php",
+                data:{action: "updateProductCategory", updateProductID: updateProductID, updateProductCategory: updateProductCategory},
+                success: function(data){
+                    console.log(data);
+                    alert('Du har ändrat kategori!');
+                    
+                    window.location.href = "admin.php"
+                   
+                }
+            });
+        });
+
+        /* Retrieve all list of products from database and display */
+        $("#listOfProductsAdmin").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "api/handlers/productHandler.php",
+                data: {action: "listOfProductsAdmin"},
+                success: function(data){
+                    $(".resultsDiv").empty();
+                    $(".resultsDiv").append("<h4 class='amountOfText'>Det finns " +  data.length + " produkter: <br></h4>");
+                    var table = document.createElement("table");
+                    table.classList.add("ui", "unstackable", "single", "line", "table");
+                    var productID = document.createElement("th");
+                    productID.innerHTML = "Product ID";
+                    var productName = document.createElement("th");
+                    productName.innerHTML = "Name";
+                    var productCategory = document.createElement("th");
+                    productCategory.innerHTML = "Category";
+                    var productUnitsInStock = document.createElement("th");
+                    productUnitsInStock.innerHTML = "Units in stock";
+                    table.appendChild(productID);
+                    table.appendChild(productName);
+                    table.appendChild(productCategory);
+                    table.appendChild(productUnitsInStock);
+                    for (var i = 0; i < data.length; i++) {
+                        var tr = document.createElement("tr");
+                        var productIDLoop = document.createElement("td");
+                        productIDLoop.innerHTML = data[i]["ProductID"];
+                        tr.appendChild(productIDLoop);
+                        var productNameLoop = document.createElement("td");
+                        productNameLoop.innerHTML = data[i]["Name"];
+                        tr.appendChild(productNameLoop);
+                        var productCategoryLoop = document.createElement("td");
+                        productCategoryLoop.innerHTML = data[i]["Category"];
+                        tr.appendChild(productCategoryLoop);
+                        var productUnitsInStockLoop = document.createElement("td");
+                        productUnitsInStockLoop.innerHTML = data[i]["UnitsInStock"];
+                        tr.appendChild(productUnitsInStockLoop);
+
+
+
+                        table.appendChild(tr);
+                    }
+                    $(".resultsDiv").append(table);
+                }
+            })
+        })
 })

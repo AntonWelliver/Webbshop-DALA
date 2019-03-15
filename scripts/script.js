@@ -7,6 +7,8 @@ function showSidebar() {
 
 }
 
+
+
 /* jQuery code */
 
 $(document).ready(function(){

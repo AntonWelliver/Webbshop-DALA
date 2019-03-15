@@ -56,6 +56,23 @@ class Product{
         $statement->execute();
 
     }
+
+    /* Retrieve all list of products from database */
+    function listOfProductsAdmin() {
+        $sql = "SELECT ProductID, Name, Category, UnitsInStock FROM product ORDER BY ProductID DESC";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        
+        return $res;
+    }
+ 
+    /* Update product category for admin page */
+    function updateProductCategory($updateProductID, $updateProductCategory) {
+        $sql = "UPDATE product SET Category = '$updateProductCategory' WHERE ProductID = $updateProductID";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+    }
  
 }
 ?>

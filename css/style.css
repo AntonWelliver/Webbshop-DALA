@@ -244,3 +244,18 @@ footer {
     height: 100%!important;
     background-color: #F5F5F5;
 }
+
+.admin-list-container {
+   margin: 5em;
+    
+   
+}
+
+table {
+   padding: 2em!important;
+   width: 100%!important;
+}
+
+.amountOfText {
+    padding: 1em;
+}
