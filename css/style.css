@@ -259,3 +259,12 @@ table {
 .amountOfText {
     padding: 1em;
 }
+
+.admin-link {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    color: rgb(167, 155, 0);
+}
+.admin-link:hover {
+    color: rgb(7, 165, 7);
+}
