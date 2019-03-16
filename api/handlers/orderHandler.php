@@ -63,6 +63,12 @@ try {
             $order->markAsSent($orderID);
         }
 
+        if ($_POST["action"] == "OrderHistoryForUser") {
+            $order = new Order();
+            $printOrderHistory = $order->orderHistoryForUser();
+            echo json_encode($printOrderHistory);  
+        }
+
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
@@ -119,10 +125,7 @@ try {
             $unsentOrders = $order->getUnsentOrders();
             echo json_encode($unsentOrders);  
         }
-    }
 
-    if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
-    
     }
 
 } catch(EXCEPTION $err) {

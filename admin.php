@@ -77,7 +77,7 @@ session_start();
           <div class="field">
              <label for="unsentOrders"> Ej skickade ordrar:</label>
              <select id="unsentOrders" class="orderList"></select>
-             <button class="ui button" id="sendOrder">Markera som skickad</button>
+             <button class="ui green button" id="sendOrder">Markera som skickad</button>
           </div>
           <h2>Lägg till produkt</h2>
           <div class="field">
@@ -109,16 +109,9 @@ session_start();
           <div class="field">
              <label for="removeProductID"> Produkt:</label>
              <select id="removeProductID" class="productList"></select>
-             <button class="ui button" id="removeProduct">Ta bort produkt</button>
+             <button class="ui red button" id="removeProduct">Ta bort produkt</button>
           </div>
-          <h2>Listor</h2>
-          <div>
-             <button class="ui button" id="seeOrders">Se gjorda beställningar</button>
-             <button class="ui button" id="newsletterList">Lista över premunanter</button>
-          </div>
-          <div class="resultsDiv">
-          </div>
-          
+
                <!--  </form> -->
          
             </div>
