@@ -2,8 +2,6 @@
 require_once('../../includes/database.php');
 session_start();
 class Order{
-    private $shipping;
-    private $price;
     private $connection;
     private $database;
 
@@ -81,7 +79,7 @@ class Order{
         return $res[0]; 
 
     }
-    function updateStock($amount,$ProductID) {
+    function updateStock($amount,$ProductID) {  // to product
 
         $sql = "UPDATE product SET UnitsInStock = (UnitsInstock - :amount) WHERE productID = :productID";
         $statement = $this->connection->prepare($sql);
