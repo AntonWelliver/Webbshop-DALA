@@ -1,6 +1,5 @@
 <?php
 require_once('../../includes/newsletter.php');
-require_once('../../includes/helper.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {

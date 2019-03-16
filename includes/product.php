@@ -1,5 +1,5 @@
 <?php
-require_once('../../includes/database.php');
+require_once('database.php');
 
 class Product{
     private $connection;
@@ -98,7 +98,6 @@ class Product{
             $statement->bindParam(':category', $category);
             $statement->execute();
             $res = $statement->fetchAll();
-            /* $res = $statement->fetch(PDO::FETCH_OBJ); */
             return $res;
         } catch (Exeption $e) {
             throw $e;
