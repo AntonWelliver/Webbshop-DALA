@@ -1,6 +1,5 @@
 <?php
 require_once('../../includes/product.php');
-require_once('../../includes/helper.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -14,16 +13,16 @@ try {
         }
         
         if ($_POST["action"] == "getProductsWithCategory") {
-            $helper = new Helper(); 
+            $product = new Product();
             $category = $_POST['category'];
-            $products = $helper->showProductsWithCategory($category);
+            $products = $product->showProductsWithCategory($category);
             header('Content-type: application/json');
             echo json_encode($products);  
         }
 
         if ($_POST["action"] == "getAllProducts") {
-            $helper = new Helper(); 
-            $products = $helper->showProducts();
+            $product = new Product();
+            $products = $product->showProducts();
             header('Content-type: application/json');
             echo json_encode($products);  
         }

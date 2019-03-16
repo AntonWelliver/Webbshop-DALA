@@ -1,5 +1,5 @@
 <?php
-require_once('../../includes/database.php');
+require_once('database.php');
 
 class Product{
     private $connection;
@@ -82,7 +82,7 @@ class Product{
         return $res;
     }
 
-    function getOrderHistory($customerId) {
+    function getOrderHistory($customerId) { // till order
         $sql = "SELECT ProductId, Name FROM product";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(':customerId', $customerId);
@@ -91,13 +91,28 @@ class Product{
         return $res;
     }
 
-    function markAsSent($orderID) {
-        $sql = "SELECT ProductId, Name FROM product";
-        $statement = $this->connection->prepare($sql);
-        $statement->bindParam(':orderID', $orderID);
-
-        $statement->execute();
+    function showProductsWithCategory($category) {
+        try {
+            $sql = "SELECT * FROM product WHERE Category = :category";
+            $statement = $this->connection->prepare($sql);
+            $statement->bindParam(':category', $category);
+            $statement->execute();
+            $res = $statement->fetchAll();
+            return $res;
+        } catch (Exeption $e) {
+            throw $e;
+        }
     }
- 
+    function showProducts() {
+        try {
+            $sql = "SELECT * FROM product";
+            $statement = $this->connection->prepare($sql);
+            $statement->execute();
+            $res = $statement->fetchAll();
+            return $res;
+        } catch (Exeption $e) {
+            throw $e;
+        }
+    }
 }
 ?>

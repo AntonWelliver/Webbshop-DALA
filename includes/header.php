@@ -48,7 +48,6 @@
                         <?php 
                             } 
                         ?>
-                        <!-- <a class="ui button primary""login-button" id="test"> Login </a> -->
                         <a class="ui button cart-button" href="cart.php"><i class="shopping cart icon"></i>
                         <span id="numberCart">
                         <?php
