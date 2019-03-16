@@ -55,7 +55,11 @@ try {
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
-        
+        if ($_GET["action"] == "getProductList") {
+            $product  = new Product();
+            $products = $product->getProductList();
+            echo json_encode($products);
+        }
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "DELETE") {

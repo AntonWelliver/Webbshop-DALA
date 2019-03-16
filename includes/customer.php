@@ -21,7 +21,7 @@ class Customer{
         $this->phoneNr = $phoneNr;
         $this->email = $email;   
     }
-    function shipping(){
+    function saveUser(){
         try {
             $sql = "SELECT COUNT(EmailAdress) AS num FROM customer WHERE EmailAdress = :email";
             $statement = $this->connection->prepare($sql);
@@ -40,6 +40,11 @@ class Customer{
                 $statement->execute();
             }
 
+            $selectStmt = $this->connection->prepare("SELECT CustomerID FROM customer WHERE EmailAdress = :email");
+            $selectStmt->bindParam(':email', $this->email);
+            $selectStmt->execute();
+            $res = $selectStmt->fetch();
+            return $res[0];
             
         }   catch (EXCEPTION $err) {
             throw new Exception($err);

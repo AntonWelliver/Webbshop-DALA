@@ -3,18 +3,10 @@ require_once('../../includes/order.php');
 
 require_once('../../includes/product.php');
 
-require_once('../../includes/helper.php'); // Delete this, we don't use it
-
+require_once('../../includes/customer.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-        if($_POST["action"] == "purchase") {
-            $order = new Order();
-            $order->saveOrder();
-        }
-        
-
 
         /* shippingHistory action POST the value from script */
         if ($_POST["action"] == "shippingHistory") {
@@ -22,13 +14,6 @@ try {
             $history = $order->orderHistory();
             header('Content-type: application/json');
             echo json_encode($history);  
-        }
-
-        if($_POST["action"] == "getShippingOptions") {
-            $order = new Order();
-            $shippingOptions = $order->getShippingOptions();
-            header('Content-type: application/json');
-            echo json_encode($shippingOptions);  
         }
 
         // Add products to cart from home page and save into SESSION
@@ -39,8 +24,58 @@ try {
             $order->addToCart($amount,$itemID);
             echo json_encode(count($_SESSION['itemID']));
         }
-        
-        if (($_POST["action"] == "getCart") && (isset($_SESSION['itemID']))) {
+
+        if ($_POST["action"] == "purchase") {
+            $amounts = $_SESSION["amount"];
+            $ids = $_SESSION["itemID"];
+            // spara i customer kunden
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $adress = $_POST['adress'];
+            $city = $_POST['city'];
+            $phoneNr = $_POST['phoneNr'];
+            $email = $_POST['email'];
+            
+            $customer = new Customer($firstname, $lastname, $adress, $city, $phoneNr, $email);
+            // what if user is already in database, maybe a check if alreadyUser and then update any values that are changed
+            $customerID = $customer->saveUser(); 
+            // spara i databas order: totalPrice och shippingAlternative, samt CustomeID ge id
+            $totalPrice = $_POST['totalPrice'];
+            $shippingAlternative = $_POST['shippingAlternative'];
+            $order = new Order();
+            $orderID = $order->saveOrder($totalPrice, $shippingAlternative, $customerID); 
+            // spara i orderHistory
+            $order->saveOrderInHistory($customerID, $orderID); // behövs verkligen denna tabell?? Nej, kan ta bort
+            for ($i = 0; $i < count($ids); $i++) {
+                $amount = $amounts[$i];
+                $productID = $ids[$i];
+                // baserat på id spara i orderlist, id, produktidn samt antal
+                $order->saveToOrderList($productID, $amount, $orderID);
+                // minska antalet prdoukter i product
+                $order->updateStock($amount, $productID);
+            }
+        }
+
+        if ($_POST["action"] == "sendOrder") {
+            $order = new Order(); 
+            $orderID = $_POST["orderId"];
+            echo $orderID;
+            $order->markAsSent($orderID);
+        }
+
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == "GET") {
+        if($_GET["action"] == "getTotalPrice") {
+            if(isset($_SESSION['totalPrice'])) {
+                echo $_SESSION['totalPrice'];
+            } else {
+                echo "0";
+            }
+            
+        }
+
+        if (($_GET["action"] == "getCart") && (isset($_SESSION['itemID']))) {
             $tableData = [];
             $totalPrice = 0;
             for ($i = 0; $i < count($_SESSION['itemID']); $i++) {
@@ -70,22 +105,20 @@ try {
             }
             echo json_encode($tableData); 
             $_SESSION['totalPrice'] = $totalPrice;
-            /* echo json_encode($_SESSION); */
         }
 
-        if($_POST["action"] == "getTotalPrice") {
-            if(isset($_SESSION['totalPrice'])) {
-                echo $_SESSION['totalPrice'];
-            } else {
-                die;
-            }
-            
+        if($_GET["action"] == "getShippingOptions") {
+            $order = new Order();
+            $shippingOptions = $order->getShippingOptions();
+            header('Content-type: application/json');
+            echo json_encode($shippingOptions);  
         }
 
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] == "GET") {
-        
+        if ($_GET["action"] == "getUnsentOrders") {
+            $order = new Order();
+            $unsentOrders = $order->getUnsentOrders();
+            echo json_encode($unsentOrders);  
+        }
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "DELETE") {

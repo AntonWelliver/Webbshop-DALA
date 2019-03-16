@@ -57,6 +57,7 @@ class Product{
 
     }
 
+
     /* Retrieve all list of products from database */
     function listOfProductsAdmin() {
         $sql = "SELECT ProductID, Name, Category, UnitsInStock FROM product ORDER BY ProductID DESC";
@@ -71,6 +72,30 @@ class Product{
     function updateProductCategory($updateProductID, $updateProductCategory) {
         $sql = "UPDATE product SET Category = '$updateProductCategory' WHERE ProductID = $updateProductID";
         $statement = $this->connection->prepare($sql);
+
+    }
+    function getProductList() {
+        $sql = "SELECT ProductId, Name FROM product";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        return $res;
+    }
+
+    function getOrderHistory($customerId) {
+        $sql = "SELECT ProductId, Name FROM product";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(':customerId', $customerId);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        return $res;
+    }
+
+    function markAsSent($orderID) {
+        $sql = "SELECT ProductId, Name FROM product";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(':orderID', $orderID);
+
         $statement->execute();
     }
  

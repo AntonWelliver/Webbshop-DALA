@@ -77,27 +77,23 @@ class User {
         }
     }
 
+
     // Kan brytas ner till login functionen vi har där uppe
+
+
     function checkIfAdmin($username) {
         $sql = "SELECT IsAdmin FROM account WHERE Username = :username";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(':username', $username);
         $statement->execute();
-
         $checkAdmin = $statement->fetch(PDO::FETCH_ASSOC);
-
         if ($checkAdmin["IsAdmin"] == "1") { 
             return true;
         } else {
             return false;
         }
     }
-
 }
 
-class Admin extends User {
-    // kan fråga david eller viktor hur man kan implementera denna klass
-
-}
 
 ?>

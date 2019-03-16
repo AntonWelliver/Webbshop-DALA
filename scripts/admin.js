@@ -17,17 +17,6 @@ $(document).ready(function(){
         });
     });
 
-    $.ajax({
-        async: false,
-        type: "POST",
-        url:"api/handlers/productHandler.php",
-        data:{action: "getProductsWithCategory", category: 'Frukt'},
-        success: function(data){
-            console.log(data);
-            // ex för att få första produktens namn: data[0]['Name']
-        }
-    });
-
     $("#seeOrders").click(function(){
         $.ajax({
             type: "POST",
@@ -58,36 +47,20 @@ $(document).ready(function(){
             }
         })
     })
-    
 
-    
+    $('#removeProduct').click(function(){
+        var removeProductID = $("#removeProductID option:selected").val();
+        console.log(removeProductID);
         $.ajax({
             type: "POST",
-            url:"api/handlers/orderHandler.php",
-            data:{action: "getShippingOptions"},
+            url:"api/handlers/productHandler.php",
+            data:{action: "removeProduct", removeProductID: removeProductID},
             success: function(data){
-                console.log(data[0]["Company"]); // ger första alternativet
-                console.log(data[1]["Company"]); // ger andra alternativet
-                // work with shipping options, display them on the order form
-                $("#text1").append(data[0]["Company"]); //Första Radiobutton
-                $("#text2").append(data[1]["Company"]); //Andra Radiobutton               
+                alert('Du har tagit bort en produkt!');
+                getProducts();
             }
         });
-
-        $('#removeProduct').click(function(){
-            console.log('123');
-            var removeProductID = $("#removeProductID").val();
-              
-            $.ajax({
-                type: "POST",
-                url:"api/handlers/productHandler.php",
-                data:{action: "removeProduct", removeProductID: removeProductID},
-                success: function(data){
-                    alert('Du har tagit bort en produkt!');
-                    window.location.href = "admin.php"
-                }
-            });
-        });
+    });
 
         // Update product category
         $('#updateProductCategoryButton').click(function(){
@@ -155,4 +128,60 @@ $(document).ready(function(){
                 }
             })
         })
+
+    $('#sendOrder').click(function(){
+        var selectedOrder = $("#unsentOrders option:selected").val();
+        console.log(selectedOrder);
+        $.ajax({
+            type: "POST",
+            url:"api/handlers/orderHandler.php",
+            data:{action: "sendOrder", orderId: selectedOrder},
+            success: function(data){
+                alert('Du har skickat ordern!');
+                getUnSentOrders();
+            }
+        });
+    });
+
+    // load list of unsent orders and products
+    getUnSentOrders();
+    getProducts();
 })
+
+function getProducts() {
+    $.ajax({
+        type: "GET",
+        url:"api/handlers/productHandler.php",
+        data:{action: "getProductList"},
+        success: function(data){
+            $(".productList").empty();
+            var products = JSON.parse(data);
+            $(".orderList").empty();
+            for (var i = 0; i < products.length; i++) {
+                var option = document.createElement("option");
+                option.setAttribute("value", products[i]["ProductId"]);
+                option.innerHTML = products[i]["Name"];
+                $(".productList").append(option);
+            }
+        }
+    });
+}
+
+function getUnSentOrders() {
+    $.ajax({
+        type: "GET",
+        url:"api/handlers/orderHandler.php",
+        data:{action: "getUnsentOrders"},
+        success: function(data){
+            $(".orderList").empty();
+            var orders = JSON.parse(data);
+            for (var i = 0; i < orders.length; i++) {
+                var option = document.createElement("option");
+                option.setAttribute("value", orders[i]["OrderId"]);
+                option.innerHTML = orders[i]["OrderId"] + ' (Skickas med ' + orders[i]["ShippingAlternative"] + ')';
+                $(".orderList").append(option);
+            }
+        }
+    });
+}
+

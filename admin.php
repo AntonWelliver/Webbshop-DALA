@@ -67,11 +67,17 @@ session_start();
             <div class="ui small form" >
           <h2>Uppdatera lager</h2>
           <div class="field">
-             <label for="productID"> Produkt ID:</label>
-             <input type="text" name="productID" id="productID" maxlength="50"/>
+             <label for="productID"> Produkt:</label>
+             <select id="productID" class="productList"></select>
              <label for="sumProducts"> Antal produkter:</label>
              <input type="text" name="sumProducts" id="sumProducts" maxlength="50"/>
              <button class="ui blue button" id="updateProduct">Uppdatera antal produkter i lager</button>
+          </div>
+          <h2>Skicka Order</h2>
+          <div class="field">
+             <label for="unsentOrders"> Ej skickade ordrar:</label>
+             <select id="unsentOrders" class="orderList"></select>
+             <button class="ui button" id="sendOrder">Markera som skickad</button>
           </div>
           <h2>Lägg till produkt</h2>
           <div class="field">
@@ -101,9 +107,16 @@ session_start();
           </div>
           <h2>Ta bort produkt</h2>
           <div class="field">
-             <label for="productID"> Produkt ID:</label>
-             <input type="text" name="removeID" id="removeProductID" maxlength="50"/>
-             <button class="ui red button" id="removeProduct">Ta bort produkt</button>
+             <label for="removeProductID"> Produkt:</label>
+             <select id="removeProductID" class="productList"></select>
+             <button class="ui button" id="removeProduct">Ta bort produkt</button>
+          </div>
+          <h2>Listor</h2>
+          <div>
+             <button class="ui button" id="seeOrders">Se gjorda beställningar</button>
+             <button class="ui button" id="newsletterList">Lista över premunanter</button>
+          </div>
+          <div class="resultsDiv">
           </div>
           
                <!--  </form> -->
