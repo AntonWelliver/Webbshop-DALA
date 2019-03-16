@@ -108,6 +108,15 @@ class Order{
        
     }
 
+    function orderHistoryForUser() {
+        $sql = "SELECT * FROM orderhistory";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        
+        return $res;
+    }
+
 
     
 }

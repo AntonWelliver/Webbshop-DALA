@@ -17,17 +17,32 @@
     <script src="semantic/semantic.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/order.js"></script>
-    <script src="scripts/customer.js"></script>
     <script src="scripts/loginHandler.js"></script>
-    <script src="scripts/newsLetter.js"></script>
-    <script src="scripts/formValidation.js"></script>
+    <script src="scripts/orderHistory.js"></script>
+
     <!-- Accept cookies -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
 
 </head>
 <body>
     <?php include "includes/header.php"; ?>
-
+    <div class="placeholder-under-menu"></div>
+    <div class="order-history-container">
+        <div id="tableCart">
+            <h4 class="ui dividing header">Din orderhistorik</h4>
+            <table class="ui unstackable single line table cart-order-table">
+                <thead>
+                    <tr>
+                        <th>Namn</th>
+                        <th>Antal</th>
+                        <th>Pris</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <?php include "includes/loginForm.php"; ?>
 
     <?php include "includes/footer.php"; ?>

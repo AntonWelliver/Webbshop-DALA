@@ -40,6 +40,7 @@
                             {
                         ?>
                             <a class="login-button" id="logOut"><i class="user icon"></i>Logga ut</a>
+                            <a href="orderHistory.php" class="login-button" id=""><i class="heart icon"></i>Orderhistorik</a>
                         <?php 
                             } else{ 
                         ?>
