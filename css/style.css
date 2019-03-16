@@ -220,7 +220,7 @@ footer {
       width: 84%;
       margin-left: 2em;
   }
-
+  
   .productOuterDiv h4 {
     padding-left: 0.4em;
     color: rgb(4, 88, 24);
@@ -267,4 +267,8 @@ table {
 }
 .admin-link:hover {
     color: rgb(7, 165, 7);
+}
+
+.cart-order-table {
+    padding: 0!important;
 }
