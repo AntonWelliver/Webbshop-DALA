@@ -22,7 +22,7 @@ __Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan
 - [x] Det ska ﬁnnas ett normaliserat diagram över databasen i gitrepot G)
       *Se foldern diagram*
 - [x] Man ska kunna logga in som administratör i systemet (G) <br>
-      *Administratören sätts på dataplatsen och för att komma in i admin sidan så måste man lägga till admin.php (för säkerhets skull)*
+      *Administratören sätts på dataplatsen med true/false och för att komma in i admin sidan så klickar man på admin icon*
 - [x] Inga Lösenord får sparas i klartext i databasen (G) <<br>
       *Vi har lagrat lösenord med password_hash och hämtat ut det med password_verify*
 - [x] En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G) <br>
@@ -34,7 +34,7 @@ __Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan
 - [x] Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra ﬂera (G)
       *Alla produkter har en kategori som spartas i databasen*
 - [x] Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en kategori (G) <br>
-      *Vi har en all products där man kan se alla våra produkter, smat de olika kategorierna i vår sidebar på index.php*
+      *Vi har en all products där man kan se alla våra produkter, samt de olika kategorierna i vår sidebar på index.php*
 - [x] Besökare ska kunna lägga produkterna i en kundkorg, som är sparad i session på servern (G)
       *Vi sparar kundvagnen som en array i $__SESSION*
 - [x] Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G) <br>
