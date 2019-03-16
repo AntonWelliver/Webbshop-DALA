@@ -4,7 +4,6 @@ $(document).ready(function(){
     $("#newsReg").click(function(){
         var username = $("#username").val();
         var name = $("#emailNews").val();
-        console.log(name);
         $.ajax({   
             type: "POST",
             url: "api/handlers/newsHandler.php",

@@ -12,13 +12,10 @@ $(document).ready(function() {
             type: "POST",
             url: "api/handlers/customerHandler.php",
             data:{action: "shipping", firstname: firstname, lastname: lastname, adress: adress, city: city, phoneNr: phoneNr, email: email},
-            success: function(data){
-                console.log("success");
-               
-               alert(data);
-            }, error: function(data){
+            success: function(){
+                
+            }, error: function(){
                 console.log("error");
-                console.log(data);
             }
         })
     })
