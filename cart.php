@@ -91,7 +91,7 @@
          </div>
             <div id="tableCart">
             <h4 style="color: rgb(0, 142, 33)" class="ui dividing header">Slutför din beställning</h4>
-            <table class="ui unstackable single line table">
+            <table class="ui unstackable single line table cart-order-table">
                 <thead>
                     <tr>
                         <th>Namn</th>

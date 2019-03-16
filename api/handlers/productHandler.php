@@ -33,6 +33,25 @@ try {
             $product->removeProduct($removeProductID);
 
         }
+
+        /* Retrieve all list of products from database */
+
+        if ($_POST["action"] == "listOfProductsAdmin") {
+            $product = new Product(); 
+            $listOfAllProducts = $product->listOfProductsAdmin();
+            header('Content-type: application/json');
+            echo json_encode($listOfAllProducts);  
+        }
+
+        /* Update product category for admin */
+
+        if ($_POST["action"] == "updateProductCategory") {
+            $updateProductID = $_POST['updateProductID'];
+            $updateProductCategory = $_POST['updateProductCategory'];
+            $product = new Product(); 
+            echo $product->updateProductCategory($updateProductID, $updateProductCategory); 
+        }
+
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {

@@ -53,11 +53,11 @@ class User {
             $error = '';
             
 
-            // If account (email) exists
+            // If account exists
             if ($fetchPass['num'] > 0) {  
                 // If password match
                 if (password_verify($_POST["password"], $fetchPass["Password"])) {
-                    $_SESSION["user"] = $username; 
+                    $_SESSION["user"] = $username;  
                     echo json_encode("Du är nu inloggad");
                     die;
                 } else {
@@ -66,8 +66,8 @@ class User {
                 }
 
             } else {
-                // If email doesn't exist
-                $error = json_encode("Email finns inte");
+                // If account doesn't exist
+                $error = json_encode("Användaren finns inte");
             }
 
             echo $error;
@@ -77,7 +77,10 @@ class User {
         }
     }
 
-    
+
+    // Kan brytas ner till login functionen vi har där uppe
+
+
     function checkIfAdmin($username) {
         $sql = "SELECT IsAdmin FROM account WHERE Username = :username";
         $statement = $this->connection->prepare($sql);
@@ -90,8 +93,7 @@ class User {
             return false;
         }
     }
-
-
 }
+
 
 ?>

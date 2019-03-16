@@ -23,8 +23,15 @@
                     <div class="borderless align right item">
                         <?php
                             session_start();
+                            require_once("includes/user.php");
+                            $user = new User();
                             if (isset($_SESSION["user"])) {
-                                echo "Hej", " ", $_SESSION["user"], "!";
+                                $username = $_SESSION["user"];
+                                echo "Hej", " ", $_SESSION["user"], " ";
+                                if ($user->checkIfAdmin($username) == true) {
+                                    echo "<a class='admin-link' href='admin.php'><i class='star icon'></i>Admin</a> ";
+                                } 
+
                             } 
                             
                         ?>
