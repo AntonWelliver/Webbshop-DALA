@@ -8,12 +8,12 @@ try {
         if($_POST["action"] == "registera") {
             $username = $_POST['username'];
             $email = $_POST['email'];
-            $news = new News($username,$email);
-            $news->newsregister();
+            $news = new News();
+            $news->newsregister($username,$email);
         }
         if ($_POST["action"] == "showSubscribers") {
-            $helper = new Helper(); 
-            $subscribers = $helper->showSubscribers();
+            $news = new News(); 
+            $subscribers = $news->showSubscribers();
             header('Content-type: application/json');
             echo json_encode($subscribers);  
         }

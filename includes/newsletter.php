@@ -1,32 +1,36 @@
 <?php
 require_once('../../includes/database.php');
 
-class News{
-    public $username;
-    public $email;
+class Newsletter{
     private $connection;
     private $database;
 
-    function __construct($username, $email) {
+    function __construct() {
         $this->database = new Database();
         $this->connection = $this->database->connect();
-        $this->username = $username;
-        $this->email = $email;
     }
 
-    function newsregister(){
+    function newsregister($username, $email){
         try{
-
-            
                 // save user with prepare statements
                 $statement = $this->connection->prepare("UPDATE account SET IsSubscriber = 1 WHERE username = :username AND email = :email");
-                $statement->bindParam(':username', $this->username);
-                $statement->bindParam(':email', $this->email);
+                $statement->bindParam(':username', $username);
+                $statement->bindParam(':email', $email);
                 $statement->execute();
             
         }    catch (EXCEPTION $err) {
             throw new Exception($err);
         }
+    }
+
+    /* En function som ser subscriber count */
+    function showSubscribers() {
+        $sql = "SELECT Email, Username FROM account WHERE IsSubscriber = 1";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        /* $res = $statement->fetch(PDO::FETCH_OBJ); */
+        return $res;
     }
 }
 ?>
