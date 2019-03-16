@@ -1,6 +1,5 @@
 <?php
 require_once('../../includes/product.php');
-require_once('../../includes/helper.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
