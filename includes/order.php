@@ -18,6 +18,15 @@ class Order{
         $res = $statement->fetchAll();
         return $res;
     }
+
+    function getUnsentOrders() {
+        $sql = "SELECT OrderId, ShippingAlternative FROM `order` WHERE `Sent` = 0";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        return $res;
+    }
+
     // Admin thing
     function orderHistory() {
         $sql = "SELECT * FROM orderhistory";
@@ -27,8 +36,12 @@ class Order{
         /* $res = $statement->fetch(PDO::FETCH_OBJ); */
         return $res;
     }
-
     
+    function markAsSent($orderId) {
+        $statement = $this->connection->prepare("UPDATE `order` SET Sent = 1 WHERE OrderID = :orderId");
+        $statement->bindParam(':orderId', $orderId);
+        $statement->execute();
+    }
 
     // Add to cart button on home page
     function addToCart($amount, $itemID){
@@ -96,6 +109,7 @@ class Order{
         $statement->execute();
        
     }
+
 
     
 }

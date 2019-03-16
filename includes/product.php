@@ -56,6 +56,30 @@ class Product{
         $statement->execute();
 
     }
+
+    function getProductList() {
+        $sql = "SELECT ProductId, Name FROM product";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        return $res;
+    }
+
+    function getOrderHistory($customerId) {
+        $sql = "SELECT ProductId, Name FROM product";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(':customerId', $customerId);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        return $res;
+    }
+
+    function markAsSent($orderID) {
+        $sql = "SELECT ProductId, Name FROM product";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(':orderID', $orderID);
+        $statement->execute();
+    }
  
 }
 ?>

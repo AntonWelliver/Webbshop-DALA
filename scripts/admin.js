@@ -49,16 +49,71 @@ $(document).ready(function(){
     })
 
     $('#removeProduct').click(function(){
-        console.log('123');
-        var removeProductID = $("#removeProductID").val();
-            
+        var removeProductID = $("#removeProductID option:selected").val();
+        console.log(removeProductID);
         $.ajax({
             type: "POST",
             url:"api/handlers/productHandler.php",
             data:{action: "removeProduct", removeProductID: removeProductID},
             success: function(data){
                 alert('Du har tagit bort en produkt!');
+                getProducts();
             }
         });
     });
+
+    $('#sendOrder').click(function(){
+        var selectedOrder = $("#unsentOrders option:selected").val();
+        console.log(selectedOrder);
+        $.ajax({
+            type: "POST",
+            url:"api/handlers/orderHandler.php",
+            data:{action: "sendOrder", orderId: selectedOrder},
+            success: function(data){
+                alert('Du har skickat ordern!');
+                getUnSentOrders();
+            }
+        });
+    });
+
+    // load list of unsent orders and products
+    getUnSentOrders();
+    getProducts();
 })
+
+function getProducts() {
+    $.ajax({
+        type: "GET",
+        url:"api/handlers/productHandler.php",
+        data:{action: "getProductList"},
+        success: function(data){
+            $(".productList").empty();
+            var products = JSON.parse(data);
+            $(".orderList").empty();
+            for (var i = 0; i < products.length; i++) {
+                var option = document.createElement("option");
+                option.setAttribute("value", products[i]["ProductId"]);
+                option.innerHTML = products[i]["Name"];
+                $(".productList").append(option);
+            }
+        }
+    });
+}
+
+function getUnSentOrders() {
+    $.ajax({
+        type: "GET",
+        url:"api/handlers/orderHandler.php",
+        data:{action: "getUnsentOrders"},
+        success: function(data){
+            $(".orderList").empty();
+            var orders = JSON.parse(data);
+            for (var i = 0; i < orders.length; i++) {
+                var option = document.createElement("option");
+                option.setAttribute("value", orders[i]["OrderId"]);
+                option.innerHTML = orders[i]["OrderId"] + ' (Skickas med ' + orders[i]["ShippingAlternative"] + ')';
+                $(".orderList").append(option);
+            }
+        }
+    });
+}

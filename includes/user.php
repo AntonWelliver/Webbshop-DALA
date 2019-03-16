@@ -77,6 +77,20 @@ class User {
         }
     }
 
+    
+    function checkIfAdmin($username) {
+        $sql = "SELECT IsAdmin FROM account WHERE Username = :username";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(':username', $username);
+        $statement->execute();
+        $checkAdmin = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($checkAdmin["IsAdmin"] == "1") { 
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
 
