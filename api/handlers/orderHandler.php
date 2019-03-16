@@ -56,6 +56,13 @@ try {
             }
         }
 
+        if ($_POST["action"] == "sendOrder") {
+            $order = new Order(); 
+            $orderID = $_POST["orderId"];
+            echo $orderID;
+            $order->markAsSent($orderID);
+        }
+
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
@@ -105,6 +112,12 @@ try {
             $shippingOptions = $order->getShippingOptions();
             header('Content-type: application/json');
             echo json_encode($shippingOptions);  
+        }
+
+        if ($_GET["action"] == "getUnsentOrders") {
+            $order = new Order();
+            $unsentOrders = $order->getUnsentOrders();
+            echo json_encode($unsentOrders);  
         }
     }
 
