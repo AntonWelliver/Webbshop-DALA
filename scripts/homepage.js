@@ -8,8 +8,8 @@ $(document).ready(function(){
             data:{action: "getAllProducts"},
             success: function(data){
                 showProducts(data);
-            }, error: function(data) {
-                console.log('Error');
+            }, error: function() {
+                console.log('error');
             }            
         });
     });
@@ -22,8 +22,8 @@ $(document).ready(function(){
             data:{action: "getAllProducts"},
             success: function(data){
                 showProducts(data);
-            }, error: function(data) {
-                console.log('Error');
+            }, error: function() {
+                console.log('error');
             }            
         });
     }
@@ -38,8 +38,8 @@ $(document).ready(function(){
             data:{action: "getProductsWithCategory", category: 'Frukt'},
             success: function(data){
                 showProducts(data);
-            }, error: function(data) {
-                console.log('Error');
+            }, error: function() {
+                console.log('error');
             }
         });
     });
@@ -97,7 +97,6 @@ $(document).ready(function(){
 function showProductsHeader(category){
     var categoryName = document.getElementById("categoryName");
     categoryName.innerHTML = "<h1>" + category + "</h1>";
-    console.log(category);
 }
 
 function showProducts(data) {

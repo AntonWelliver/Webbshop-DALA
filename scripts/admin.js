@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $('#addProduct').click(function(){
-        console.log('Hello world');
+        /* Tar in värderna för att kunna lägg till i database */
         var productName = $("#productName").val();
         var productPrice = $("#productPrice").val();
         var addImage = $("#addImage").val();
@@ -27,17 +27,17 @@ $(document).ready(function(){
                 $(".resultsDiv").append("Det finns " +  data.length + " order: <br>");
                 var table = document.createElement("table");
                 table.classList.add("ui", "celled", "table");
-                var emailTh = document.createElement("th");
-                emailTh.innerHTML = "Email";
+                var CustomerIDTh = document.createElement("th");
+                CustomerIDTh.innerHTML = "CustomerID";
                 var orderIDTh = document.createElement("th");
                 orderIDTh.innerHTML = "OrderID";
-                table.appendChild(emailTh);
+                table.appendChild(CustomerIDTh);
                 table.appendChild(orderIDTh);
                 for (var i = 0; i < data.length; i++) {
                     var tr = document.createElement("tr");
-                    var emailTD = document.createElement("td");
-                    emailTD.innerHTML = data[i]["Email"];
-                    tr.appendChild(emailTD);
+                    var CustomerIDTD = document.createElement("td");
+                    CustomerIDTD.innerHTML = data[i]["CustomerID"];
+                    tr.appendChild(CustomerIDTD);
                     var orderIDTD = document.createElement("td");
                     orderIDTD.innerHTML = data[i]["OrderID"];
                     tr.appendChild(orderIDTD);
@@ -50,7 +50,6 @@ $(document).ready(function(){
 
     $('#removeProduct').click(function(){
         var removeProductID = $("#removeProductID option:selected").val();
-        console.log(removeProductID);
         $.ajax({
             type: "POST",
             url:"api/handlers/productHandler.php",
@@ -73,7 +72,6 @@ $(document).ready(function(){
                 url:"api/handlers/productHandler.php",
                 data:{action: "updateProductCategory", updateProductID: updateProductID, updateProductCategory: updateProductCategory},
                 success: function(data){
-                    console.log(data);
                     alert('Du har ändrat kategori!');
                     
                     window.location.href = "admin.php"
@@ -131,7 +129,6 @@ $(document).ready(function(){
 
     $('#sendOrder').click(function(){
         var selectedOrder = $("#unsentOrders option:selected").val();
-        console.log(selectedOrder);
         $.ajax({
             type: "POST",
             url:"api/handlers/orderHandler.php",

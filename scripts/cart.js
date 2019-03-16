@@ -3,7 +3,6 @@ $(document).ready(function() {
         
         var itemID = $(this).attr("id");
         var amount = $("#" + itemID).val();
-        console.log(amount);
         $.ajax({
             type: "POST",
             url: "api/handlers/orderHandler.php",
@@ -59,23 +58,14 @@ $(document).ready(function() {
             type: "POST",
             url: "api/handlers/orderHandler.php",
             data:{action: "purchase", totalPrice: totalPrice, shippingAlternative: shippingAlternative, firstname: firstname, lastname: lastname, adress: adress, city: city, phoneNr: phoneNr, email: email},
-            success: function(data){
-                console.log(data);
+            success: function(){
                 alert('You sucessfully placed an order!');
-            }, error: function(data) {
-                console.log(data);
+            }, error: function() {
+                console.log("error");
             }
         });
     });
 
-/*     function cartProduct(){
-        var title = document.createElement("tr");
-        title.innerHTML = name;
-        card.appendChild(title);
-        var priceSpan = document.createElement("span");
-        priceSpan.innerHTML = price + " kr";
-        card.appendChild(priceSpan);
-    } */
     $.ajax({
         type: "GET",
         url:"api/handlers/orderHandler.php",

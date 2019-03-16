@@ -18,9 +18,7 @@
       <script src="scripts/registerValidation.js"></script>
    </head>
    <body>
-      <!-- <form id="register" action="register.php" method="post" accept-charset='UTF-8'> -->
-      <!-- <fieldset> -->
-      <!-- <input type="hidden" name="submitted" id="submitted" value="1"/> -->
+   <!-- Registering formulär boxen -->
       <div class="body-container">
       <div class="ui middle aligned center aligned grid">
          <div class="column">
@@ -29,11 +27,13 @@
                   DALAMAT
                </div>
             </h2>
+            <!-- Redirect to index -->
             <div class="ui breadcrumb">
                <a href="index.php" class="section">Startsida</a>
                <i class="right arrow icon divider"></i>
                <div class="active section">Registrera dig</div>
             </div>
+            <!-- input för username -->
             <form class="ui large form register-form" method="POST">
                <div class="ui stacked segment">
                   <div class="emailExists"></div>
@@ -43,12 +43,14 @@
                         <input type="text" name="username" placeholder="Username" id="username">
                      </div>
                   </div>
+                  <!-- input för Email-Adress -->
                   <div class="required field">
                      <div class="ui left icon input">
                         <i class="user icon"></i>
                         <input type="text" name="email" placeholder="E-mail address" id="email">
                      </div>
                   </div>
+                   <!-- input för Lösenord -->
                   <div class="required field">
                      <div class="ui left icon input">
                         <i class="lock icon"></i>
@@ -56,12 +58,14 @@
                      </div>
                      <br>
                      <br>
+                     <!-- Upprepa lösenordet -->
                      <div class="field">
                         <div class="ui left icon input">
                            <i class="lock icon"></i>
                            <input type="password" name="password" placeholder="Upprepa lösenordet" id="registerPasswordVerify">
                         </div>
                      </div>
+                     <!-- Två checkbox för nyhetsbrev och terms inte kopplade, mest för style -->
                      <div class="field">
                         <div class="ui checkbox">
                            <input type="checkbox" name="nyhetsbrev" id="nyhetsbrev">
@@ -85,7 +89,5 @@
             </div>
          </div>
       </div>
-      <!-- </fieldset> -->
-      <!-- </form> -->
    </body>
 </html>
