@@ -72,7 +72,7 @@ class Product{
     function updateProductCategory($updateProductID, $updateProductCategory) {
         $sql = "UPDATE product SET Category = '$updateProductCategory' WHERE ProductID = $updateProductID";
         $statement = $this->connection->prepare($sql);
-
+        $statement->execute();
     }
     function getProductList() {
         $sql = "SELECT ProductId, Name FROM product";

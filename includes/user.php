@@ -93,6 +93,15 @@ class User {
             return false;
         }
     }
+
+    function getEmail($username) {
+        $sql = "SELECT Email from account WHERE Username = :username";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(':username', $username);
+        $statement->execute();
+        $res = $statement->fetch();
+        return $res["Email"];
+    }
 }
 
 

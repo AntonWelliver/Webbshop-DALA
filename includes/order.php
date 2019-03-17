@@ -79,7 +79,7 @@ class Order{
         return $res[0]; 
 
     }
-    function updateStock($amount,$ProductID) {  // to product
+    function updateStock($amount,$ProductID) {  
 
         $sql = "UPDATE product SET UnitsInStock = (UnitsInstock - :amount) WHERE productID = :productID";
         $statement = $this->connection->prepare($sql);
@@ -87,6 +87,16 @@ class Order{
         $statement->bindParam(":productID", $ProductID);
         $statement->execute();
        
+    }
+
+    function setStock($amount,$ProductID) {
+
+        $sql = "UPDATE product SET UnitsInStock = :amount WHERE productID = :productID";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(":amount", $amount);
+        $statement->bindParam(":productID", $ProductID);
+        $statement->execute();
+
     }
     function saveToOrderList($ProductID,$Quantity, $OrderID) {
 
@@ -108,15 +118,32 @@ class Order{
        
     }
 
-    function orderHistoryForUser() {
-        $sql = "SELECT * FROM orderhistory";
+    function orderHistoryForUser($email) {
+        $userId = $this->getUserIdFromEmail($email);
+        $orders = $this->getOrdersFromId($userId);
+        /* echo json_encode($orders); */
+        // fungerar inte med nuvarande databas-setup
+        return false;
+    }
+
+    function getUserIdFromEmail($email) {
+        $sql = "SELECT CustomerID FROM customer WHERE EmailAdress = :email";
         $statement = $this->connection->prepare($sql);
+        $statement->bindParam(":email", $email);
+        $statement->execute();
+        $res = $statement->fetch();
+        return $res;
+    }
+
+    function getOrdersFromId($id) {
+        $sql = "SELECT OrderID FROM `order` WHERE CustomerID = :id";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(":id", $id);
         $statement->execute();
         $res = $statement->fetchAll();
         
         return $res;
     }
-
 
     
 }

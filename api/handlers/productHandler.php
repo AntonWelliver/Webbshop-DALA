@@ -46,9 +46,9 @@ try {
 
         if ($_POST["action"] == "updateProductCategory") {
             $updateProductID = $_POST['updateProductID'];
-            $updateProductCategory = $_POST['updateProductCategory'];
+            $updateProductCategory = $_POST['productCategory'];
             $product = new Product(); 
-            echo $product->updateProductCategory($updateProductID, $updateProductCategory); 
+            $product->updateProductCategory($updateProductID, $updateProductCategory); 
         }
 
     }

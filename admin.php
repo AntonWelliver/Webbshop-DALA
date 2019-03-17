@@ -70,7 +70,7 @@ session_start();
 
                      <label for="sumProducts"> Antal produkter:</label>
                      <input type="text" name="sumProducts" id="sumProducts" maxlength="50"/>
-                     <button class="ui blue button" id="updateProduct">Uppdatera antal produkter i lager</button>
+                     <button class="ui blue button" id="updateStock">Uppdatera antal produkter i lager</button>
                   </div>
 
           <h2>Skicka Order</h2>
@@ -104,8 +104,8 @@ session_start();
 
           <h2>Ändra kategori för produkt</h2>
             <div class="field">
-               <label for="updateProductID">Product ID (du hittar detta på listan över alla produkter):</label>
-               <input type="text" name="updateProductID" id="updateProductID" maxlength="50"/>
+               <label for="updateProductID">Produkt:</label>
+               <select id="updateProductID" class="productList"></select>
                <label for="updateProductCategory">Ny produktkategori</label>
                <input type="text" name="updateProductCategory" id="updateProductCategory" maxlength="50"/>
                <button class="ui blue button" name="updateCategory" id="updateProductCategoryButton">Uppdatera kategori</button>

@@ -65,7 +65,6 @@
                            <input type="password" name="password" placeholder="Upprepa lösenordet" id="registerPasswordVerify">
                         </div>
                      </div>
-                     <!-- Två checkbox för nyhetsbrev och terms inte kopplade, mest för style -->
                      <div class="field">
                         <div class="ui checkbox">
                            <input type="checkbox" name="nyhetsbrev" id="nyhetsbrev">

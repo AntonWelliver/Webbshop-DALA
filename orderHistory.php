@@ -29,6 +29,7 @@
     <div class="placeholder-under-menu"></div>
     <div class="order-history-container">
         <div id="tableCart">
+            <h2>Kommer snart</h2>
             <h4 class="ui dividing header">Din orderhistorik</h4>
             <table class="ui unstackable single line table cart-order-table">
                 <thead>

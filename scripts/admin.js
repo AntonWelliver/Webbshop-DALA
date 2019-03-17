@@ -70,14 +70,29 @@ $(document).ready(function(){
             $.ajax({
                 type: "POST",
                 url:"api/handlers/productHandler.php",
-                data:{action: "updateProductCategory", updateProductID: updateProductID, updateProductCategory: updateProductCategory},
+                data:{action: "updateProductCategory", updateProductID: updateProductID, productCategory: updateProductCategory},
                 success: function(data){
                     alert('Du har ändrat kategori!');
-                    
-                    window.location.href = "admin.php"
+                    window.location.href = "admin.php";
                    
                 }
             });
+        });
+
+        $("#updateStock").click(function() {
+            var productID = $("#productID").val();
+            var amount = $("#sumProducts").val();
+            $.ajax({
+                type: "POST",
+                url:"api/handlers/orderHandler.php",
+                data:{action: "updateStock", productID: productID, amount: amount},
+                success: function(data){
+                    alert('Du har uppdaterat lagersaldot!');
+                    window.location.href = "admin.php";
+                   
+                }
+            });
+
         });
 
         /* Retrieve all list of products from database and display */
@@ -141,7 +156,9 @@ $(document).ready(function(){
     });
 
     // load list of unsent orders and products
-    getUnSentOrders();
+    $(".orderList").ready(function() {
+        getUnSentOrders();
+    });
     getProducts();
 })
 
