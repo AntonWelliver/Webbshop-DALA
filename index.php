@@ -28,12 +28,14 @@
       <div class="placeholder-under-menu"></div>
       <div class="ui pushable segment">
       <div class="ui fixed sidebar thin vertical menu">
+         <a class="logo" id="mobile-only" href="index.php">DALAMAT</a>
          <a class="item" id="allProducts">Alla produkter<i class="angle right icon"></i></a>
          <a class="item" id="fruit">Frukt <i class="angle right icon"></i></a>
          <a class="item" id="vegetables">Grönsaker <i class="angle right icon"></i></a>
          <a class="item" id="meat">Kött & fisk <i class="angle right icon"></i></a>
          <a class="item" id="dairy">Mejeri & Ost <i class="angle right icon"></i></a>
          <a class="item" id="drinks">Dryck <i class="angle right icon"></i></a>
+         <a href="orderHistory.php" class="login-button" id="mobile-only"><i class="heart icon"></i>Orderhistorik</a>
       </div>
      
       <div class="pusher">

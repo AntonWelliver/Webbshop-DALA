@@ -6,7 +6,7 @@
                     <div class="ui container mobile tablet only grid hamburger-container">
                         <i class="bars icon" onclick="showSidebar()" id="mobile-item"></i>
                     </div>
-                    <a class="logo" href="index.php">DALAMAT</a>
+                    <a class="logo" id="desktop-only" href="index.php">DALAMAT</a>
                     <div class="ui computer only grid">
     
                         <div class="borderless item">
@@ -40,7 +40,7 @@
                             {
                         ?>
                             <a class="login-button" id="logOut"><i class="user icon"></i>Logga ut</a>
-                            <a href="orderHistory.php" class="login-button" id=""><i class="heart icon"></i>Orderhistorik</a>
+                            <a href="orderHistory.php" class="login-button" id="desktop-only"><i class="heart icon"></i>Orderhistorik</a>
                         <?php 
                             } else{ 
                         ?>
