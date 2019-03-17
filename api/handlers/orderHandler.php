@@ -44,8 +44,7 @@ try {
             $shippingAlternative = $_POST['shippingAlternative'];
             $order = new Order();
             $orderID = $order->saveOrder($totalPrice, $shippingAlternative, $customerID); 
-            // spara i orderHistory
-            $order->saveOrderInHistory($customerID, $orderID); // behövs verkligen denna tabell?? Nej, kan ta bort
+            $order->saveOrderInHistory($customerID, $orderID); 
             for ($i = 0; $i < count($ids); $i++) {
                 $amount = $amounts[$i];
                 $productID = $ids[$i];
@@ -53,19 +52,30 @@ try {
                 $order->saveToOrderList($productID, $amount, $orderID);
                 // minska antalet prdoukter i product
                 $order->updateStock($amount, $productID);
+                // unset cart
+                unset($_SESSION["amount"]);
+                unset($_SESSION["itemID"]);
+                unset($_SESSION['totalPrice']);
             }
         }
 
         if ($_POST["action"] == "sendOrder") {
             $order = new Order(); 
             $orderID = $_POST["orderId"];
-            echo $orderID;
             $order->markAsSent($orderID);
         }
 
-        if ($_POST["action"] == "OrderHistoryForUser") {
+        if($_POST["action"] == "updateStock") {
+            $id = $_POST["productID"];
+            $amount = $_POST["amount"];
             $order = new Order();
-            $printOrderHistory = $order->orderHistoryForUser();
+            $order->setStock($amount, $id);
+        }
+
+        if ($_POST["action"] == "OrderHistoryForUser") {
+            $email = $_SESSION["user"];
+            $order = new Order();
+            $printOrderHistory = $order->orderHistoryForUser($email);
             echo json_encode($printOrderHistory);  
         }
 

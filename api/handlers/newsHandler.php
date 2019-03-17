@@ -7,11 +7,11 @@ try {
         if($_POST["action"] == "registera") {
             $username = $_POST['username'];
             $email = $_POST['email'];
-            $news = new News();
+            $news = new Newsletter();
             $news->newsregister($username,$email);
         }
         if ($_POST["action"] == "showSubscribers") {
-            $news = new News(); 
+            $news = new Newsletter(); 
             $subscribers = $news->showSubscribers();
             header('Content-type: application/json');
             echo json_encode($subscribers);  

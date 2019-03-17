@@ -18,7 +18,6 @@
       <script src="scripts/customer.js"></script>
       <script src="scripts/loginHandler.js"></script>
       <script src="scripts/newsLetter.js"></script>
-      <script src="scripts/formValidation.js"></script>
       <script src="scripts/cart.js"></script>
       <!-- Accept cookies -->
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?forceLang=se&theme=flying&always=1"></script>
@@ -36,7 +35,7 @@
       ?>
       <!-- Shipping adress -->
       <div class="ui grid shipping-container">
-         <form class="ui form" method="POST">
+         <form class="ui form shippingForm" method="POST">
             <h4 style="color: rgb(0, 142, 33)" class="ui dividing header">Leveransinformation</h4>
             <div class="field">
                <label>Namn</label>

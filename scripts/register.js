@@ -1,10 +1,10 @@
 function registerUser(event, fields) {
     // Register user function
-    $.ajax({   
+   $.ajax({   
         async : false,
         type: "POST",
         url: "api/handlers/userHandler.php",
-        data:{action: "registerUser", username: fields.username, email: fields.email, password: fields.password},
+        data:{action: "registerUser", username: fields.username, email: fields.email, password: fields.password, newsletter: fields.nyhetsbrev},
         success: function(data){ 
             if(data.status == 'error'){
                 $( ".emailExists" ).html(data.failMessage);
@@ -13,7 +13,7 @@ function registerUser(event, fields) {
                 alert("Grattis, du har skapat ett konto");
             }
         }
-     });
+     }); 
      
 }
 

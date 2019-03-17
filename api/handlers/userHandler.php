@@ -3,6 +3,7 @@
 session_start();
 
 require_once('../../includes/user.php');
+require_once('../../includes/newsletter.php');
 
 
 try {
@@ -27,7 +28,12 @@ try {
             if($_POST["action"] == "registerUser") {
                 // Username from input only for register
                 $email = $_POST['email'];
+                $newsLetter = $_POST['newsletter'];
                 $user->register($username, $email, $password);
+                if ($newsLetter == "on") {
+                    $news = new Newsletter();
+                    $news->newsregister($username,$email);
+                }
             }
             // If ajax action is loginUser, run this line of code
             if($_POST["action"] == "loginUser") {            
@@ -41,7 +47,16 @@ try {
 
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
-        
+        if ($_GET["action"] == "getLoggedIn") {
+            if (isset($_SESSION['user'])) {
+                $userName = $_SESSION['user'];
+                $user = new User();
+                $email = $user->getEmail($userName);
+                echo $email;
+            } else {
+                echo false;
+            }
+        }
     }
 
     if ($_SERVER['REQUEST_METHOD'] == "DELETE") {

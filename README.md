@@ -49,9 +49,11 @@ __Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan
 - [ ] En administratör behöver godkännas av en tidigare administratör innan man kan logga in fösta gången (VG)
 - [x] Administratörer ska kunna markera beställningar som skickade (VG)
       *Admin kan markera ordrar som skickade i admin.php*
-- [ ] När man gör en beställning ska man också få chansen att skriva upp sig för nyhetsbrevet (VG)
+- [] När man gör en beställning ska man också få chansen att skriva upp sig för nyhetsbrevet (VG)
+      *Delvist löst, man kan få chancen att skriva upp sig för nyhetsbrevet när man registrerar sig*
 - [ ] När besökare gör en beställning ska hen få ett lösenord till sidan där man kan logga in som kund (VG)
 - [ ] När man är inloggad som kund ska man kunna se sina gjorda beställning och om det är skickade eller inte (VG)
+      *Påbörjat men tidbegränsningar och hur vi struktureat datababaser gjorde det var för svårt för att hinna med*
 - [ ] Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 - [x] Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
       *Admin kan göra detta i admin.php*
