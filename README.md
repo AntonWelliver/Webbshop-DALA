@@ -6,6 +6,8 @@ __Gruppmedlemmar__: David, Anton, Lars & Alexander
 
 __Projektledare__: Anton
 
+__Live__: [webbutvecklinggöteborg.se](webbutvecklinggöteborg.se)
+
 __Idén för webbshoppen__: En webbshop för matleverans till dörren. Maten kan delas upp i olika kategorier som "Frukt", "Drycker", "Grönsaker". Administratören kan logga in, ändra pris, lägga till och ta bort rätter. Kunderna ska kunna bläddra och handla mat i webshopen utan att vara inloggad, men också kunna skapa ett konto och spåra sina inköp och se sin egen köphistorik. Du ska kunna få rekommendationer enligt vad du köpt tidigare. Det ska också vara möjligt att få rabatter om du registrerar dig för nyhetsbrev.
 
 ## Kravspecifikation:
