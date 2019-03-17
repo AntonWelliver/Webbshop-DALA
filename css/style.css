@@ -36,6 +36,10 @@ body {
     cursor: pointer;
 }
 
+#mobile-only {
+    display: none;
+}
+
 /* Mobile menu button */
 
 .hamburger-container {
@@ -104,6 +108,7 @@ th{
 
 /* Mobile */
 @media screen and (max-width: 768px) {
+  
     .fields.adress {
       width: 100%;
     }
@@ -124,6 +129,14 @@ th{
 
     #tableCart{
         margin-top: 5em;
+    }
+
+    #desktop-only {
+        display: none;
+    }
+
+    #mobile-only {
+        display: initial;
     }
 
     footer {
